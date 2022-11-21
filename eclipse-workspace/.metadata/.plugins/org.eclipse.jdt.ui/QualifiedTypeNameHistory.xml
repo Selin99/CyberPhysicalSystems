@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.eclipse.xtext.validation.Check"/>
+    <fullyQualifiedTypeName name="game.of.life.tasks.tASKDSL.GridSize"/>
+    <fullyQualifiedTypeName name="game.of.life.tasks.tASKDSL.StartGrid"/>
+    <fullyQualifiedTypeName name="org.eclipse.emf.common.util.EList"/>
+    <fullyQualifiedTypeName name="game.of.life.tasks.tASKDSL.Cell"/>
+    <fullyQualifiedTypeName name="game.of.life.tasks.tASKDSL.TASKDSLPackage"/>
+</qualifiedTypeNameHistroy>

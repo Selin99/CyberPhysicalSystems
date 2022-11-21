@@ -1,0 +1,21 @@
+package game.of.life.tasks.generator
+
+
+import java.util.ArrayList
+import java.util.List
+import game.of.life.tasks.tASKDSL.Game
+import game.of.life.tasks.tASKDSL.Action
+import game.of.life.tasks.tASKDSL.Cell
+import game.of.life.tasks.tASKDSL.GameStatus
+
+
+class Auxiliary {
+	def static List<Action> getActions(Game root) { 
+    var List<Action> actionlist = new ArrayList<Action>() 
+     for (Cell c : root.allCells){ 
+        actionlist.add(c.a) 
+       } 
+    return actionlist; 
+  } 
+
+  } 

@@ -1,0 +1,29 @@
+package game.of.life.tasks.generator
+
+
+import java.util.ArrayList
+import java.util.List
+import game.of.life.tasks.tASKDSL.Game
+import game.of.life.tasks.tASKDSL.avAction
+import game.of.life.tasks.tASKDSL.Cell
+import game.of.life.tasks.tASKDSL.GameStatus
+
+
+class Auxiliary {
+	
+	def static List<avAction> getActions(Game root) //Returns list of actions for each cell
+	{ 
+	    var List<avAction> actionlist = new ArrayList<avAction>() 
+	     for (Cell c : root.allCells){ 
+	        actionlist.add(c.avAction) 
+	       } 
+	    return actionlist; 
+  	} 
+  	
+  	def static Game getPersonPlanning(Cell cell) //Returns a specific Cell for the game if exists
+  	{ 
+    	return cell.eContainer() as Game 
+	} 
+	
+
+  } 

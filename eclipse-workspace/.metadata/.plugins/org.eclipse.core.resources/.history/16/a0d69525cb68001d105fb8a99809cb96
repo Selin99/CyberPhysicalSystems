@@ -1,0 +1,27 @@
+grammar game.of.life.tasks.TASKDSL with org.eclipse.xtext.common.Terminals
+
+generate tASKDSL "http://www.of.game/life/tasks/TASKDSL"
+
+Model:
+	Game = Game;
+	
+
+Game: 'Game:' name=ID (gameStatus+= GameStatus | allCells+=Cell*);
+
+GameStatus: 'GameStatus:' gs=INT ; //if 1 game continue if 0 game over
+
+
+Cell: 'Cell:'
+	'x-Coordinate:' x= INT
+	'y-Coordinate:' y= INT
+	'top-Neighbor:' tn=INT //can have 0 or 1 in each neighbor (if exists = 1 else 0)
+	'top-Right-Neighbor:' tRn=INT
+	'top-Left-Neighbor:' tLn=INT
+	'bottom-Neighbor:' bn=INT
+	'bottom-Right-Neighbor:' bRn=INT
+	'bottom-Left-Neighbor:' bLn=INT
+	'right-Neighbor:' rn=INT
+	'left-Neighbor:' ln=INT
+	'status:' s=INT //if alive 1 if dead 0
+;
+

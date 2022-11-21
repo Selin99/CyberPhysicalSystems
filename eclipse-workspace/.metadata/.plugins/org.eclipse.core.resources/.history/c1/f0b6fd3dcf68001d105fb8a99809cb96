@@ -1,0 +1,12 @@
+package game.of.life.tasks.generator
+
+import game.of.life.tasks.tASKDSL.GameStatus
+import java.util.ArrayList
+import java.util.List
+import org.eclipse.xtext.Action
+import org.eclipse.xtext.tasks.Task
+import game.of.life.tasks.tASKDSL.Cell
+
+class Auxiliary {
+
+  } 

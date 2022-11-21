@@ -1,0 +1,20 @@
+grammar game.of.life.tasks.TASKDSL with org.eclipse.xtext.common.Terminals
+
+generate tASKDSL "http://www.of.game/life/tasks/TASKDSL"
+
+Model:
+	Game ;
+	
+
+Game: 'Game:' name=ID gameStatus+= GameStatus (startGrid+=StartGrid | allCells+=Cell)*;
+
+GameStatus: 'GameStatus:' gs=INT ; //if 1 game continue if 0 game over
+
+StartGrid: 'InitiallyActiveCell' c=ID;
+
+avAction: 'Birth' birth=INT | 'Overcrowding' overcrowd=INT | 'Xisolation' xiso=INT | 'Survival' sur=INT ;
+
+Cell: 'Cell:' name=ID 'x-Coordinate:' x= INT  'y-Coordinate:' y= INT 'neighborNo:' nNo=INT 'status:' s=INT 'availableAction:' avAction=avAction//if ressurected 2 alive 1 if dead 0
+;
+
+

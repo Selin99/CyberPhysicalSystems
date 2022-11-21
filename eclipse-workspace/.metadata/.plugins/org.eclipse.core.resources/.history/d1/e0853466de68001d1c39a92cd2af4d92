@@ -1,0 +1,32 @@
+package game.of.life.tasks.generator
+
+import game.of.life.tasks.tASKDSL.Game
+import game.of.life.tasks.tASKDSL.Cell
+
+class TextGenerator {
+	def static toText(Game root)
+	''' 
+	    Info of the game «root.name» 
+	    «FOR g : root.gameStatus»
+	    Game Status :«g.gs» 
+	    «ENDFOR»
+	  
+	   «FOR i : root.InitialGrid»
+	  	    Initial Grid : «i.initialGrid»
+	  	«ENDFOR»
+	    «FOR c : root.allCells»
+	    «"\t"»«c.name» 
+	    X Coordinate:«c.x» 
+	    Y Coordinate: «c.y» 
+	    Neighbor Number: «c.NNo»
+	    Life Status: «c.s»
+	    Available Action: 
+	    «IF c.avAction.birth !== 0» «c.avAction.birth» «ENDIF»
+	    «IF c.avAction.overcrowd !== 0» «c.avAction.overcrowd» «ENDIF»
+	    «IF c.avAction.sur !== 0» «c.avAction.sur» «ENDIF»
+		«IF c.avAction.iso !=0» «c.avAction.iso»  «ENDIF»
+	    SEPARATOR "  &" AFTER "====="» 
+	    «"\n"»
+	    «ENDFOR»
+	'''
+	}
