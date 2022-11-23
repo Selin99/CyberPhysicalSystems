@@ -23,6 +23,7 @@ import org.eclipse.xtext.parser.*;
 import org.eclipse.xtext.parser.impl.*;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.common.util.Enumerator;
 import org.eclipse.xtext.parser.antlr.AbstractInternalAntlrParser;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream.HiddenTokens;
@@ -123,39 +124,16 @@ ruleGame returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_2='GameStatus:'
+		otherlv_2='GridSize:'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getGameAccess().getGameStatusKeyword_2());
+			newLeafNode(otherlv_2, grammarAccess.getGameAccess().getGridSizeKeyword_2());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getGameAccess().getGameStatusGameStatusParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getGameAccess().getGridSizeGridSizeParserRuleCall_3_0());
 				}
-				lv_gameStatus_3_0=ruleGameStatus
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getGameRule());
-					}
-					add(
-						$current,
-						"gameStatus",
-						lv_gameStatus_3_0,
-						"game.of.life.tasks.TASKDSL.GameStatus");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_4='GridSize:'
-		{
-			newLeafNode(otherlv_4, grammarAccess.getGameAccess().getGridSizeKeyword_4());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getGameAccess().getGridSizeGridSizeParserRuleCall_5_0());
-				}
-				lv_gridSize_5_0=ruleGridSize
+				lv_gridSize_3_0=ruleGridSize
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getGameRule());
@@ -163,22 +141,22 @@ ruleGame returns [EObject current=null]
 					add(
 						$current,
 						"gridSize",
-						lv_gridSize_5_0,
+						lv_gridSize_3_0,
 						"game.of.life.tasks.TASKDSL.GridSize");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_6='EvolutionRules:'
+		otherlv_4='EvolutionRules:'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getGameAccess().getEvolutionRulesKeyword_6());
+			newLeafNode(otherlv_4, grammarAccess.getGameAccess().getEvolutionRulesKeyword_4());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getGameAccess().getEvolutionRulesEvolutionRulesParserRuleCall_7_0());
+					newCompositeNode(grammarAccess.getGameAccess().getEvolutionRulesEvolutionRulesParserRuleCall_5_0());
 				}
-				lv_evolutionRules_7_0=ruleevolutionRules
+				lv_evolutionRules_5_0=ruleevolutionRules
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getGameRule());
@@ -186,22 +164,22 @@ ruleGame returns [EObject current=null]
 					add(
 						$current,
 						"evolutionRules",
-						lv_evolutionRules_7_0,
+						lv_evolutionRules_5_0,
 						"game.of.life.tasks.TASKDSL.evolutionRules");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		otherlv_8='InitiallyActiveCells:'
+		otherlv_6='InitiallyActiveCells:'
 		{
-			newLeafNode(otherlv_8, grammarAccess.getGameAccess().getInitiallyActiveCellsKeyword_8());
+			newLeafNode(otherlv_6, grammarAccess.getGameAccess().getInitiallyActiveCellsKeyword_6());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getGameAccess().getStartGridStartGridParserRuleCall_9_0());
+					newCompositeNode(grammarAccess.getGameAccess().getStartGridStartGridParserRuleCall_7_0());
 				}
-				lv_startGrid_9_0=ruleStartGrid
+				lv_startGrid_7_0=ruleStartGrid
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getGameRule());
@@ -209,22 +187,22 @@ ruleGame returns [EObject current=null]
 					add(
 						$current,
 						"startGrid",
-						lv_startGrid_9_0,
+						lv_startGrid_7_0,
 						"game.of.life.tasks.TASKDSL.StartGrid");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		otherlv_10='AllCells:'
+		otherlv_8='AllCells:'
 		{
-			newLeafNode(otherlv_10, grammarAccess.getGameAccess().getAllCellsKeyword_10());
+			newLeafNode(otherlv_8, grammarAccess.getGameAccess().getAllCellsKeyword_8());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getGameAccess().getAllCellsCellParserRuleCall_11_0());
+					newCompositeNode(grammarAccess.getGameAccess().getAllCellsCellParserRuleCall_9_0());
 				}
-				lv_allCells_11_0=ruleCell
+				lv_allCells_9_0=ruleCell
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getGameRule());
@@ -232,7 +210,7 @@ ruleGame returns [EObject current=null]
 					add(
 						$current,
 						"allCells",
-						lv_allCells_11_0,
+						lv_allCells_9_0,
 						"game.of.life.tasks.TASKDSL.Cell");
 					afterParserOrEnumRuleCall();
 				}
@@ -304,50 +282,6 @@ ruleGridSize returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleGameStatus
-entryRuleGameStatus returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getGameStatusRule()); }
-	iv_ruleGameStatus=ruleGameStatus
-	{ $current=$iv_ruleGameStatus.current; }
-	EOF;
-
-// Rule GameStatus
-ruleGameStatus returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			(
-				lv_so_0_1='Continue'
-				{
-					newLeafNode(lv_so_0_1, grammarAccess.getGameStatusAccess().getSoContinueKeyword_0_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getGameStatusRule());
-					}
-					setWithLastConsumed($current, "so", lv_so_0_1, null);
-				}
-				    |
-				lv_so_0_2='Over'
-				{
-					newLeafNode(lv_so_0_2, grammarAccess.getGameStatusAccess().getSoOverKeyword_0_1());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getGameStatusRule());
-					}
-					setWithLastConsumed($current, "so", lv_so_0_2, null);
-				}
-			)
-		)
-	)
-;
-
 // Entry rule entryRuleStartGrid
 entryRuleStartGrid returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getStartGridRule()); }
@@ -412,97 +346,27 @@ ruleStartGrid returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_5='NeighborNo:'
+		otherlv_5='Status:'
 		{
-			newLeafNode(otherlv_5, grammarAccess.getStartGridAccess().getNeighborNoKeyword_5());
+			newLeafNode(otherlv_5, grammarAccess.getStartGridAccess().getStatusKeyword_5());
 		}
 		(
 			(
-				lv_nNo_6_0=RULE_INT
 				{
-					newLeafNode(lv_nNo_6_0, grammarAccess.getStartGridAccess().getNNoINTTerminalRuleCall_6_0());
+					newCompositeNode(grammarAccess.getStartGridAccess().getSStatusEnumRuleCall_6_0());
 				}
+				lv_s_6_0=ruleStatus
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getStartGridRule());
+						$current = createModelElementForParent(grammarAccess.getStartGridRule());
 					}
-					setWithLastConsumed(
+					set(
 						$current,
-						"nNo",
-						lv_nNo_6_0,
-						"org.eclipse.xtext.common.Terminals.INT");
+						"s",
+						lv_s_6_0,
+						"game.of.life.tasks.TASKDSL.Status");
+					afterParserOrEnumRuleCall();
 				}
-			)
-		)
-		otherlv_7='Status:'
-		{
-			newLeafNode(otherlv_7, grammarAccess.getStartGridAccess().getStatusKeyword_7());
-		}
-		(
-			(
-				lv_s_8_0='Live'
-				{
-					newLeafNode(lv_s_8_0, grammarAccess.getStartGridAccess().getSLiveKeyword_8_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getStartGridRule());
-					}
-					setWithLastConsumed($current, "s", lv_s_8_0, "Live");
-				}
-			)
-		)
-		otherlv_9='NextGeneration:'
-		{
-			newLeafNode(otherlv_9, grammarAccess.getStartGridAccess().getNextGenerationKeyword_9());
-		}
-		(
-			(
-				(
-					lv_a_10_1='Birth'
-					{
-						newLeafNode(lv_a_10_1, grammarAccess.getStartGridAccess().getABirthKeyword_10_0_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getStartGridRule());
-						}
-						setWithLastConsumed($current, "a", lv_a_10_1, null);
-					}
-					    |
-					lv_a_10_2='OverCrowd'
-					{
-						newLeafNode(lv_a_10_2, grammarAccess.getStartGridAccess().getAOverCrowdKeyword_10_0_1());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getStartGridRule());
-						}
-						setWithLastConsumed($current, "a", lv_a_10_2, null);
-					}
-					    |
-					lv_a_10_3='xisolate'
-					{
-						newLeafNode(lv_a_10_3, grammarAccess.getStartGridAccess().getAXisolateKeyword_10_0_2());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getStartGridRule());
-						}
-						setWithLastConsumed($current, "a", lv_a_10_3, null);
-					}
-					    |
-					lv_a_10_4='Survive'
-					{
-						newLeafNode(lv_a_10_4, grammarAccess.getStartGridAccess().getASurviveKeyword_10_0_3());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getStartGridRule());
-						}
-						setWithLastConsumed($current, "a", lv_a_10_4, null);
-					}
-				)
 			)
 		)
 	)
@@ -534,9 +398,9 @@ ruleCell returns [EObject current=null]
 		}
 		(
 			(
-				lv_x_2_0=RULE_INT
+				lv_xC_2_0=RULE_INT
 				{
-					newLeafNode(lv_x_2_0, grammarAccess.getCellAccess().getXINTTerminalRuleCall_2_0());
+					newLeafNode(lv_xC_2_0, grammarAccess.getCellAccess().getXCINTTerminalRuleCall_2_0());
 				}
 				{
 					if ($current==null) {
@@ -544,8 +408,8 @@ ruleCell returns [EObject current=null]
 					}
 					setWithLastConsumed(
 						$current,
-						"x",
-						lv_x_2_0,
+						"xC",
+						lv_xC_2_0,
 						"org.eclipse.xtext.common.Terminals.INT");
 				}
 			)
@@ -556,9 +420,9 @@ ruleCell returns [EObject current=null]
 		}
 		(
 			(
-				lv_y_4_0=RULE_INT
+				lv_yC_4_0=RULE_INT
 				{
-					newLeafNode(lv_y_4_0, grammarAccess.getCellAccess().getYINTTerminalRuleCall_4_0());
+					newLeafNode(lv_yC_4_0, grammarAccess.getCellAccess().getYCINTTerminalRuleCall_4_0());
 				}
 				{
 					if ($current==null) {
@@ -566,116 +430,33 @@ ruleCell returns [EObject current=null]
 					}
 					setWithLastConsumed(
 						$current,
-						"y",
-						lv_y_4_0,
+						"yC",
+						lv_yC_4_0,
 						"org.eclipse.xtext.common.Terminals.INT");
 				}
 			)
 		)
-		otherlv_5='NeighborNo:'
+		otherlv_5='Status:'
 		{
-			newLeafNode(otherlv_5, grammarAccess.getCellAccess().getNeighborNoKeyword_5());
+			newLeafNode(otherlv_5, grammarAccess.getCellAccess().getStatusKeyword_5());
 		}
 		(
 			(
-				lv_nNo_6_0=RULE_INT
 				{
-					newLeafNode(lv_nNo_6_0, grammarAccess.getCellAccess().getNNoINTTerminalRuleCall_6_0());
+					newCompositeNode(grammarAccess.getCellAccess().getSStatusEnumRuleCall_6_0());
 				}
+				lv_s_6_0=ruleStatus
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getCellRule());
+						$current = createModelElementForParent(grammarAccess.getCellRule());
 					}
-					setWithLastConsumed(
+					set(
 						$current,
-						"nNo",
-						lv_nNo_6_0,
-						"org.eclipse.xtext.common.Terminals.INT");
+						"s",
+						lv_s_6_0,
+						"game.of.life.tasks.TASKDSL.Status");
+					afterParserOrEnumRuleCall();
 				}
-			)
-		)
-		otherlv_7='Status:'
-		{
-			newLeafNode(otherlv_7, grammarAccess.getCellAccess().getStatusKeyword_7());
-		}
-		(
-			(
-				(
-					lv_s_8_1='Live'
-					{
-						newLeafNode(lv_s_8_1, grammarAccess.getCellAccess().getSLiveKeyword_8_0_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getCellRule());
-						}
-						setWithLastConsumed($current, "s", lv_s_8_1, null);
-					}
-					    |
-					lv_s_8_2='Dead'
-					{
-						newLeafNode(lv_s_8_2, grammarAccess.getCellAccess().getSDeadKeyword_8_0_1());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getCellRule());
-						}
-						setWithLastConsumed($current, "s", lv_s_8_2, null);
-					}
-				)
-			)
-		)
-		otherlv_9='NextGeneration:'
-		{
-			newLeafNode(otherlv_9, grammarAccess.getCellAccess().getNextGenerationKeyword_9());
-		}
-		(
-			(
-				(
-					lv_a_10_1='Birth'
-					{
-						newLeafNode(lv_a_10_1, grammarAccess.getCellAccess().getABirthKeyword_10_0_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getCellRule());
-						}
-						setWithLastConsumed($current, "a", lv_a_10_1, null);
-					}
-					    |
-					lv_a_10_2='OverCrowd'
-					{
-						newLeafNode(lv_a_10_2, grammarAccess.getCellAccess().getAOverCrowdKeyword_10_0_1());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getCellRule());
-						}
-						setWithLastConsumed($current, "a", lv_a_10_2, null);
-					}
-					    |
-					lv_a_10_3='xisolate'
-					{
-						newLeafNode(lv_a_10_3, grammarAccess.getCellAccess().getAXisolateKeyword_10_0_2());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getCellRule());
-						}
-						setWithLastConsumed($current, "a", lv_a_10_3, null);
-					}
-					    |
-					lv_a_10_4='Survive'
-					{
-						newLeafNode(lv_a_10_4, grammarAccess.getCellAccess().getASurviveKeyword_10_0_3());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getCellRule());
-						}
-						setWithLastConsumed($current, "a", lv_a_10_4, null);
-					}
-				)
 			)
 		)
 	)
@@ -701,320 +482,171 @@ ruleevolutionRules returns [EObject current=null]
 		{
 			newLeafNode(otherlv_0, grammarAccess.getEvolutionRulesAccess().getIfKeyword_0());
 		}
+		otherlv_1='neighborNo='
+		{
+			newLeafNode(otherlv_1, grammarAccess.getEvolutionRulesAccess().getNeighborNoKeyword_1());
+		}
+		(
+			(
+				lv_nNo_2_0=RULE_INT
+				{
+					newLeafNode(lv_nNo_2_0, grammarAccess.getEvolutionRulesAccess().getNNoINTTerminalRuleCall_2_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getEvolutionRulesRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"nNo",
+						lv_nNo_2_0,
+						"org.eclipse.xtext.common.Terminals.INT");
+				}
+			)
+		)
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getEvolutionRulesAccess().getBoolExpressionParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getEvolutionRulesAccess().getLLogicalRelationEnumRuleCall_3_0());
 				}
-				lv_bool_1_0=ruleExpression
+				lv_l_3_0=rulelogicalRelation
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getEvolutionRulesRule());
 					}
 					set(
 						$current,
-						"bool",
-						lv_bool_1_0,
-						"game.of.life.tasks.TASKDSL.Expression");
+						"l",
+						lv_l_3_0,
+						"game.of.life.tasks.TASKDSL.logicalRelation");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_2='then'
+		(
+			(
+				lv_comparedNo_4_0=RULE_INT
+				{
+					newLeafNode(lv_comparedNo_4_0, grammarAccess.getEvolutionRulesAccess().getComparedNoINTTerminalRuleCall_4_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getEvolutionRulesRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"comparedNo",
+						lv_comparedNo_4_0,
+						"org.eclipse.xtext.common.Terminals.INT");
+				}
+			)
+		)
+		otherlv_5='and'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getEvolutionRulesAccess().getThenKeyword_2());
+			newLeafNode(otherlv_5, grammarAccess.getEvolutionRulesAccess().getAndKeyword_5());
+		}
+		otherlv_6='Cell Status'
+		{
+			newLeafNode(otherlv_6, grammarAccess.getEvolutionRulesAccess().getCellStatusKeyword_6());
 		}
 		(
-			otherlv_3='Birth'
+			(
+				{
+					newCompositeNode(grammarAccess.getEvolutionRulesAccess().getSStatusEnumRuleCall_7_0());
+				}
+				lv_s_7_0=ruleStatus
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getEvolutionRulesRule());
+					}
+					set(
+						$current,
+						"s",
+						lv_s_7_0,
+						"game.of.life.tasks.TASKDSL.Status");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_8='then'
+		{
+			newLeafNode(otherlv_8, grammarAccess.getEvolutionRulesAccess().getThenKeyword_8());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getEvolutionRulesAccess().getResultResultEnumRuleCall_9_0());
+				}
+				lv_result_9_0=ruleResult
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getEvolutionRulesRule());
+					}
+					set(
+						$current,
+						"result",
+						lv_result_9_0,
+						"game.of.life.tasks.TASKDSL.Result");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Rule logicalRelation
+rulelogicalRelation returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			enumLiteral_0='=='
 			{
-				newLeafNode(otherlv_3, grammarAccess.getEvolutionRulesAccess().getBirthKeyword_3_0());
+				$current = grammarAccess.getLogicalRelationAccess().getEQUALEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getLogicalRelationAccess().getEQUALEnumLiteralDeclaration_0());
 			}
-			    |
-			otherlv_4='OverCrowd'
+		)
+		    |
+		(
+			enumLiteral_1='>'
 			{
-				newLeafNode(otherlv_4, grammarAccess.getEvolutionRulesAccess().getOverCrowdKeyword_3_1());
+				$current = grammarAccess.getLogicalRelationAccess().getGREATERTHANEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getLogicalRelationAccess().getGREATERTHANEnumLiteralDeclaration_1());
 			}
-			    |
-			otherlv_5='xisolate'
+		)
+		    |
+		(
+			enumLiteral_2='<'
 			{
-				newLeafNode(otherlv_5, grammarAccess.getEvolutionRulesAccess().getXisolateKeyword_3_2());
+				$current = grammarAccess.getLogicalRelationAccess().getLESSTHANEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_2, grammarAccess.getLogicalRelationAccess().getLESSTHANEnumLiteralDeclaration_2());
 			}
-			    |
-			otherlv_6='Survive'
+		)
+		    |
+		(
+			enumLiteral_3='>='
 			{
-				newLeafNode(otherlv_6, grammarAccess.getEvolutionRulesAccess().getSurviveKeyword_3_3());
+				$current = grammarAccess.getLogicalRelationAccess().getGREATEROREQUALEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_3, grammarAccess.getLogicalRelationAccess().getGREATEROREQUALEnumLiteralDeclaration_3());
+			}
+		)
+		    |
+		(
+			enumLiteral_4='<='
+			{
+				$current = grammarAccess.getLogicalRelationAccess().getLESSOREQUALEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_4, grammarAccess.getLogicalRelationAccess().getLESSOREQUALEnumLiteralDeclaration_4());
 			}
 		)
 	)
 ;
 
-// Entry rule entryRuleExpression
-entryRuleExpression returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getExpressionRule()); }
-	iv_ruleExpression=ruleExpression
-	{ $current=$iv_ruleExpression.current; }
-	EOF;
-
-// Rule Expression
-ruleExpression returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	{
-		newCompositeNode(grammarAccess.getExpressionAccess().getOrExpressionParserRuleCall());
-	}
-	this_OrExpression_0=ruleOrExpression
-	{
-		$current = $this_OrExpression_0.current;
-		afterParserOrEnumRuleCall();
-	}
-;
-
-// Entry rule entryRuleOrExpression
-entryRuleOrExpression returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getOrExpressionRule()); }
-	iv_ruleOrExpression=ruleOrExpression
-	{ $current=$iv_ruleOrExpression.current; }
-	EOF;
-
-// Rule OrExpression
-ruleOrExpression returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		{
-			newCompositeNode(grammarAccess.getOrExpressionAccess().getAndExpressionParserRuleCall_0());
-		}
-		this_AndExpression_0=ruleAndExpression
-		{
-			$current = $this_AndExpression_0.current;
-			afterParserOrEnumRuleCall();
-		}
-		(
-			(
-				{
-					$current = forceCreateModelElementAndSet(
-						grammarAccess.getOrExpressionAccess().getOrExpressionLeftAction_1_0(),
-						$current);
-				}
-			)
-			otherlv_2='||'
-			{
-				newLeafNode(otherlv_2, grammarAccess.getOrExpressionAccess().getVertCalLNeVertCalLNeKeyword_1_1());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getOrExpressionAccess().getRightAndExpressionParserRuleCall_1_2_0());
-					}
-					lv_right_3_0=ruleAndExpression
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getOrExpressionRule());
-						}
-						set(
-							$current,
-							"right",
-							lv_right_3_0,
-							"game.of.life.tasks.TASKDSL.AndExpression");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)*
-	)
-;
-
-// Entry rule entryRuleAndExpression
-entryRuleAndExpression returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getAndExpressionRule()); }
-	iv_ruleAndExpression=ruleAndExpression
-	{ $current=$iv_ruleAndExpression.current; }
-	EOF;
-
-// Rule AndExpression
-ruleAndExpression returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		{
-			newCompositeNode(grammarAccess.getAndExpressionAccess().getComparisonExpressionParserRuleCall_0());
-		}
-		this_ComparisonExpression_0=ruleComparisonExpression
-		{
-			$current = $this_ComparisonExpression_0.current;
-			afterParserOrEnumRuleCall();
-		}
-		(
-			(
-				{
-					$current = forceCreateModelElementAndSet(
-						grammarAccess.getAndExpressionAccess().getAndExpressionLeftAction_1_0(),
-						$current);
-				}
-			)
-			otherlv_2='&&'
-			{
-				newLeafNode(otherlv_2, grammarAccess.getAndExpressionAccess().getAmpersandAmpersandKeyword_1_1());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getAndExpressionAccess().getRightComparisonExpressionParserRuleCall_1_2_0());
-					}
-					lv_right_3_0=ruleComparisonExpression
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getAndExpressionRule());
-						}
-						set(
-							$current,
-							"right",
-							lv_right_3_0,
-							"game.of.life.tasks.TASKDSL.ComparisonExpression");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)*
-	)
-;
-
-// Entry rule entryRuleComparisonExpression
-entryRuleComparisonExpression returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getComparisonExpressionRule()); }
-	iv_ruleComparisonExpression=ruleComparisonExpression
-	{ $current=$iv_ruleComparisonExpression.current; }
-	EOF;
-
-// Rule ComparisonExpression
-ruleComparisonExpression returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		{
-			newCompositeNode(grammarAccess.getComparisonExpressionAccess().getPrimaryExpressionParserRuleCall_0());
-		}
-		this_PrimaryExpression_0=rulePrimaryExpression
-		{
-			$current = $this_PrimaryExpression_0.current;
-			afterParserOrEnumRuleCall();
-		}
-		(
-			(
-				{
-					$current = forceCreateModelElementAndSet(
-						grammarAccess.getComparisonExpressionAccess().getComparisonExpressionLeftAction_1_0(),
-						$current);
-				}
-			)
-			(
-				(
-					(
-						lv_operator_2_1='<'
-						{
-							newLeafNode(lv_operator_2_1, grammarAccess.getComparisonExpressionAccess().getOperatorLessThanSGnKeyword_1_1_0_0());
-						}
-						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getComparisonExpressionRule());
-							}
-							setWithLastConsumed($current, "operator", lv_operator_2_1, null);
-						}
-						    |
-						lv_operator_2_2='<='
-						{
-							newLeafNode(lv_operator_2_2, grammarAccess.getComparisonExpressionAccess().getOperatorLessThanSGnEqualsSGnKeyword_1_1_0_1());
-						}
-						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getComparisonExpressionRule());
-							}
-							setWithLastConsumed($current, "operator", lv_operator_2_2, null);
-						}
-						    |
-						lv_operator_2_3='=='
-						{
-							newLeafNode(lv_operator_2_3, grammarAccess.getComparisonExpressionAccess().getOperatorEqualsSGnEqualsSGnKeyword_1_1_0_2());
-						}
-						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getComparisonExpressionRule());
-							}
-							setWithLastConsumed($current, "operator", lv_operator_2_3, null);
-						}
-						    |
-						lv_operator_2_4='>='
-						{
-							newLeafNode(lv_operator_2_4, grammarAccess.getComparisonExpressionAccess().getOperatorGreaterThanSGnEqualsSGnKeyword_1_1_0_3());
-						}
-						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getComparisonExpressionRule());
-							}
-							setWithLastConsumed($current, "operator", lv_operator_2_4, null);
-						}
-						    |
-						lv_operator_2_5='>'
-						{
-							newLeafNode(lv_operator_2_5, grammarAccess.getComparisonExpressionAccess().getOperatorGreaterThanSGnKeyword_1_1_0_4());
-						}
-						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getComparisonExpressionRule());
-							}
-							setWithLastConsumed($current, "operator", lv_operator_2_5, null);
-						}
-					)
-				)
-			)
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getComparisonExpressionAccess().getRightPrimaryExpressionParserRuleCall_1_2_0());
-					}
-					lv_right_3_0=rulePrimaryExpression
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getComparisonExpressionRule());
-						}
-						set(
-							$current,
-							"right",
-							lv_right_3_0,
-							"game.of.life.tasks.TASKDSL.PrimaryExpression");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)*
-	)
-;
-
-// Entry rule entryRulePrimaryExpression
-entryRulePrimaryExpression returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getPrimaryExpressionRule()); }
-	iv_rulePrimaryExpression=rulePrimaryExpression
-	{ $current=$iv_rulePrimaryExpression.current; }
-	EOF;
-
-// Rule PrimaryExpression
-rulePrimaryExpression returns [EObject current=null]
+// Rule Status
+ruleStatus returns [Enumerator current=null]
 @init {
 	enterRule();
 }
@@ -1023,44 +655,25 @@ rulePrimaryExpression returns [EObject current=null]
 }:
 	(
 		(
-			otherlv_0='('
+			enumLiteral_0='Live'
 			{
-				newLeafNode(otherlv_0, grammarAccess.getPrimaryExpressionAccess().getLeftParenthesSKeyword_0_0());
-			}
-			{
-				newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getExpressionParserRuleCall_0_1());
-			}
-			this_Expression_1=ruleExpression
-			{
-				$current = $this_Expression_1.current;
-				afterParserOrEnumRuleCall();
-			}
-			otherlv_2=')'
-			{
-				newLeafNode(otherlv_2, grammarAccess.getPrimaryExpressionAccess().getRGhtParenthesSKeyword_0_2());
+				$current = grammarAccess.getStatusAccess().getLIVEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getStatusAccess().getLIVEEnumLiteralDeclaration_0());
 			}
 		)
 		    |
-		{
-			newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getLiteralParserRuleCall_1());
-		}
-		this_Literal_3=ruleLiteral
-		{
-			$current = $this_Literal_3.current;
-			afterParserOrEnumRuleCall();
-		}
+		(
+			enumLiteral_1='Dead'
+			{
+				$current = grammarAccess.getStatusAccess().getDEADEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getStatusAccess().getDEADEnumLiteralDeclaration_1());
+			}
+		)
 	)
 ;
 
-// Entry rule entryRuleLiteral
-entryRuleLiteral returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getLiteralRule()); }
-	iv_ruleLiteral=ruleLiteral
-	{ $current=$iv_ruleLiteral.current; }
-	EOF;
-
-// Rule Literal
-ruleLiteral returns [EObject current=null]
+// Rule Result
+ruleResult returns [Enumerator current=null]
 @init {
 	enterRule();
 }
@@ -1069,43 +682,36 @@ ruleLiteral returns [EObject current=null]
 }:
 	(
 		(
-			(
-				{
-					$current = forceCreateModelElement(
-						grammarAccess.getLiteralAccess().getLiteralAction_0_0(),
-						$current);
-				}
-			)
-			(
-				(
-					lv_value_1_0='true'
-					{
-						newLeafNode(lv_value_1_0, grammarAccess.getLiteralAccess().getValueTrueKeyword_0_1_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getLiteralRule());
-						}
-						setWithLastConsumed($current, "value", lv_value_1_0, "true");
-					}
-				)
-			)
+			enumLiteral_0='Birth'
+			{
+				$current = grammarAccess.getResultAccess().getBIRTHEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getResultAccess().getBIRTHEnumLiteralDeclaration_0());
+			}
 		)
 		    |
-		otherlv_2='false'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getLiteralAccess().getFalseKeyword_1());
-		}
+		(
+			enumLiteral_1='OverCrowd'
+			{
+				$current = grammarAccess.getResultAccess().getOVERCROWDEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getResultAccess().getOVERCROWDEnumLiteralDeclaration_1());
+			}
+		)
 		    |
-		this_INT_3=RULE_INT
-		{
-			newLeafNode(this_INT_3, grammarAccess.getLiteralAccess().getINTTerminalRuleCall_2());
-		}
+		(
+			enumLiteral_2='xisolate'
+			{
+				$current = grammarAccess.getResultAccess().getXSOLATEEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_2, grammarAccess.getResultAccess().getXSOLATEEnumLiteralDeclaration_2());
+			}
+		)
 		    |
-		this_STRING_4=RULE_STRING
-		{
-			newLeafNode(this_STRING_4, grammarAccess.getLiteralAccess().getSTRINGTerminalRuleCall_3());
-		}
+		(
+			enumLiteral_3='Survive'
+			{
+				$current = grammarAccess.getResultAccess().getSURVIVEEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_3, grammarAccess.getResultAccess().getSURVIVEEnumLiteralDeclaration_3());
+			}
+		)
 	)
 ;
 

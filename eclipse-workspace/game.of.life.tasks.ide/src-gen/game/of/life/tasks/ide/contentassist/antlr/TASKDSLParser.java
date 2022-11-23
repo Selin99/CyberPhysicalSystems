@@ -31,52 +31,32 @@ public class TASKDSLParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, TASKDSLGrammarAccess grammarAccess) {
-			builder.put(grammarAccess.getGameStatusAccess().getSoAlternatives_0(), "rule__GameStatus__SoAlternatives_0");
-			builder.put(grammarAccess.getStartGridAccess().getAAlternatives_10_0(), "rule__StartGrid__AAlternatives_10_0");
-			builder.put(grammarAccess.getCellAccess().getSAlternatives_8_0(), "rule__Cell__SAlternatives_8_0");
-			builder.put(grammarAccess.getCellAccess().getAAlternatives_10_0(), "rule__Cell__AAlternatives_10_0");
-			builder.put(grammarAccess.getEvolutionRulesAccess().getAlternatives_3(), "rule__EvolutionRules__Alternatives_3");
-			builder.put(grammarAccess.getComparisonExpressionAccess().getOperatorAlternatives_1_1_0(), "rule__ComparisonExpression__OperatorAlternatives_1_1_0");
-			builder.put(grammarAccess.getPrimaryExpressionAccess().getAlternatives(), "rule__PrimaryExpression__Alternatives");
-			builder.put(grammarAccess.getLiteralAccess().getAlternatives(), "rule__Literal__Alternatives");
+			builder.put(grammarAccess.getLogicalRelationAccess().getAlternatives(), "rule__LogicalRelation__Alternatives");
+			builder.put(grammarAccess.getStatusAccess().getAlternatives(), "rule__Status__Alternatives");
+			builder.put(grammarAccess.getResultAccess().getAlternatives(), "rule__Result__Alternatives");
 			builder.put(grammarAccess.getGameAccess().getGroup(), "rule__Game__Group__0");
 			builder.put(grammarAccess.getGridSizeAccess().getGroup(), "rule__GridSize__Group__0");
 			builder.put(grammarAccess.getStartGridAccess().getGroup(), "rule__StartGrid__Group__0");
 			builder.put(grammarAccess.getCellAccess().getGroup(), "rule__Cell__Group__0");
 			builder.put(grammarAccess.getEvolutionRulesAccess().getGroup(), "rule__EvolutionRules__Group__0");
-			builder.put(grammarAccess.getOrExpressionAccess().getGroup(), "rule__OrExpression__Group__0");
-			builder.put(grammarAccess.getOrExpressionAccess().getGroup_1(), "rule__OrExpression__Group_1__0");
-			builder.put(grammarAccess.getAndExpressionAccess().getGroup(), "rule__AndExpression__Group__0");
-			builder.put(grammarAccess.getAndExpressionAccess().getGroup_1(), "rule__AndExpression__Group_1__0");
-			builder.put(grammarAccess.getComparisonExpressionAccess().getGroup(), "rule__ComparisonExpression__Group__0");
-			builder.put(grammarAccess.getComparisonExpressionAccess().getGroup_1(), "rule__ComparisonExpression__Group_1__0");
-			builder.put(grammarAccess.getPrimaryExpressionAccess().getGroup_0(), "rule__PrimaryExpression__Group_0__0");
-			builder.put(grammarAccess.getLiteralAccess().getGroup_0(), "rule__Literal__Group_0__0");
 			builder.put(grammarAccess.getGameAccess().getNameAssignment_1(), "rule__Game__NameAssignment_1");
-			builder.put(grammarAccess.getGameAccess().getGameStatusAssignment_3(), "rule__Game__GameStatusAssignment_3");
-			builder.put(grammarAccess.getGameAccess().getGridSizeAssignment_5(), "rule__Game__GridSizeAssignment_5");
-			builder.put(grammarAccess.getGameAccess().getEvolutionRulesAssignment_7(), "rule__Game__EvolutionRulesAssignment_7");
-			builder.put(grammarAccess.getGameAccess().getStartGridAssignment_9(), "rule__Game__StartGridAssignment_9");
-			builder.put(grammarAccess.getGameAccess().getAllCellsAssignment_11(), "rule__Game__AllCellsAssignment_11");
+			builder.put(grammarAccess.getGameAccess().getGridSizeAssignment_3(), "rule__Game__GridSizeAssignment_3");
+			builder.put(grammarAccess.getGameAccess().getEvolutionRulesAssignment_5(), "rule__Game__EvolutionRulesAssignment_5");
+			builder.put(grammarAccess.getGameAccess().getStartGridAssignment_7(), "rule__Game__StartGridAssignment_7");
+			builder.put(grammarAccess.getGameAccess().getAllCellsAssignment_9(), "rule__Game__AllCellsAssignment_9");
 			builder.put(grammarAccess.getGridSizeAccess().getHAssignment_1(), "rule__GridSize__HAssignment_1");
 			builder.put(grammarAccess.getGridSizeAccess().getLAssignment_3(), "rule__GridSize__LAssignment_3");
-			builder.put(grammarAccess.getGameStatusAccess().getSoAssignment(), "rule__GameStatus__SoAssignment");
 			builder.put(grammarAccess.getStartGridAccess().getXCAssignment_2(), "rule__StartGrid__XCAssignment_2");
 			builder.put(grammarAccess.getStartGridAccess().getYCAssignment_4(), "rule__StartGrid__YCAssignment_4");
-			builder.put(grammarAccess.getStartGridAccess().getNNoAssignment_6(), "rule__StartGrid__NNoAssignment_6");
-			builder.put(grammarAccess.getStartGridAccess().getSAssignment_8(), "rule__StartGrid__SAssignment_8");
-			builder.put(grammarAccess.getStartGridAccess().getAAssignment_10(), "rule__StartGrid__AAssignment_10");
-			builder.put(grammarAccess.getCellAccess().getXAssignment_2(), "rule__Cell__XAssignment_2");
-			builder.put(grammarAccess.getCellAccess().getYAssignment_4(), "rule__Cell__YAssignment_4");
-			builder.put(grammarAccess.getCellAccess().getNNoAssignment_6(), "rule__Cell__NNoAssignment_6");
-			builder.put(grammarAccess.getCellAccess().getSAssignment_8(), "rule__Cell__SAssignment_8");
-			builder.put(grammarAccess.getCellAccess().getAAssignment_10(), "rule__Cell__AAssignment_10");
-			builder.put(grammarAccess.getEvolutionRulesAccess().getBoolAssignment_1(), "rule__EvolutionRules__BoolAssignment_1");
-			builder.put(grammarAccess.getOrExpressionAccess().getRightAssignment_1_2(), "rule__OrExpression__RightAssignment_1_2");
-			builder.put(grammarAccess.getAndExpressionAccess().getRightAssignment_1_2(), "rule__AndExpression__RightAssignment_1_2");
-			builder.put(grammarAccess.getComparisonExpressionAccess().getOperatorAssignment_1_1(), "rule__ComparisonExpression__OperatorAssignment_1_1");
-			builder.put(grammarAccess.getComparisonExpressionAccess().getRightAssignment_1_2(), "rule__ComparisonExpression__RightAssignment_1_2");
-			builder.put(grammarAccess.getLiteralAccess().getValueAssignment_0_1(), "rule__Literal__ValueAssignment_0_1");
+			builder.put(grammarAccess.getStartGridAccess().getSAssignment_6(), "rule__StartGrid__SAssignment_6");
+			builder.put(grammarAccess.getCellAccess().getXCAssignment_2(), "rule__Cell__XCAssignment_2");
+			builder.put(grammarAccess.getCellAccess().getYCAssignment_4(), "rule__Cell__YCAssignment_4");
+			builder.put(grammarAccess.getCellAccess().getSAssignment_6(), "rule__Cell__SAssignment_6");
+			builder.put(grammarAccess.getEvolutionRulesAccess().getNNoAssignment_2(), "rule__EvolutionRules__NNoAssignment_2");
+			builder.put(grammarAccess.getEvolutionRulesAccess().getLAssignment_3(), "rule__EvolutionRules__LAssignment_3");
+			builder.put(grammarAccess.getEvolutionRulesAccess().getComparedNoAssignment_4(), "rule__EvolutionRules__ComparedNoAssignment_4");
+			builder.put(grammarAccess.getEvolutionRulesAccess().getSAssignment_7(), "rule__EvolutionRules__SAssignment_7");
+			builder.put(grammarAccess.getEvolutionRulesAccess().getResultAssignment_9(), "rule__EvolutionRules__ResultAssignment_9");
 		}
 	}
 	

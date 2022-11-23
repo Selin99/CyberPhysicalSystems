@@ -5,7 +5,6 @@ package game.of.life.tasks.tASKDSL.impl;
 
 import game.of.life.tasks.tASKDSL.Cell;
 import game.of.life.tasks.tASKDSL.Game;
-import game.of.life.tasks.tASKDSL.GameStatus;
 import game.of.life.tasks.tASKDSL.GridSize;
 import game.of.life.tasks.tASKDSL.StartGrid;
 import game.of.life.tasks.tASKDSL.TASKDSLPackage;
@@ -35,7 +34,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link game.of.life.tasks.tASKDSL.impl.GameImpl#getName <em>Name</em>}</li>
- *   <li>{@link game.of.life.tasks.tASKDSL.impl.GameImpl#getGameStatus <em>Game Status</em>}</li>
  *   <li>{@link game.of.life.tasks.tASKDSL.impl.GameImpl#getGridSize <em>Grid Size</em>}</li>
  *   <li>{@link game.of.life.tasks.tASKDSL.impl.GameImpl#getEvolutionRules <em>Evolution Rules</em>}</li>
  *   <li>{@link game.of.life.tasks.tASKDSL.impl.GameImpl#getStartGrid <em>Start Grid</em>}</li>
@@ -65,16 +63,6 @@ public class GameImpl extends ModelImpl implements Game
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getGameStatus() <em>Game Status</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getGameStatus()
-   * @generated
-   * @ordered
-   */
-  protected EList<GameStatus> gameStatus;
 
   /**
    * The cached value of the '{@link #getGridSize() <em>Grid Size</em>}' containment reference list.
@@ -168,21 +156,6 @@ public class GameImpl extends ModelImpl implements Game
    * @generated
    */
   @Override
-  public EList<GameStatus> getGameStatus()
-  {
-    if (gameStatus == null)
-    {
-      gameStatus = new EObjectContainmentEList<GameStatus>(GameStatus.class, this, TASKDSLPackage.GAME__GAME_STATUS);
-    }
-    return gameStatus;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EList<GridSize> getGridSize()
   {
     if (gridSize == null)
@@ -247,8 +220,6 @@ public class GameImpl extends ModelImpl implements Game
   {
     switch (featureID)
     {
-      case TASKDSLPackage.GAME__GAME_STATUS:
-        return ((InternalEList<?>)getGameStatus()).basicRemove(otherEnd, msgs);
       case TASKDSLPackage.GAME__GRİD_SİZE:
         return ((InternalEList<?>)getGridSize()).basicRemove(otherEnd, msgs);
       case TASKDSLPackage.GAME__EVOLUTİON_RULES:
@@ -273,8 +244,6 @@ public class GameImpl extends ModelImpl implements Game
     {
       case TASKDSLPackage.GAME__NAME:
         return getName();
-      case TASKDSLPackage.GAME__GAME_STATUS:
-        return getGameStatus();
       case TASKDSLPackage.GAME__GRİD_SİZE:
         return getGridSize();
       case TASKDSLPackage.GAME__EVOLUTİON_RULES:
@@ -300,10 +269,6 @@ public class GameImpl extends ModelImpl implements Game
     {
       case TASKDSLPackage.GAME__NAME:
         setName((String)newValue);
-        return;
-      case TASKDSLPackage.GAME__GAME_STATUS:
-        getGameStatus().clear();
-        getGameStatus().addAll((Collection<? extends GameStatus>)newValue);
         return;
       case TASKDSLPackage.GAME__GRİD_SİZE:
         getGridSize().clear();
@@ -338,9 +303,6 @@ public class GameImpl extends ModelImpl implements Game
       case TASKDSLPackage.GAME__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case TASKDSLPackage.GAME__GAME_STATUS:
-        getGameStatus().clear();
-        return;
       case TASKDSLPackage.GAME__GRİD_SİZE:
         getGridSize().clear();
         return;
@@ -369,8 +331,6 @@ public class GameImpl extends ModelImpl implements Game
     {
       case TASKDSLPackage.GAME__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case TASKDSLPackage.GAME__GAME_STATUS:
-        return gameStatus != null && !gameStatus.isEmpty();
       case TASKDSLPackage.GAME__GRİD_SİZE:
         return gridSize != null && !gridSize.isEmpty();
       case TASKDSLPackage.GAME__EVOLUTİON_RULES:

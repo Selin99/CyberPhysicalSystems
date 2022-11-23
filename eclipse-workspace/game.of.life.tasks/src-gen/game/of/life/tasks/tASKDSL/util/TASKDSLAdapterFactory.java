@@ -91,11 +91,6 @@ public class TASKDSLAdapterFactory extends AdapterFactoryImpl
         return createGridSizeAdapter();
       }
       @Override
-      public Adapter caseGameStatus(GameStatus object)
-      {
-        return createGameStatusAdapter();
-      }
-      @Override
       public Adapter caseStartGrid(StartGrid object)
       {
         return createStartGridAdapter();
@@ -109,31 +104,6 @@ public class TASKDSLAdapterFactory extends AdapterFactoryImpl
       public Adapter caseevolutionRules(evolutionRules object)
       {
         return createevolutionRulesAdapter();
-      }
-      @Override
-      public Adapter caseExpression(Expression object)
-      {
-        return createExpressionAdapter();
-      }
-      @Override
-      public Adapter caseOrExpression(OrExpression object)
-      {
-        return createOrExpressionAdapter();
-      }
-      @Override
-      public Adapter caseAndExpression(AndExpression object)
-      {
-        return createAndExpressionAdapter();
-      }
-      @Override
-      public Adapter caseComparisonExpression(ComparisonExpression object)
-      {
-        return createComparisonExpressionAdapter();
-      }
-      @Override
-      public Adapter caseLiteral(Literal object)
-      {
-        return createLiteralAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -203,21 +173,6 @@ public class TASKDSLAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link game.of.life.tasks.tASKDSL.GameStatus <em>Game Status</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see game.of.life.tasks.tASKDSL.GameStatus
-   * @generated
-   */
-  public Adapter createGameStatusAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link game.of.life.tasks.tASKDSL.StartGrid <em>Start Grid</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -258,81 +213,6 @@ public class TASKDSLAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createevolutionRulesAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link game.of.life.tasks.tASKDSL.Expression <em>Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see game.of.life.tasks.tASKDSL.Expression
-   * @generated
-   */
-  public Adapter createExpressionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link game.of.life.tasks.tASKDSL.OrExpression <em>Or Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see game.of.life.tasks.tASKDSL.OrExpression
-   * @generated
-   */
-  public Adapter createOrExpressionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link game.of.life.tasks.tASKDSL.AndExpression <em>And Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see game.of.life.tasks.tASKDSL.AndExpression
-   * @generated
-   */
-  public Adapter createAndExpressionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link game.of.life.tasks.tASKDSL.ComparisonExpression <em>Comparison Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see game.of.life.tasks.tASKDSL.ComparisonExpression
-   * @generated
-   */
-  public Adapter createComparisonExpressionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link game.of.life.tasks.tASKDSL.Literal <em>Literal</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see game.of.life.tasks.tASKDSL.Literal
-   * @generated
-   */
-  public Adapter createLiteralAdapter()
   {
     return null;
   }

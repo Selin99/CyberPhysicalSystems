@@ -1,0 +1,5 @@
+package game.of.life.tasks.generator
+
+class GameOfLife {
+	
+}

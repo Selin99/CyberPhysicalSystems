@@ -11,9 +11,6 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
-import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
-import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
-import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 
@@ -21,49 +18,17 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class TASKDSLSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected TASKDSLGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_Literal_FalseKeyword_1_or_INTTerminalRuleCall_2_or_STRINGTerminalRuleCall_3;
-	protected AbstractElementAlias match_PrimaryExpression_LeftParenthesSKeyword_0_0_a;
-	protected AbstractElementAlias match_PrimaryExpression_LeftParenthesSKeyword_0_0_p;
-	protected AbstractElementAlias match_evolutionRules_BirthKeyword_3_0_or_OverCrowdKeyword_3_1_or_SurviveKeyword_3_3_or_XisolateKeyword_3_2;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (TASKDSLGrammarAccess) access;
-		match_Literal_FalseKeyword_1_or_INTTerminalRuleCall_2_or_STRINGTerminalRuleCall_3 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getLiteralAccess().getFalseKeyword_1()), new TokenAlias(false, false, grammarAccess.getLiteralAccess().getINTTerminalRuleCall_2()), new TokenAlias(false, false, grammarAccess.getLiteralAccess().getSTRINGTerminalRuleCall_3()));
-		match_PrimaryExpression_LeftParenthesSKeyword_0_0_a = new TokenAlias(true, true, grammarAccess.getPrimaryExpressionAccess().getLeftParenthesSKeyword_0_0());
-		match_PrimaryExpression_LeftParenthesSKeyword_0_0_p = new TokenAlias(true, false, grammarAccess.getPrimaryExpressionAccess().getLeftParenthesSKeyword_0_0());
-		match_evolutionRules_BirthKeyword_3_0_or_OverCrowdKeyword_3_1_or_SurviveKeyword_3_3_or_XisolateKeyword_3_2 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getEvolutionRulesAccess().getBirthKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getEvolutionRulesAccess().getOverCrowdKeyword_3_1()), new TokenAlias(false, false, grammarAccess.getEvolutionRulesAccess().getSurviveKeyword_3_3()), new TokenAlias(false, false, grammarAccess.getEvolutionRulesAccess().getXisolateKeyword_3_2()));
 	}
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (ruleCall.getRule() == grammarAccess.getINTRule())
-			return getINTToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getSTRINGRule())
-			return getSTRINGToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
-	/**
-	 * terminal INT returns ecore::EInt: ('0'..'9')+;
-	 */
-	protected String getINTToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "";
-	}
-	
-	/**
-	 * terminal STRING:
-	 * 			'"' ( '\\' .  | !('\\'|'"') )* '"' |
-	 * 			"'" ( '\\' .  | !('\\'|"'") )* "'"
-	 * 		;
-	 */
-	protected String getSTRINGToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "\"\"";
-	}
 	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {
@@ -71,79 +36,8 @@ public class TASKDSLSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_Literal_FalseKeyword_1_or_INTTerminalRuleCall_2_or_STRINGTerminalRuleCall_3.equals(syntax))
-				emit_Literal_FalseKeyword_1_or_INTTerminalRuleCall_2_or_STRINGTerminalRuleCall_3(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_PrimaryExpression_LeftParenthesSKeyword_0_0_a.equals(syntax))
-				emit_PrimaryExpression_LeftParenthesSKeyword_0_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_PrimaryExpression_LeftParenthesSKeyword_0_0_p.equals(syntax))
-				emit_PrimaryExpression_LeftParenthesSKeyword_0_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_evolutionRules_BirthKeyword_3_0_or_OverCrowdKeyword_3_1_or_SurviveKeyword_3_3_or_XisolateKeyword_3_2.equals(syntax))
-				emit_evolutionRules_BirthKeyword_3_0_or_OverCrowdKeyword_3_1_or_SurviveKeyword_3_3_or_XisolateKeyword_3_2(semanticObject, getLastNavigableState(), syntaxNodes);
-			else acceptNodes(getLastNavigableState(), syntaxNodes);
+			acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
-	/**
-	 * <pre>
-	 * Ambiguous syntax:
-	 *     'false' | INT | STRING
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) '('* (ambiguity) (rule start)
-	 *     (rule start) (ambiguity) (rule start)
-	 
-	 * </pre>
-	 */
-	protected void emit_Literal_FalseKeyword_1_or_INTTerminalRuleCall_2_or_STRINGTerminalRuleCall_3(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * <pre>
-	 * Ambiguous syntax:
-	 *     '('*
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) ('false' | INT | STRING) (rule start)
-	 *     (rule start) (ambiguity) value='true'
-	 *     (rule start) (ambiguity) {AndExpression.left=}
-	 *     (rule start) (ambiguity) {ComparisonExpression.left=}
-	 *     (rule start) (ambiguity) {OrExpression.left=}
-	 
-	 * </pre>
-	 */
-	protected void emit_PrimaryExpression_LeftParenthesSKeyword_0_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * <pre>
-	 * Ambiguous syntax:
-	 *     '('+
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) {AndExpression.left=}
-	 *     (rule start) (ambiguity) {ComparisonExpression.left=}
-	 *     (rule start) (ambiguity) {OrExpression.left=}
-	 
-	 * </pre>
-	 */
-	protected void emit_PrimaryExpression_LeftParenthesSKeyword_0_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * <pre>
-	 * Ambiguous syntax:
-	 *     'Birth' | 'OverCrowd' | 'xisolate' | 'Survive'
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     bool=Expression 'then' (ambiguity) (rule end)
-	 
-	 * </pre>
-	 */
-	protected void emit_evolutionRules_BirthKeyword_3_0_or_OverCrowdKeyword_3_1_or_SurviveKeyword_3_3_or_XisolateKeyword_3_2(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
 }

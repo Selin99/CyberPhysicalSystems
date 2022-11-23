@@ -4,6 +4,7 @@
 package game.of.life.tasks.tASKDSL.impl;
 
 import game.of.life.tasks.tASKDSL.StartGrid;
+import game.of.life.tasks.tASKDSL.Status;
 import game.of.life.tasks.tASKDSL.TASKDSLPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -23,9 +24,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link game.of.life.tasks.tASKDSL.impl.StartGridImpl#getXC <em>XC</em>}</li>
  *   <li>{@link game.of.life.tasks.tASKDSL.impl.StartGridImpl#getYC <em>YC</em>}</li>
- *   <li>{@link game.of.life.tasks.tASKDSL.impl.StartGridImpl#getNNo <em>NNo</em>}</li>
  *   <li>{@link game.of.life.tasks.tASKDSL.impl.StartGridImpl#getS <em>S</em>}</li>
- *   <li>{@link game.of.life.tasks.tASKDSL.impl.StartGridImpl#getA <em>A</em>}</li>
  * </ul>
  *
  * @generated
@@ -73,26 +72,6 @@ public class StartGridImpl extends MinimalEObjectImpl.Container implements Start
   protected int yC = YC_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getNNo() <em>NNo</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getNNo()
-   * @generated
-   * @ordered
-   */
-  protected static final int NNO_EDEFAULT = 0;
-
-  /**
-   * The cached value of the '{@link #getNNo() <em>NNo</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getNNo()
-   * @generated
-   * @ordered
-   */
-  protected int nNo = NNO_EDEFAULT;
-
-  /**
    * The default value of the '{@link #getS() <em>S</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -100,7 +79,7 @@ public class StartGridImpl extends MinimalEObjectImpl.Container implements Start
    * @generated
    * @ordered
    */
-  protected static final String S_EDEFAULT = null;
+  protected static final Status S_EDEFAULT = Status.LIVE;
 
   /**
    * The cached value of the '{@link #getS() <em>S</em>}' attribute.
@@ -110,27 +89,7 @@ public class StartGridImpl extends MinimalEObjectImpl.Container implements Start
    * @generated
    * @ordered
    */
-  protected String s = S_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getA() <em>A</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getA()
-   * @generated
-   * @ordered
-   */
-  protected static final String A_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getA() <em>A</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getA()
-   * @generated
-   * @ordered
-   */
-  protected String a = A_EDEFAULT;
+  protected Status s = S_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -209,32 +168,7 @@ public class StartGridImpl extends MinimalEObjectImpl.Container implements Start
    * @generated
    */
   @Override
-  public int getNNo()
-  {
-    return nNo;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setNNo(int newNNo)
-  {
-    int oldNNo = nNo;
-    nNo = newNNo;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, TASKDSLPackage.START_GRİD__NNO, oldNNo, nNo));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String getS()
+  public Status getS()
   {
     return s;
   }
@@ -245,37 +179,12 @@ public class StartGridImpl extends MinimalEObjectImpl.Container implements Start
    * @generated
    */
   @Override
-  public void setS(String newS)
+  public void setS(Status newS)
   {
-    String oldS = s;
-    s = newS;
+    Status oldS = s;
+    s = newS == null ? S_EDEFAULT : newS;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, TASKDSLPackage.START_GRİD__S, oldS, s));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String getA()
-  {
-    return a;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setA(String newA)
-  {
-    String oldA = a;
-    a = newA;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, TASKDSLPackage.START_GRİD__A, oldA, a));
   }
 
   /**
@@ -292,12 +201,8 @@ public class StartGridImpl extends MinimalEObjectImpl.Container implements Start
         return getXC();
       case TASKDSLPackage.START_GRİD__YC:
         return getYC();
-      case TASKDSLPackage.START_GRİD__NNO:
-        return getNNo();
       case TASKDSLPackage.START_GRİD__S:
         return getS();
-      case TASKDSLPackage.START_GRİD__A:
-        return getA();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -318,14 +223,8 @@ public class StartGridImpl extends MinimalEObjectImpl.Container implements Start
       case TASKDSLPackage.START_GRİD__YC:
         setYC((Integer)newValue);
         return;
-      case TASKDSLPackage.START_GRİD__NNO:
-        setNNo((Integer)newValue);
-        return;
       case TASKDSLPackage.START_GRİD__S:
-        setS((String)newValue);
-        return;
-      case TASKDSLPackage.START_GRİD__A:
-        setA((String)newValue);
+        setS((Status)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -347,14 +246,8 @@ public class StartGridImpl extends MinimalEObjectImpl.Container implements Start
       case TASKDSLPackage.START_GRİD__YC:
         setYC(YC_EDEFAULT);
         return;
-      case TASKDSLPackage.START_GRİD__NNO:
-        setNNo(NNO_EDEFAULT);
-        return;
       case TASKDSLPackage.START_GRİD__S:
         setS(S_EDEFAULT);
-        return;
-      case TASKDSLPackage.START_GRİD__A:
-        setA(A_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -374,12 +267,8 @@ public class StartGridImpl extends MinimalEObjectImpl.Container implements Start
         return xC != XC_EDEFAULT;
       case TASKDSLPackage.START_GRİD__YC:
         return yC != YC_EDEFAULT;
-      case TASKDSLPackage.START_GRİD__NNO:
-        return nNo != NNO_EDEFAULT;
       case TASKDSLPackage.START_GRİD__S:
-        return S_EDEFAULT == null ? s != null : !S_EDEFAULT.equals(s);
-      case TASKDSLPackage.START_GRİD__A:
-        return A_EDEFAULT == null ? a != null : !A_EDEFAULT.equals(a);
+        return s != S_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -399,12 +288,8 @@ public class StartGridImpl extends MinimalEObjectImpl.Container implements Start
     result.append(xC);
     result.append(", yC: ");
     result.append(yC);
-    result.append(", nNo: ");
-    result.append(nNo);
     result.append(", s: ");
     result.append(s);
-    result.append(", a: ");
-    result.append(a);
     result.append(')');
     return result.toString();
   }

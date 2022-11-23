@@ -4,6 +4,7 @@
 package game.of.life.tasks.tASKDSL.impl;
 
 import game.of.life.tasks.tASKDSL.Cell;
+import game.of.life.tasks.tASKDSL.Status;
 import game.of.life.tasks.tASKDSL.TASKDSLPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -21,11 +22,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link game.of.life.tasks.tASKDSL.impl.CellImpl#getX <em>X</em>}</li>
- *   <li>{@link game.of.life.tasks.tASKDSL.impl.CellImpl#getY <em>Y</em>}</li>
- *   <li>{@link game.of.life.tasks.tASKDSL.impl.CellImpl#getNNo <em>NNo</em>}</li>
+ *   <li>{@link game.of.life.tasks.tASKDSL.impl.CellImpl#getXC <em>XC</em>}</li>
+ *   <li>{@link game.of.life.tasks.tASKDSL.impl.CellImpl#getYC <em>YC</em>}</li>
  *   <li>{@link game.of.life.tasks.tASKDSL.impl.CellImpl#getS <em>S</em>}</li>
- *   <li>{@link game.of.life.tasks.tASKDSL.impl.CellImpl#getA <em>A</em>}</li>
  * </ul>
  *
  * @generated
@@ -33,64 +32,44 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class CellImpl extends MinimalEObjectImpl.Container implements Cell
 {
   /**
-   * The default value of the '{@link #getX() <em>X</em>}' attribute.
+   * The default value of the '{@link #getXC() <em>XC</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getX()
+   * @see #getXC()
    * @generated
    * @ordered
    */
-  protected static final int X_EDEFAULT = 0;
+  protected static final int XC_EDEFAULT = 0;
 
   /**
-   * The cached value of the '{@link #getX() <em>X</em>}' attribute.
+   * The cached value of the '{@link #getXC() <em>XC</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getX()
+   * @see #getXC()
    * @generated
    * @ordered
    */
-  protected int x = X_EDEFAULT;
+  protected int xC = XC_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getY() <em>Y</em>}' attribute.
+   * The default value of the '{@link #getYC() <em>YC</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getY()
+   * @see #getYC()
    * @generated
    * @ordered
    */
-  protected static final int Y_EDEFAULT = 0;
+  protected static final int YC_EDEFAULT = 0;
 
   /**
-   * The cached value of the '{@link #getY() <em>Y</em>}' attribute.
+   * The cached value of the '{@link #getYC() <em>YC</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getY()
+   * @see #getYC()
    * @generated
    * @ordered
    */
-  protected int y = Y_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getNNo() <em>NNo</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getNNo()
-   * @generated
-   * @ordered
-   */
-  protected static final int NNO_EDEFAULT = 0;
-
-  /**
-   * The cached value of the '{@link #getNNo() <em>NNo</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getNNo()
-   * @generated
-   * @ordered
-   */
-  protected int nNo = NNO_EDEFAULT;
+  protected int yC = YC_EDEFAULT;
 
   /**
    * The default value of the '{@link #getS() <em>S</em>}' attribute.
@@ -100,7 +79,7 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell
    * @generated
    * @ordered
    */
-  protected static final String S_EDEFAULT = null;
+  protected static final Status S_EDEFAULT = Status.LIVE;
 
   /**
    * The cached value of the '{@link #getS() <em>S</em>}' attribute.
@@ -110,27 +89,7 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell
    * @generated
    * @ordered
    */
-  protected String s = S_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getA() <em>A</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getA()
-   * @generated
-   * @ordered
-   */
-  protected static final String A_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getA() <em>A</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getA()
-   * @generated
-   * @ordered
-   */
-  protected String a = A_EDEFAULT;
+  protected Status s = S_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -159,9 +118,9 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell
    * @generated
    */
   @Override
-  public int getX()
+  public int getXC()
   {
-    return x;
+    return xC;
   }
 
   /**
@@ -170,12 +129,12 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell
    * @generated
    */
   @Override
-  public void setX(int newX)
+  public void setXC(int newXC)
   {
-    int oldX = x;
-    x = newX;
+    int oldXC = xC;
+    xC = newXC;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, TASKDSLPackage.CELL__X, oldX, x));
+      eNotify(new ENotificationImpl(this, Notification.SET, TASKDSLPackage.CELL__XC, oldXC, xC));
   }
 
   /**
@@ -184,9 +143,9 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell
    * @generated
    */
   @Override
-  public int getY()
+  public int getYC()
   {
-    return y;
+    return yC;
   }
 
   /**
@@ -195,12 +154,12 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell
    * @generated
    */
   @Override
-  public void setY(int newY)
+  public void setYC(int newYC)
   {
-    int oldY = y;
-    y = newY;
+    int oldYC = yC;
+    yC = newYC;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, TASKDSLPackage.CELL__Y, oldY, y));
+      eNotify(new ENotificationImpl(this, Notification.SET, TASKDSLPackage.CELL__YC, oldYC, yC));
   }
 
   /**
@@ -209,32 +168,7 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell
    * @generated
    */
   @Override
-  public int getNNo()
-  {
-    return nNo;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setNNo(int newNNo)
-  {
-    int oldNNo = nNo;
-    nNo = newNNo;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, TASKDSLPackage.CELL__NNO, oldNNo, nNo));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String getS()
+  public Status getS()
   {
     return s;
   }
@@ -245,37 +179,12 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell
    * @generated
    */
   @Override
-  public void setS(String newS)
+  public void setS(Status newS)
   {
-    String oldS = s;
-    s = newS;
+    Status oldS = s;
+    s = newS == null ? S_EDEFAULT : newS;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, TASKDSLPackage.CELL__S, oldS, s));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String getA()
-  {
-    return a;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setA(String newA)
-  {
-    String oldA = a;
-    a = newA;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, TASKDSLPackage.CELL__A, oldA, a));
   }
 
   /**
@@ -288,16 +197,12 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell
   {
     switch (featureID)
     {
-      case TASKDSLPackage.CELL__X:
-        return getX();
-      case TASKDSLPackage.CELL__Y:
-        return getY();
-      case TASKDSLPackage.CELL__NNO:
-        return getNNo();
+      case TASKDSLPackage.CELL__XC:
+        return getXC();
+      case TASKDSLPackage.CELL__YC:
+        return getYC();
       case TASKDSLPackage.CELL__S:
         return getS();
-      case TASKDSLPackage.CELL__A:
-        return getA();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -312,20 +217,14 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell
   {
     switch (featureID)
     {
-      case TASKDSLPackage.CELL__X:
-        setX((Integer)newValue);
+      case TASKDSLPackage.CELL__XC:
+        setXC((Integer)newValue);
         return;
-      case TASKDSLPackage.CELL__Y:
-        setY((Integer)newValue);
-        return;
-      case TASKDSLPackage.CELL__NNO:
-        setNNo((Integer)newValue);
+      case TASKDSLPackage.CELL__YC:
+        setYC((Integer)newValue);
         return;
       case TASKDSLPackage.CELL__S:
-        setS((String)newValue);
-        return;
-      case TASKDSLPackage.CELL__A:
-        setA((String)newValue);
+        setS((Status)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -341,20 +240,14 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell
   {
     switch (featureID)
     {
-      case TASKDSLPackage.CELL__X:
-        setX(X_EDEFAULT);
+      case TASKDSLPackage.CELL__XC:
+        setXC(XC_EDEFAULT);
         return;
-      case TASKDSLPackage.CELL__Y:
-        setY(Y_EDEFAULT);
-        return;
-      case TASKDSLPackage.CELL__NNO:
-        setNNo(NNO_EDEFAULT);
+      case TASKDSLPackage.CELL__YC:
+        setYC(YC_EDEFAULT);
         return;
       case TASKDSLPackage.CELL__S:
         setS(S_EDEFAULT);
-        return;
-      case TASKDSLPackage.CELL__A:
-        setA(A_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -370,16 +263,12 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell
   {
     switch (featureID)
     {
-      case TASKDSLPackage.CELL__X:
-        return x != X_EDEFAULT;
-      case TASKDSLPackage.CELL__Y:
-        return y != Y_EDEFAULT;
-      case TASKDSLPackage.CELL__NNO:
-        return nNo != NNO_EDEFAULT;
+      case TASKDSLPackage.CELL__XC:
+        return xC != XC_EDEFAULT;
+      case TASKDSLPackage.CELL__YC:
+        return yC != YC_EDEFAULT;
       case TASKDSLPackage.CELL__S:
-        return S_EDEFAULT == null ? s != null : !S_EDEFAULT.equals(s);
-      case TASKDSLPackage.CELL__A:
-        return A_EDEFAULT == null ? a != null : !A_EDEFAULT.equals(a);
+        return s != S_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -395,16 +284,12 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (x: ");
-    result.append(x);
-    result.append(", y: ");
-    result.append(y);
-    result.append(", nNo: ");
-    result.append(nNo);
+    result.append(" (xC: ");
+    result.append(xC);
+    result.append(", yC: ");
+    result.append(yC);
     result.append(", s: ");
     result.append(s);
-    result.append(", a: ");
-    result.append(a);
     result.append(')');
     return result.toString();
   }

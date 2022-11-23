@@ -3,11 +3,11 @@
  */
 package game.of.life.tasks.validation;
 
-import com.google.common.base.Objects;
 import game.of.life.tasks.tASKDSL.Cell;
 import game.of.life.tasks.tASKDSL.Game;
 import game.of.life.tasks.tASKDSL.GridSize;
 import game.of.life.tasks.tASKDSL.StartGrid;
+import game.of.life.tasks.tASKDSL.evolutionRules;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.validation.Check;
 
@@ -37,92 +37,35 @@ public class TASKDSLValidator extends AbstractTASKDSLValidator {
   }
 
   @Check
-  public void checkCellCoordinates(final Game g) {
+  public void checkNoOfTotalCells(final Game g) {
     EList<GridSize> gs = g.getGridSize();
-    EList<Cell> c = g.getAllCells();
     for (int i = 0; (i < gs.size()); i++) {
       {
-        int height = gs.get(i).getH();
-        int length = gs.get(i).getL();
-        for (int j = 0; (j < c.size()); j++) {
-          {
-            if (((c.get(j).getX() > height) || (c.get(j).getX() < 0))) {
-              this.error("X axis out of grid", null);
-            }
-            if (((c.get(j).getY() > length) || (c.get(j).getY() < 0))) {
-              this.error("Y axis out of grid", null);
-            }
-          }
+        int height = gs.get(0).getH();
+        int length = gs.get(0).getL();
+        int totalSize = (height * length);
+        EList<Cell> cells = g.getAllCells();
+        int _size = cells.size();
+        boolean _greaterThan = (_size > totalSize);
+        if (_greaterThan) {
+          this.error("You defined more cells than supposed to be!!", null);
         }
       }
     }
   }
 
   @Check
-  public void checkCellStatus(final Game g) {
-    EList<Cell> c = g.getAllCells();
-    for (int i = 0; (i < c.size()); i++) {
+  public void checkMinGridSize(final Game g) {
+    EList<GridSize> gs = g.getGridSize();
+    for (int i = 0; (i < gs.size()); i++) {
       {
-        if (((c.get(i).getNNo() == 3) && Objects.equal(c.get(i).getS(), "Dead"))) {
-          String _a = c.get(i).getA();
-          boolean _notEquals = (!Objects.equal(_a, "Birth"));
-          if (_notEquals) {
-            this.error("Item\'s next available action is birth!", null);
-          }
+        int height = gs.get(0).getH();
+        int length = gs.get(0).getL();
+        if ((height < 400)) {
+          this.error("Height is below minimum grid height!!", null);
         }
-        if (((c.get(i).getNNo() < 2) && Objects.equal(c.get(i).getS(), "Live"))) {
-          String _a_1 = c.get(i).getA();
-          boolean _notEquals_1 = (!Objects.equal(_a_1, "xisolate"));
-          if (_notEquals_1) {
-            this.error("Item\'s next available action is isolation!", null);
-          }
-        }
-        if (((c.get(i).getNNo() > 4) && Objects.equal(c.get(i).getS(), "Live"))) {
-          String _a_2 = c.get(i).getA();
-          boolean _notEquals_2 = (!Objects.equal(_a_2, "OverCrowd"));
-          if (_notEquals_2) {
-            this.error("Item\'s next available action is death by overcrowding!", null);
-          }
-        }
-        if (((c.get(i).getNNo() == 2) || ((c.get(i).getNNo() == 3) && Objects.equal(c.get(i).getS(), "Live")))) {
-          String _a_3 = c.get(i).getA();
-          boolean _notEquals_3 = (!Objects.equal(_a_3, "Survive"));
-          if (_notEquals_3) {
-            this.error("Item\'s next available action is survive!", null);
-          }
-        }
-      }
-    }
-    EList<StartGrid> iac = g.getStartGrid();
-    for (int i = 0; (i < iac.size()); i++) {
-      {
-        if (((iac.get(i).getNNo() == 3) && Objects.equal(iac.get(i).getS(), "Dead"))) {
-          String _a = iac.get(i).getA();
-          boolean _notEquals = (!Objects.equal(_a, "Birth"));
-          if (_notEquals) {
-            this.error("Item\'s next available action is birth!", null);
-          }
-        }
-        if (((iac.get(i).getNNo() < 2) && Objects.equal(iac.get(i).getS(), "Live"))) {
-          String _a_1 = iac.get(i).getA();
-          boolean _notEquals_1 = (!Objects.equal(_a_1, "xisolate"));
-          if (_notEquals_1) {
-            this.error("Item\'s next available action is isolation!", null);
-          }
-        }
-        if (((iac.get(i).getNNo() > 4) && Objects.equal(iac.get(i).getS(), "Live"))) {
-          String _a_2 = iac.get(i).getA();
-          boolean _notEquals_2 = (!Objects.equal(_a_2, "OverCrowd"));
-          if (_notEquals_2) {
-            this.error("Item\'s next available action is death by overcrowding!", null);
-          }
-        }
-        if (((iac.get(i).getNNo() == 2) || ((iac.get(i).getNNo() == 3) && Objects.equal(iac.get(i).getS(), "Live")))) {
-          String _a_3 = iac.get(i).getA();
-          boolean _notEquals_3 = (!Objects.equal(_a_3, "Survive"));
-          if (_notEquals_3) {
-            this.error("Item\'s next available action is survive!", null);
-          }
+        if ((length < 400)) {
+          this.error("Length is below minimum grid length!!", null);
         }
       }
     }
@@ -130,10 +73,10 @@ public class TASKDSLValidator extends AbstractTASKDSLValidator {
 
   @Check
   public void checkDoubleCoordinates(final Game g) {
-    EList<Cell> clist = g.getAllCells();
+    EList<StartGrid> clist = g.getStartGrid();
     for (int i = 0; (i < clist.size()); i++) {
       for (int j = (i + 1); (j < clist.size()); j++) {
-        if ((Integer.valueOf(clist.get(i).getX()).equals(Integer.valueOf(clist.get(j).getX())) && Integer.valueOf(clist.get(i).getY()).equals(Integer.valueOf(clist.get(j).getY())))) {
+        if ((Integer.valueOf(clist.get(i).getXC()).equals(Integer.valueOf(clist.get(j).getXC())) && Integer.valueOf(clist.get(i).getYC()).equals(Integer.valueOf(clist.get(j).getYC())))) {
           this.error("Duplicated Coordinate!!", null);
         }
       }
@@ -141,16 +84,44 @@ public class TASKDSLValidator extends AbstractTASKDSLValidator {
   }
 
   public void checkIfCoordinateValuesPositive(final Game g) {
-    EList<Cell> clist = g.getAllCells();
-    for (int i = 0; (i < clist.size()); i++) {
-      if (((clist.get(i).getX() < 0) || (clist.get(i).getY() < 0))) {
-        this.error("Negative Coordinate Not Allowed!!", null);
-      }
-    }
     EList<StartGrid> iaclist = g.getStartGrid();
     for (int i = 0; (i < iaclist.size()); i++) {
       if (((iaclist.get(i).getXC() < 0) || (iaclist.get(i).getYC() < 0))) {
         this.error("Negative Coordinate Not Allowed!!", null);
+      }
+    }
+  }
+
+  public void checkEvolutionRulesForCells(final Game g) {
+    EList<evolutionRules> evRules = g.getEvolutionRules();
+    for (int i = 0; (i < evRules.size()); i++) {
+      {
+        int _nNo = evRules.get(i).getNNo();
+        boolean _lessThan = (_nNo < 0);
+        if (_lessThan) {
+          this.error("A cell can not have negative neighbor number. Invalid Rule!!", null);
+        }
+        int _nNo_1 = evRules.get(i).getNNo();
+        boolean _greaterThan = (_nNo_1 > 8);
+        if (_greaterThan) {
+          this.error("A cell can not have more than 8 neighbors. Invalid Rule!!", null);
+        }
+      }
+    }
+  }
+
+  public void checkDuplicateRule(final Game g) {
+    EList<evolutionRules> evRules = g.getEvolutionRules();
+    for (int i = 0; (i < evRules.size()); i++) {
+      for (int j = (i + 1); (j < evRules.size()); j++) {
+        if (((Integer.valueOf(evRules.get(i).getNNo()).equals(Integer.valueOf(evRules.get(j).getNNo())) && evRules.get(i).getL().equals(evRules.get(j).getL())) && Integer.valueOf(evRules.get(i).getComparedNo()).equals(Integer.valueOf(evRules.get(j).getComparedNo())))) {
+          boolean _equals = evRules.get(i).getResult().equals(evRules.get(j).getResult());
+          if (_equals) {
+            this.warning("Same Rule replied!!", null);
+          } else {
+            this.error("Unambogous Rule!!", null);
+          }
+        }
       }
     }
   }

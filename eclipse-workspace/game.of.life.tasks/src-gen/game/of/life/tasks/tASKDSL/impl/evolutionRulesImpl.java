@@ -3,15 +3,15 @@
  */
 package game.of.life.tasks.tASKDSL.impl;
 
-import game.of.life.tasks.tASKDSL.Expression;
+import game.of.life.tasks.tASKDSL.Result;
+import game.of.life.tasks.tASKDSL.Status;
 import game.of.life.tasks.tASKDSL.TASKDSLPackage;
 import game.of.life.tasks.tASKDSL.evolutionRules;
+import game.of.life.tasks.tASKDSL.logicalRelation;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -24,7 +24,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link game.of.life.tasks.tASKDSL.impl.evolutionRulesImpl#getBool <em>Bool</em>}</li>
+ *   <li>{@link game.of.life.tasks.tASKDSL.impl.evolutionRulesImpl#getNNo <em>NNo</em>}</li>
+ *   <li>{@link game.of.life.tasks.tASKDSL.impl.evolutionRulesImpl#getL <em>L</em>}</li>
+ *   <li>{@link game.of.life.tasks.tASKDSL.impl.evolutionRulesImpl#getComparedNo <em>Compared No</em>}</li>
+ *   <li>{@link game.of.life.tasks.tASKDSL.impl.evolutionRulesImpl#getS <em>S</em>}</li>
+ *   <li>{@link game.of.life.tasks.tASKDSL.impl.evolutionRulesImpl#getResult <em>Result</em>}</li>
  * </ul>
  *
  * @generated
@@ -32,14 +36,104 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class evolutionRulesImpl extends MinimalEObjectImpl.Container implements evolutionRules
 {
   /**
-   * The cached value of the '{@link #getBool() <em>Bool</em>}' containment reference.
+   * The default value of the '{@link #getNNo() <em>NNo</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getBool()
+   * @see #getNNo()
    * @generated
    * @ordered
    */
-  protected Expression bool;
+  protected static final int NNO_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getNNo() <em>NNo</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNNo()
+   * @generated
+   * @ordered
+   */
+  protected int nNo = NNO_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getL() <em>L</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getL()
+   * @generated
+   * @ordered
+   */
+  protected static final logicalRelation L_EDEFAULT = logicalRelation.EQUAL;
+
+  /**
+   * The cached value of the '{@link #getL() <em>L</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getL()
+   * @generated
+   * @ordered
+   */
+  protected logicalRelation l = L_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getComparedNo() <em>Compared No</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getComparedNo()
+   * @generated
+   * @ordered
+   */
+  protected static final int COMPARED_NO_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getComparedNo() <em>Compared No</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getComparedNo()
+   * @generated
+   * @ordered
+   */
+  protected int comparedNo = COMPARED_NO_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getS() <em>S</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getS()
+   * @generated
+   * @ordered
+   */
+  protected static final Status S_EDEFAULT = Status.LIVE;
+
+  /**
+   * The cached value of the '{@link #getS() <em>S</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getS()
+   * @generated
+   * @ordered
+   */
+  protected Status s = S_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getResult() <em>Result</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getResult()
+   * @generated
+   * @ordered
+   */
+  protected static final Result RESULT_EDEFAULT = Result.BIRTH;
+
+  /**
+   * The cached value of the '{@link #getResult() <em>Result</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getResult()
+   * @generated
+   * @ordered
+   */
+  protected Result result = RESULT_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -68,9 +162,9 @@ public class evolutionRulesImpl extends MinimalEObjectImpl.Container implements 
    * @generated
    */
   @Override
-  public Expression getBool()
+  public int getNNo()
   {
-    return bool;
+    return nNo;
   }
 
   /**
@@ -78,16 +172,13 @@ public class evolutionRulesImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetBool(Expression newBool, NotificationChain msgs)
+  @Override
+  public void setNNo(int newNNo)
   {
-    Expression oldBool = bool;
-    bool = newBool;
+    int oldNNo = nNo;
+    nNo = newNNo;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TASKDSLPackage.EVOLUTİON_RULES__BOOL, oldBool, newBool);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
+      eNotify(new ENotificationImpl(this, Notification.SET, TASKDSLPackage.EVOLUTİON_RULES__NNO, oldNNo, nNo));
   }
 
   /**
@@ -96,20 +187,9 @@ public class evolutionRulesImpl extends MinimalEObjectImpl.Container implements 
    * @generated
    */
   @Override
-  public void setBool(Expression newBool)
+  public logicalRelation getL()
   {
-    if (newBool != bool)
-    {
-      NotificationChain msgs = null;
-      if (bool != null)
-        msgs = ((InternalEObject)bool).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TASKDSLPackage.EVOLUTİON_RULES__BOOL, null, msgs);
-      if (newBool != null)
-        msgs = ((InternalEObject)newBool).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - TASKDSLPackage.EVOLUTİON_RULES__BOOL, null, msgs);
-      msgs = basicSetBool(newBool, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, TASKDSLPackage.EVOLUTİON_RULES__BOOL, newBool, newBool));
+    return l;
   }
 
   /**
@@ -118,14 +198,87 @@ public class evolutionRulesImpl extends MinimalEObjectImpl.Container implements 
    * @generated
    */
   @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  public void setL(logicalRelation newL)
   {
-    switch (featureID)
-    {
-      case TASKDSLPackage.EVOLUTİON_RULES__BOOL:
-        return basicSetBool(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+    logicalRelation oldL = l;
+    l = newL == null ? L_EDEFAULT : newL;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, TASKDSLPackage.EVOLUTİON_RULES__L, oldL, l));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public int getComparedNo()
+  {
+    return comparedNo;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setComparedNo(int newComparedNo)
+  {
+    int oldComparedNo = comparedNo;
+    comparedNo = newComparedNo;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, TASKDSLPackage.EVOLUTİON_RULES__COMPARED_NO, oldComparedNo, comparedNo));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Status getS()
+  {
+    return s;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setS(Status newS)
+  {
+    Status oldS = s;
+    s = newS == null ? S_EDEFAULT : newS;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, TASKDSLPackage.EVOLUTİON_RULES__S, oldS, s));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Result getResult()
+  {
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setResult(Result newResult)
+  {
+    Result oldResult = result;
+    result = newResult == null ? RESULT_EDEFAULT : newResult;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, TASKDSLPackage.EVOLUTİON_RULES__RESULT, oldResult, result));
   }
 
   /**
@@ -138,8 +291,16 @@ public class evolutionRulesImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case TASKDSLPackage.EVOLUTİON_RULES__BOOL:
-        return getBool();
+      case TASKDSLPackage.EVOLUTİON_RULES__NNO:
+        return getNNo();
+      case TASKDSLPackage.EVOLUTİON_RULES__L:
+        return getL();
+      case TASKDSLPackage.EVOLUTİON_RULES__COMPARED_NO:
+        return getComparedNo();
+      case TASKDSLPackage.EVOLUTİON_RULES__S:
+        return getS();
+      case TASKDSLPackage.EVOLUTİON_RULES__RESULT:
+        return getResult();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -154,8 +315,20 @@ public class evolutionRulesImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case TASKDSLPackage.EVOLUTİON_RULES__BOOL:
-        setBool((Expression)newValue);
+      case TASKDSLPackage.EVOLUTİON_RULES__NNO:
+        setNNo((Integer)newValue);
+        return;
+      case TASKDSLPackage.EVOLUTİON_RULES__L:
+        setL((logicalRelation)newValue);
+        return;
+      case TASKDSLPackage.EVOLUTİON_RULES__COMPARED_NO:
+        setComparedNo((Integer)newValue);
+        return;
+      case TASKDSLPackage.EVOLUTİON_RULES__S:
+        setS((Status)newValue);
+        return;
+      case TASKDSLPackage.EVOLUTİON_RULES__RESULT:
+        setResult((Result)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -171,8 +344,20 @@ public class evolutionRulesImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case TASKDSLPackage.EVOLUTİON_RULES__BOOL:
-        setBool((Expression)null);
+      case TASKDSLPackage.EVOLUTİON_RULES__NNO:
+        setNNo(NNO_EDEFAULT);
+        return;
+      case TASKDSLPackage.EVOLUTİON_RULES__L:
+        setL(L_EDEFAULT);
+        return;
+      case TASKDSLPackage.EVOLUTİON_RULES__COMPARED_NO:
+        setComparedNo(COMPARED_NO_EDEFAULT);
+        return;
+      case TASKDSLPackage.EVOLUTİON_RULES__S:
+        setS(S_EDEFAULT);
+        return;
+      case TASKDSLPackage.EVOLUTİON_RULES__RESULT:
+        setResult(RESULT_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -188,10 +373,43 @@ public class evolutionRulesImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case TASKDSLPackage.EVOLUTİON_RULES__BOOL:
-        return bool != null;
+      case TASKDSLPackage.EVOLUTİON_RULES__NNO:
+        return nNo != NNO_EDEFAULT;
+      case TASKDSLPackage.EVOLUTİON_RULES__L:
+        return l != L_EDEFAULT;
+      case TASKDSLPackage.EVOLUTİON_RULES__COMPARED_NO:
+        return comparedNo != COMPARED_NO_EDEFAULT;
+      case TASKDSLPackage.EVOLUTİON_RULES__S:
+        return s != S_EDEFAULT;
+      case TASKDSLPackage.EVOLUTİON_RULES__RESULT:
+        return result != RESULT_EDEFAULT;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (nNo: ");
+    result.append(nNo);
+    result.append(", l: ");
+    result.append(l);
+    result.append(", comparedNo: ");
+    result.append(comparedNo);
+    result.append(", s: ");
+    result.append(s);
+    result.append(", result: ");
+    result.append(result);
+    result.append(')');
+    return result.toString();
   }
 
 } //evolutionRulesImpl

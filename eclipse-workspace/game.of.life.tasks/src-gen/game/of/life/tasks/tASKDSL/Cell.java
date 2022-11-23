@@ -14,11 +14,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link game.of.life.tasks.tASKDSL.Cell#getX <em>X</em>}</li>
- *   <li>{@link game.of.life.tasks.tASKDSL.Cell#getY <em>Y</em>}</li>
- *   <li>{@link game.of.life.tasks.tASKDSL.Cell#getNNo <em>NNo</em>}</li>
+ *   <li>{@link game.of.life.tasks.tASKDSL.Cell#getXC <em>XC</em>}</li>
+ *   <li>{@link game.of.life.tasks.tASKDSL.Cell#getYC <em>YC</em>}</li>
  *   <li>{@link game.of.life.tasks.tASKDSL.Cell#getS <em>S</em>}</li>
- *   <li>{@link game.of.life.tasks.tASKDSL.Cell#getA <em>A</em>}</li>
  * </ul>
  *
  * @see game.of.life.tasks.tASKDSL.TASKDSLPackage#getCell()
@@ -28,113 +26,72 @@ import org.eclipse.emf.ecore.EObject;
 public interface Cell extends EObject
 {
   /**
-   * Returns the value of the '<em><b>X</b></em>' attribute.
+   * Returns the value of the '<em><b>XC</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>X</em>' attribute.
-   * @see #setX(int)
-   * @see game.of.life.tasks.tASKDSL.TASKDSLPackage#getCell_X()
+   * @return the value of the '<em>XC</em>' attribute.
+   * @see #setXC(int)
+   * @see game.of.life.tasks.tASKDSL.TASKDSLPackage#getCell_XC()
    * @model
    * @generated
    */
-  int getX();
+  int getXC();
 
   /**
-   * Sets the value of the '{@link game.of.life.tasks.tASKDSL.Cell#getX <em>X</em>}' attribute.
+   * Sets the value of the '{@link game.of.life.tasks.tASKDSL.Cell#getXC <em>XC</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>X</em>' attribute.
-   * @see #getX()
+   * @param value the new value of the '<em>XC</em>' attribute.
+   * @see #getXC()
    * @generated
    */
-  void setX(int value);
+  void setXC(int value);
 
   /**
-   * Returns the value of the '<em><b>Y</b></em>' attribute.
+   * Returns the value of the '<em><b>YC</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Y</em>' attribute.
-   * @see #setY(int)
-   * @see game.of.life.tasks.tASKDSL.TASKDSLPackage#getCell_Y()
+   * @return the value of the '<em>YC</em>' attribute.
+   * @see #setYC(int)
+   * @see game.of.life.tasks.tASKDSL.TASKDSLPackage#getCell_YC()
    * @model
    * @generated
    */
-  int getY();
+  int getYC();
 
   /**
-   * Sets the value of the '{@link game.of.life.tasks.tASKDSL.Cell#getY <em>Y</em>}' attribute.
+   * Sets the value of the '{@link game.of.life.tasks.tASKDSL.Cell#getYC <em>YC</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Y</em>' attribute.
-   * @see #getY()
+   * @param value the new value of the '<em>YC</em>' attribute.
+   * @see #getYC()
    * @generated
    */
-  void setY(int value);
-
-  /**
-   * Returns the value of the '<em><b>NNo</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>NNo</em>' attribute.
-   * @see #setNNo(int)
-   * @see game.of.life.tasks.tASKDSL.TASKDSLPackage#getCell_NNo()
-   * @model
-   * @generated
-   */
-  int getNNo();
-
-  /**
-   * Sets the value of the '{@link game.of.life.tasks.tASKDSL.Cell#getNNo <em>NNo</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>NNo</em>' attribute.
-   * @see #getNNo()
-   * @generated
-   */
-  void setNNo(int value);
+  void setYC(int value);
 
   /**
    * Returns the value of the '<em><b>S</b></em>' attribute.
+   * The literals are from the enumeration {@link game.of.life.tasks.tASKDSL.Status}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>S</em>' attribute.
-   * @see #setS(String)
+   * @see game.of.life.tasks.tASKDSL.Status
+   * @see #setS(Status)
    * @see game.of.life.tasks.tASKDSL.TASKDSLPackage#getCell_S()
    * @model
    * @generated
    */
-  String getS();
+  Status getS();
 
   /**
    * Sets the value of the '{@link game.of.life.tasks.tASKDSL.Cell#getS <em>S</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>S</em>' attribute.
+   * @see game.of.life.tasks.tASKDSL.Status
    * @see #getS()
    * @generated
    */
-  void setS(String value);
-
-  /**
-   * Returns the value of the '<em><b>A</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>A</em>' attribute.
-   * @see #setA(String)
-   * @see game.of.life.tasks.tASKDSL.TASKDSLPackage#getCell_A()
-   * @model
-   * @generated
-   */
-  String getA();
-
-  /**
-   * Sets the value of the '{@link game.of.life.tasks.tASKDSL.Cell#getA <em>A</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>A</em>' attribute.
-   * @see #getA()
-   * @generated
-   */
-  void setA(String value);
+  void setS(Status value);
 
 } // Cell

@@ -6,6 +6,7 @@ package game.of.life.tasks.tASKDSL.impl;
 import game.of.life.tasks.tASKDSL.*;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -68,17 +69,53 @@ public class TASKDSLFactoryImpl extends EFactoryImpl implements TASKDSLFactory
       case TASKDSLPackage.MODEL: return createModel();
       case TASKDSLPackage.GAME: return createGame();
       case TASKDSLPackage.GRİD_SİZE: return createGridSize();
-      case TASKDSLPackage.GAME_STATUS: return createGameStatus();
       case TASKDSLPackage.START_GRİD: return createStartGrid();
       case TASKDSLPackage.CELL: return createCell();
       case TASKDSLPackage.EVOLUTİON_RULES: return createevolutionRules();
-      case TASKDSLPackage.EXPRESSİON: return createExpression();
-      case TASKDSLPackage.OR_EXPRESSİON: return createOrExpression();
-      case TASKDSLPackage.AND_EXPRESSİON: return createAndExpression();
-      case TASKDSLPackage.COMPARİSON_EXPRESSİON: return createComparisonExpression();
-      case TASKDSLPackage.LİTERAL: return createLiteral();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object createFromString(EDataType eDataType, String initialValue)
+  {
+    switch (eDataType.getClassifierID())
+    {
+      case TASKDSLPackage.LOGİCAL_RELATİON:
+        return createlogicalRelationFromString(eDataType, initialValue);
+      case TASKDSLPackage.STATUS:
+        return createStatusFromString(eDataType, initialValue);
+      case TASKDSLPackage.RESULT:
+        return createResultFromString(eDataType, initialValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String convertToString(EDataType eDataType, Object instanceValue)
+  {
+    switch (eDataType.getClassifierID())
+    {
+      case TASKDSLPackage.LOGİCAL_RELATİON:
+        return convertlogicalRelationToString(eDataType, instanceValue);
+      case TASKDSLPackage.STATUS:
+        return convertStatusToString(eDataType, instanceValue);
+      case TASKDSLPackage.RESULT:
+        return convertResultToString(eDataType, instanceValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
   }
 
@@ -124,18 +161,6 @@ public class TASKDSLFactoryImpl extends EFactoryImpl implements TASKDSLFactory
    * @generated
    */
   @Override
-  public GameStatus createGameStatus()
-  {
-    GameStatusImpl gameStatus = new GameStatusImpl();
-    return gameStatus;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public StartGrid createStartGrid()
   {
     StartGridImpl startGrid = new StartGridImpl();
@@ -171,11 +196,11 @@ public class TASKDSLFactoryImpl extends EFactoryImpl implements TASKDSLFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public Expression createExpression()
+  public logicalRelation createlogicalRelationFromString(EDataType eDataType, String initialValue)
   {
-    ExpressionImpl expression = new ExpressionImpl();
-    return expression;
+    logicalRelation result = logicalRelation.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
   }
 
   /**
@@ -183,11 +208,9 @@ public class TASKDSLFactoryImpl extends EFactoryImpl implements TASKDSLFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public OrExpression createOrExpression()
+  public String convertlogicalRelationToString(EDataType eDataType, Object instanceValue)
   {
-    OrExpressionImpl orExpression = new OrExpressionImpl();
-    return orExpression;
+    return instanceValue == null ? null : instanceValue.toString();
   }
 
   /**
@@ -195,11 +218,11 @@ public class TASKDSLFactoryImpl extends EFactoryImpl implements TASKDSLFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public AndExpression createAndExpression()
+  public Status createStatusFromString(EDataType eDataType, String initialValue)
   {
-    AndExpressionImpl andExpression = new AndExpressionImpl();
-    return andExpression;
+    Status result = Status.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
   }
 
   /**
@@ -207,11 +230,9 @@ public class TASKDSLFactoryImpl extends EFactoryImpl implements TASKDSLFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public ComparisonExpression createComparisonExpression()
+  public String convertStatusToString(EDataType eDataType, Object instanceValue)
   {
-    ComparisonExpressionImpl comparisonExpression = new ComparisonExpressionImpl();
-    return comparisonExpression;
+    return instanceValue == null ? null : instanceValue.toString();
   }
 
   /**
@@ -219,11 +240,21 @@ public class TASKDSLFactoryImpl extends EFactoryImpl implements TASKDSLFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public Literal createLiteral()
+  public Result createResultFromString(EDataType eDataType, String initialValue)
   {
-    LiteralImpl literal = new LiteralImpl();
-    return literal;
+    Result result = Result.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertResultToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
   }
 
   /**

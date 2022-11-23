@@ -22,8 +22,12 @@ public class TASKDSLGenerator extends AbstractGenerator {
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
     EObject _head = IteratorExtensions.<EObject>head(resource.getAllContents());
     final Game root = ((Game) _head);
+    String _lastSegment = resource.getURI().lastSegment();
+    String rootPath = (_lastSegment + "/");
     if ((root != null)) {
       fsa.generateFile("GameInfo.txt", TextGenerator.toText(root));
+      fsa.generateFile((rootPath + "RuleOfLife.java"), RulesOfLife.rulesOfLife(root));
+      fsa.generateFile((rootPath + "GameOfLife.java"), GameOfLife.gameOfLife(root));
     }
   }
 }

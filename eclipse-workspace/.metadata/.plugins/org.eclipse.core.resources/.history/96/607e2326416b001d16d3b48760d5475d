@@ -1,0 +1,29 @@
+grammar game.of.life.tasks.TASKDSL with org.eclipse.xtext.common.Terminals
+generate tASKDSL "http://www.of.game/life/tasks/TASKDSL"
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore 
+ 
+Model:
+	Game;
+	
+
+Game: 'Game:' name=ID 
+	  'GridSize:'gridSize+=GridSize
+	  'EvolutionRules:' evolutionRules+=evolutionRules*
+	  'InitiallyActiveCells:' startGrid+=StartGrid*
+;
+
+//Grid Size:
+GridSize:'Height:' h=INT 'Length:' l=INT;
+
+
+//Initially Active Cells:
+StartGrid: 'CoordinateInfo:' 'x:' xC= INT  'y:' yC= INT
+		   'Status:' s='Live' 
+		;
+
+
+evolutionRules: 'if' 'neighborNo=' nNo=INT l=logicalRelation comparedNo=INT 'and' 'Cell Status' s=Status 'then' result=Result ;
+logicalRelation: equal='=='|greaterThan='>'|lessThan='<'|greaterOrEqual='>='|lessOrEqual='<=';
+Status:live='Live' | dead='Dead';
+Result:birth='Birth' | overcrowd='OverCrowd' |xisolate='xisolate' | survive='Survive';

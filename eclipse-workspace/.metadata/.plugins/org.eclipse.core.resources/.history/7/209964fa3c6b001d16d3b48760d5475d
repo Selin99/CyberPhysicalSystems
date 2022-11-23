@@ -1,0 +1,24 @@
+package game.of.life.tasks.generator
+
+
+import game.of.life.tasks.tASKDSL.Game
+import java.awt.Point;
+import java.util.ArrayList;
+
+
+class RulesOfLife {
+	public static void computeSurvivors (Game Root)
+	{
+		var aliveCells=Root.startGrid;
+		for(var i=0;i<aliveCells.size();i++)
+		{
+			var x=aliveCells.get(i).getXC();
+			var y=aliveCells.get(i).getYC();
+			
+		}
+		
+		
+	}
+	
+
+}

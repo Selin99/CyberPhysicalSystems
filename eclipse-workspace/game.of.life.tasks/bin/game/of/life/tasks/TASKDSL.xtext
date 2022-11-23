@@ -8,59 +8,29 @@ Model:
 	
 
 Game: 'Game:' name=ID 
-	  'GameStatus:'gameStatus+= GameStatus 
 	  'GridSize:'gridSize+=GridSize
 	  'EvolutionRules:' evolutionRules+=evolutionRules*
 	  'InitiallyActiveCells:' startGrid+=StartGrid*
-	  'AllCells:'allCells+=Cell*
+	  'AllCells:' allCells+=Cell*
 ;
 
 //Grid Size:
 GridSize:'Height:' h=INT 'Length:' l=INT;
 
 
-//GameStatus:
-GameStatus: so=('Continue' | 'Over') ;
-
 //Initially Active Cells:
 StartGrid: 'CoordinateInfo:' 'x:' xC= INT  'y:' yC= INT
-		   'NeighborNo:' nNo=INT
-		   'Status:' s='Live' 
-		   'NextGeneration:' a=('Birth' | 'OverCrowd' |'xisolate' | 'Survive')
+		   'Status:' s=Status 
 		;
 
-Cell: 'CoordinateInfo:' 'x:' x= INT  'y:' y= INT 
-	  'NeighborNo:' nNo=INT 
-	  'Status:' s=('Live'|'Dead') 
-	  'NextGeneration:' a=('Birth' | 'OverCrowd' |'xisolate' | 'Survive')
-	  ;
 
+//All Cells Info:
+Cell: 'CoordinateInfo:' 'x:' xC= INT  'y:' yC= INT
+	  'Status:' s=Status ;
 
-evolutionRules: 'if' bool=Expression 'then' ('Birth' | 'OverCrowd' |'xisolate' | 'Survive') ;
+//Evolution Rules:
+evolutionRules: 'if' 'neighborNo=' nNo=INT l=logicalRelation comparedNo=INT 'and' 'Cell Status' s=Status 'then' result=Result ;
 
-//Ref: https://stackoverflow.com/questions/38829863/using-boolean-expressions-as-arguments-on-xtext
-Expression:
-    OrExpression
-;   
-
-OrExpression returns Expression:
-    AndExpression ({OrExpression.left=current} "||" right=AndExpression)*  
-;   
-
-AndExpression returns Expression:
-    ComparisonExpression ({AndExpression.left=current} "&&" right=ComparisonExpression)*  
-;
-
-ComparisonExpression returns Expression:
-    PrimaryExpression ({ComparisonExpression.left=current} operator=("<"|"<="|"=="|">="|">") right=PrimaryExpression)*
-;
-
-PrimaryExpression returns Expression:
-    "(" Expression ")"
-    | Literal
-;
-
-Literal returns Expression:
-    {Literal} value="true" | "false" | INT | STRING
-;
-
+enum logicalRelation: EQUAL='=='|GREATERTHAN='>'|LESSTHAN='<'|GREATEROREQUAL='>='|LESSOREQUAL='<=';
+enum Status:LIVE='Live' | DEAD='Dead';
+enum Result: BIRTH='Birth' | OVERCROWD='OverCrowd' |XSOLATE='xisolate' | SURVIVE='Survive';

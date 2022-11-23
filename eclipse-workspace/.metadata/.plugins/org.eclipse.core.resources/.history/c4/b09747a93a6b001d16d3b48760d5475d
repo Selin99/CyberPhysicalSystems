@@ -1,0 +1,23 @@
+package game.of.life.tasks.generator
+package GameOfLife
+
+import game.of.life.tasks.tASKDSL.Game
+import 
+
+
+class CodeGenerator {
+	def static toCode (Game Root)
+	{
+		var aliveCells=Root.startGrid;
+		for(var i=0;i<aliveCells.size();i++)
+		{
+			var x=aliveCells.get(i).getXC();
+			var y=aliveCells.get(i).getYC();
+			
+		}
+		
+		
+	}
+	
+
+}

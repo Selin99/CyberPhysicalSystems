@@ -1,0 +1,66 @@
+grammar game.of.life.tasks.TASKDSL with org.eclipse.xtext.common.Terminals
+generate tASKDSL "http://www.of.game/life/tasks/TASKDSL"
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore 
+ 
+Model:
+	Game;
+	
+
+Game: 'Game:' name=ID 
+	  'GameStatus:'gameStatus+= GameStatus 
+	  'GridSize:'gridSize+=GridSize
+	  'EvolutionRules:' evolutionRules+=evolutionRules*
+	  'InitiallyActiveCells:' startGrid+=StartGrid*
+	  'AllCells:'allCells+=Cell*
+;
+
+//Grid Size:
+GridSize:'Height:' h=INT 'Length:' l=INT;
+
+
+//GameStatus:
+GameStatus: so=('Continue' | 'Over') ;
+
+//Initially Active Cells:
+StartGrid: 'CoordinateInfo:' 'x:' xC= INT  'y:' yC= INT
+		   'NeighborNo:' nNo=INT
+		   'Status:' s='Live' 
+		   'NextGeneration:' a=('Birth' | 'OverCrowd' |'xisolate' | 'Survive')
+		;
+
+Cell: 'CoordinateInfo:' 'x:' x= INT  'y:' y= INT 
+	  'NeighborNo:' nNo=INT 
+	  'Status:' s=('Live'|'Dead') 
+	  'NextGeneration:' a=('Birth' | 'OverCrowd' |'xisolate' | 'Survive')
+	  ;
+
+
+evolutionRules: 'if' bool=Expression 'then' result=('Birth' | 'OverCrowd' |'xisolate' | 'Survive') ;
+
+//Ref: https://stackoverflow.com/questions/38829863/using-boolean-expressions-as-arguments-on-xtext
+Expression:
+    OrExpression
+;   
+
+OrExpression returns Expression:
+    AndExpression ({OrExpression.left=current} "||" right=AndExpression)*  
+;   
+
+AndExpression returns Expression:
+    ComparisonExpression ({AndExpression.left=current} "&&" right=ComparisonExpression)*  
+;
+
+ComparisonExpression returns Expression:
+    PrimaryExpression ({ComparisonExpression.left=current} operator=("<"|"<="|"=="|">="|">") right=PrimaryExpression)*
+;
+
+PrimaryExpression returns Expression:
+    "(" Expression ")"
+    | Literal
+;
+
+Literal returns Expression:
+    {Literal} value="true" | "false" | INT | STRING
+;
+

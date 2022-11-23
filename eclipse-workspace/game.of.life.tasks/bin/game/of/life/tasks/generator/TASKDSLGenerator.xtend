@@ -8,7 +8,7 @@ import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 import game.of.life.tasks.tASKDSL.Game
-
+import org.eclipse.xtext.generator.JavaIoFileSystemAccess 
 
 /**
  * Generates code from your model files on save.
@@ -23,10 +23,16 @@ class TASKDSLGenerator extends AbstractGenerator {
 //				.filter(Greeting)
 //				.map[name]
 //				.join(', '))
-		val root = resource.allContents.head as Game; 
+		val root = resource.allContents.head as Game;
+		var rootPath = resource.getURI().lastSegment + "/"; 
     	if (root !== null) { 
-       	fsa.generateFile("GameInfo.txt", TextGenerator.toText(root)) 
-       	//fsa.generateFile("RuleOfLife.java",CodeGenerator.toCode(root));
+       	fsa.generateFile("GameInfo.txt", TextGenerator.toText(root)); 
+       	fsa.generateFile(rootPath+"RuleOfLife.java",RulesOfLife.rulesOfLife(root));
+       	fsa.generateFile(rootPath+"GameOfLife.java",GameOfLife.gameOfLife(root));
+       	
+       	
     } 
 	}
+	
+	
 }

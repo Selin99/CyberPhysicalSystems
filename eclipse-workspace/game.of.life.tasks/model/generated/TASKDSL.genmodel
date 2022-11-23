@@ -6,10 +6,26 @@
     copyrightFields="false" runtimeVersion="2.20">
   <genPackages prefix="TASKDSL" basePackage="game.of.life.tasks" disposableProviderFactory="true"
       fileExtensions="tdsl" ecorePackage="TASKDSL.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="TASKDSL.ecore#//logicalRelation">
+      <genEnumLiterals ecoreEnumLiteral="TASKDSL.ecore#//logicalRelation/EQUAL"/>
+      <genEnumLiterals ecoreEnumLiteral="TASKDSL.ecore#//logicalRelation/GREATERTHAN"/>
+      <genEnumLiterals ecoreEnumLiteral="TASKDSL.ecore#//logicalRelation/LESSTHAN"/>
+      <genEnumLiterals ecoreEnumLiteral="TASKDSL.ecore#//logicalRelation/GREATEROREQUAL"/>
+      <genEnumLiterals ecoreEnumLiteral="TASKDSL.ecore#//logicalRelation/LESSOREQUAL"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="TASKDSL.ecore#//Status">
+      <genEnumLiterals ecoreEnumLiteral="TASKDSL.ecore#//Status/LIVE"/>
+      <genEnumLiterals ecoreEnumLiteral="TASKDSL.ecore#//Status/DEAD"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="TASKDSL.ecore#//Result">
+      <genEnumLiterals ecoreEnumLiteral="TASKDSL.ecore#//Result/BIRTH"/>
+      <genEnumLiterals ecoreEnumLiteral="TASKDSL.ecore#//Result/OVERCROWD"/>
+      <genEnumLiterals ecoreEnumLiteral="TASKDSL.ecore#//Result/XSOLATE"/>
+      <genEnumLiterals ecoreEnumLiteral="TASKDSL.ecore#//Result/SURVIVE"/>
+    </genEnums>
     <genClasses ecoreClass="TASKDSL.ecore#//Model"/>
     <genClasses ecoreClass="TASKDSL.ecore#//Game">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//Game/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TASKDSL.ecore#//Game/gameStatus"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TASKDSL.ecore#//Game/gridSize"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TASKDSL.ecore#//Game/evolutionRules"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TASKDSL.ecore#//Game/startGrid"/>
@@ -19,42 +35,22 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//GridSize/h"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//GridSize/l"/>
     </genClasses>
-    <genClasses ecoreClass="TASKDSL.ecore#//GameStatus">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//GameStatus/so"/>
-    </genClasses>
     <genClasses ecoreClass="TASKDSL.ecore#//StartGrid">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//StartGrid/xC"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//StartGrid/yC"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//StartGrid/nNo"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//StartGrid/s"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//StartGrid/a"/>
     </genClasses>
     <genClasses ecoreClass="TASKDSL.ecore#//Cell">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//Cell/x"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//Cell/y"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//Cell/nNo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//Cell/xC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//Cell/yC"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//Cell/s"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//Cell/a"/>
     </genClasses>
     <genClasses ecoreClass="TASKDSL.ecore#//evolutionRules">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TASKDSL.ecore#//evolutionRules/bool"/>
-    </genClasses>
-    <genClasses ecoreClass="TASKDSL.ecore#//Expression"/>
-    <genClasses ecoreClass="TASKDSL.ecore#//OrExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TASKDSL.ecore#//OrExpression/left"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TASKDSL.ecore#//OrExpression/right"/>
-    </genClasses>
-    <genClasses ecoreClass="TASKDSL.ecore#//AndExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TASKDSL.ecore#//AndExpression/left"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TASKDSL.ecore#//AndExpression/right"/>
-    </genClasses>
-    <genClasses ecoreClass="TASKDSL.ecore#//ComparisonExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TASKDSL.ecore#//ComparisonExpression/left"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//ComparisonExpression/operator"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TASKDSL.ecore#//ComparisonExpression/right"/>
-    </genClasses>
-    <genClasses ecoreClass="TASKDSL.ecore#//Literal">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//Literal/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//evolutionRules/nNo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//evolutionRules/l"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//evolutionRules/comparedNo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//evolutionRules/s"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//evolutionRules/result"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

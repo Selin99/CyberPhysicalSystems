@@ -1,0 +1,30 @@
+package game.of.life.tasks.generator
+
+import game.of.life.tasks.tASKDSL.Game
+
+
+class TextGenerator {
+	def static toText(Game root)
+	''' 
+	    Info of the game «root.name» 
+	    «ENDFOR»
+	    
+	    GRID SIZE:
+	    
+	    «FOR grdSize: root.gridSize»
+	    Height:«grdSize.h»
+	    Length:«grdSize.l»
+	    «ENDFOR»
+	    
+	    ACTIVE POSITIONS IN INITIAL GRID:
+	    «FOR ig: root.startGrid»
+	  	X Coordinate:«ig.XC»
+	  	Y Coordinate:«ig.YC»
+	  	Life Status: «ig.s»
+	  	«ENDFOR»
+	
+		 
+	'''
+	}
+	
+	

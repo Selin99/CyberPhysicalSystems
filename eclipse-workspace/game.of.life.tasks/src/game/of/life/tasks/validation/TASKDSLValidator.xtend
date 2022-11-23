@@ -14,6 +14,7 @@ import game.of.life.tasks.tASKDSL.Game
  */
 class TASKDSLValidator extends AbstractTASKDSLValidator {
 	
+	//VALIDATION 1:
 	@Check 
 	def checkStartGridCoordinates(Game g) //Check if start coordinates are within the grid
 	{ 
@@ -35,123 +36,60 @@ class TASKDSLValidator extends AbstractTASKDSLValidator {
 	    
 	    } 
 	}
-		@Check 
-	def checkCellCoordinates(Game g) //Check if Cell Coordinates within the grid
-	{ 
+	//VALIDATION 2:
+	//total number of cells defined in dsl should not exceed the total gridsize=heightxlength
+	@Check
+	def checkNoOfTotalCells(Game g)
+	{
 		var gs = g.gridSize;
-	    var c =g.allCells ;
-	    
-	    for(var i=0; i<gs.size;i++)
-	    {
-		    var height = gs.get(i).h;
-		    var length = gs.get(i).l;
+		 for(var i=0; i<gs.size;i++)
+	    	{
+		    var height = gs.get(0).h; //grid size is set in the begining of game and it stays fixed for that game
+		    var length = gs.get(0).l;
 		    
-		    for(var j=0; j<c.size;j++)
-	    	{
-	    	if((c.get(j).getX())>height || ((c.get(j).getX())<0))
-	    	{
-	    		error("X axis out of grid",null);
-	    	}
-	    	if(( c.get(j).getY())>length || ((c.get(j).getY())<0))
-	    	{
-	    		error("Y axis out of grid",null);
-	    	}
-	    	}
-	    } 
-
+		    var totalSize= height*length;
+		    var cells=g.allCells;
+		    if(cells.size()>totalSize)
+		    	{
+		    		error("You defined more cells than supposed to be!!",null);	
+		    	}
+	    	} 
+		
 	}
-	@Check 
-	def checkCellStatus(Game g) //Check if NextAvailable Action for the State According to Neighbor Number is correct
-	{ 
-		var c =g.allCells ; //check all coordinates if they are inside the grid
-	    for(var i=0; i<c.size;i++)
-	    {
-	    	if (((c.get(i).getNNo())==3) && (( c.get(i).getS())=='Dead') )  
+	//VALIDATION 3:
+	//GridSize must be greater than minimum grid size defined inside the GameOfLife.java file (which is 400x400).
+	@Check
+	def checkMinGridSize(Game g)
+	{
+		 var gs = g.gridSize;
+		 for(var i=0; i<gs.size;i++)
 	    	{
-	    		//If Cell is dead and Neighbour No is exactly 3 -> Cell must birth
-	    		if(c.get(i).getA() !='Birth')
-	    		{
-		    		error("Item's next available action is birth!",null);
-	    		}
-	    	}
-	    	
-	    	if(((c.get(i).getNNo())<2) && ((c.get(i).getS())=='Live')) 
-	    	{
-	    		//If Cell is live and Neighbour No <1 ->  Cell must die because of isolation
-				if(c.get(i).getA() !='xisolate')
-	    		{
-		    		error("Item's next available action is isolation!",null);
-	    		}
-	    	}
-	    	
-	    	if(((c.get(i).getNNo())>4) && (( c.get(i).getS())=='Live')) 
-	    	{
-	    		//If Cell is live and Neighbour No >4 -> Cell must die because of overcrowding
-	    		if(c.get(i).getA() !='OverCrowd')
-	    		{
-		    		error("Item's next available action is death by overcrowding!",null);
-	    		}
-	    	}
-	    	if(((c.get(i).getNNo())==2) || (( c.get(i).getNNo())==3) && ((c.get(i).getS())=='Live')) 
-	    	{
-	    		//If Cell is live and Neighbour No ==2 or Neighbour No==3 -> Cell must survive
-	    		if(c.get(i).getA() !='Survive')
-	    		{
-		    		error("Item's next available action is survive!",null);
-	    		}
-	    	}    	
-	    }
+		    var height = gs.get(0).h; //grid size is set in the begining of game and it stays fixed for that game
+		    var length = gs.get(0).l;
+		    
+		    if(height<400)
+		    	{
+		    		error("Height is below minimum grid height!!",null);	
+		    	}
+		    if(length<400)
+		    	{
+		    		error("Length is below minimum grid length!!",null);
+		    	}
 	    
-	    var iac =g.startGrid; //check initally active coordinates if they are inside grid
-	    for(var i=0; i<iac.size;i++)
-	    {
-	    	if (((iac.get(i).getNNo())==3) && (( iac.get(i).getS())=='Dead') )  
-	    	{
-	    		//If Cell is dead and Neighbour No is exactly 3 -> Cell must birth
-	    		if(iac.get(i).getA() !='Birth')
-	    		{
-		    		error("Item's next available action is birth!",null);
-	    		}
-	    	}
-	    	
-	    	if(((iac.get(i).getNNo())<2) && ((iac.get(i).getS())=='Live')) 
-	    	{
-	    		//If Cell is live and Neighbour No <1 ->  Cell must die because of isolation
-				if(iac.get(i).getA() !='xisolate')
-	    		{
-		    		error("Item's next available action is isolation!",null);
-	    		}
-	    	}
-	    	
-	    	if(((iac.get(i).getNNo())>4) && (( iac.get(i).getS())=='Live')) 
-	    	{
-	    		//If Cell is live and Neighbour No >4 -> Cell must die because of overcrowding
-	    		if(iac.get(i).getA() !='OverCrowd')
-	    		{
-		    		error("Item's next available action is death by overcrowding!",null);
-	    		}
-	    	}
-	    	if(((iac.get(i).getNNo())==2) || (( iac.get(i).getNNo())==3) && ((iac.get(i).getS())=='Live')) 
-	    	{
-	    		//If Cell is live and Neighbour No ==2 or Neighbour No==3 -> Cell must survive
-	    		if(iac.get(i).getA() !='Survive')
-	    		{
-		    		error("Item's next available action is survive!",null);
-	    		}
-	    	}    	
-	    }
+	   		 } 
 	}
-	
+	//VALIDATION 4:
 	@Check 
 	def checkDoubleCoordinates(Game g)
 	{ 
 	//Do not allow 2 different specifications for the same coordinate for an instance of the game
-	    var clist = g.allCells 
+	//Ex: Cell (0,0) both live and dead at the same time ? Error
+	    var clist = g.startGrid 
 	    for (var i= 0; i < clist.size ; i++)
 	    { 
 	      for (var j = i+1; j < clist.size ; j++)
 	      { 
-	        if ((clist.get(i).x.equals(clist.get(j).x)) && (clist.get(i).y.equals(clist.get(j).y)))
+	        if ((clist.get(i).getXC().equals(clist.get(j).getXC())) && (clist.get(i).getYC().equals(clist.get(j).getYC())))
 	         { 
 	            error("Duplicated Coordinate!!",null) 
 	         } 
@@ -160,17 +98,11 @@ class TASKDSLValidator extends AbstractTASKDSLValidator {
   	} 
   	
   	
+  	
+  	//VALIDATION 5:
   	def checkIfCoordinateValuesPositive(Game g)
   	{
-  		var clist = g.allCells 
-	    for (var i= 0; i < clist.size ; i++)
-	    { 
-	        if ((clist.get(i).x<0) || (clist.get(i).y<0))
-	         { 
-	            error("Negative Coordinate Not Allowed!!",null) 
-	         } 
-	       
-	    } 
+  		//According to the swing package all coordinates should contain only positive values.
 	    var iaclist = g.startGrid
 	    for (var i= 0; i < iaclist.size ; i++)
 	    { 
@@ -181,6 +113,54 @@ class TASKDSLValidator extends AbstractTASKDSLValidator {
 	       
 	    } 
   	}
-
+  	
+  	//VALIDATION 6:
+	def checkEvolutionRulesForCells(Game g)
+	{
+		var evRules = g.evolutionRules
+		for(var i=0;i<evRules.size;i++)
+		{
+			if(evRules.get(i).getNNo<0)
+			{
+				//A cell can not have negative neighborNo:
+				error("A cell can not have negative neighbor number. Invalid Rule!!",null);
+			}
+			
+			if(evRules.get(i).getNNo>8)
+			{
+				//A cell can not have more than 8 neighborNo:
+				error("A cell can not have more than 8 neighbors. Invalid Rule!!",null);
+			}
+		}		
+	}
+	//VALIDATION 7:
+	def checkDuplicateRule(Game g)
+	{
+		//Do not allow 2 different evolution rules for the same boolean expression with different results!!
+		//Ex: neighborNo>5 and status=live -> Birth   neighborNo>5 and status=live -> Dead ?? Unambigous=Error
+		
+		//Allow 2 the repetition of evolution rules if the result is also same but raise a warning to inform the user.
+		//ex: neighborNo>5 and status=live -> Birth   neighborNo>5 and status=live -> Birth ?? Not Unambigous=warning
+		
+	   var evRules = g.evolutionRules
+	    for (var i= 0; i < evRules.size ; i++)
+	    { 
+	      for (var j = i+1; j < evRules.size ; j++)
+	      { 
+	        if ((evRules.get(i).getNNo().equals(evRules.get(j).getNNo())) && (evRules.get(i).getL().equals(evRules.get(j).getL()))&& (evRules.get(i).getComparedNo().equals(evRules.get(j).getComparedNo())))
+	         {
+	         	if(evRules.get(i).getResult().equals(evRules.get(j).getResult())) 
+	            {
+	            	warning("Same Rule replied!!",null); 
+	            }
+	            else
+	            {
+	            	error("Unambogous Rule!!",null);
+	            }
+	            	
+	         } 
+	      } 
+	    } 	
+	}
 }
 

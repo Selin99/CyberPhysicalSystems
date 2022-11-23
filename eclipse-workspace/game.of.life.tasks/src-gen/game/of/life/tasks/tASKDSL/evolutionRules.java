@@ -14,7 +14,11 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link game.of.life.tasks.tASKDSL.evolutionRules#getBool <em>Bool</em>}</li>
+ *   <li>{@link game.of.life.tasks.tASKDSL.evolutionRules#getNNo <em>NNo</em>}</li>
+ *   <li>{@link game.of.life.tasks.tASKDSL.evolutionRules#getL <em>L</em>}</li>
+ *   <li>{@link game.of.life.tasks.tASKDSL.evolutionRules#getComparedNo <em>Compared No</em>}</li>
+ *   <li>{@link game.of.life.tasks.tASKDSL.evolutionRules#getS <em>S</em>}</li>
+ *   <li>{@link game.of.life.tasks.tASKDSL.evolutionRules#getResult <em>Result</em>}</li>
  * </ul>
  *
  * @see game.of.life.tasks.tASKDSL.TASKDSLPackage#getevolutionRules()
@@ -24,25 +28,122 @@ import org.eclipse.emf.ecore.EObject;
 public interface evolutionRules extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Bool</b></em>' containment reference.
+   * Returns the value of the '<em><b>NNo</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Bool</em>' containment reference.
-   * @see #setBool(Expression)
-   * @see game.of.life.tasks.tASKDSL.TASKDSLPackage#getevolutionRules_Bool()
-   * @model containment="true"
+   * @return the value of the '<em>NNo</em>' attribute.
+   * @see #setNNo(int)
+   * @see game.of.life.tasks.tASKDSL.TASKDSLPackage#getevolutionRules_NNo()
+   * @model
    * @generated
    */
-  Expression getBool();
+  int getNNo();
 
   /**
-   * Sets the value of the '{@link game.of.life.tasks.tASKDSL.evolutionRules#getBool <em>Bool</em>}' containment reference.
+   * Sets the value of the '{@link game.of.life.tasks.tASKDSL.evolutionRules#getNNo <em>NNo</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Bool</em>' containment reference.
-   * @see #getBool()
+   * @param value the new value of the '<em>NNo</em>' attribute.
+   * @see #getNNo()
    * @generated
    */
-  void setBool(Expression value);
+  void setNNo(int value);
+
+  /**
+   * Returns the value of the '<em><b>L</b></em>' attribute.
+   * The literals are from the enumeration {@link game.of.life.tasks.tASKDSL.logicalRelation}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>L</em>' attribute.
+   * @see game.of.life.tasks.tASKDSL.logicalRelation
+   * @see #setL(logicalRelation)
+   * @see game.of.life.tasks.tASKDSL.TASKDSLPackage#getevolutionRules_L()
+   * @model
+   * @generated
+   */
+  logicalRelation getL();
+
+  /**
+   * Sets the value of the '{@link game.of.life.tasks.tASKDSL.evolutionRules#getL <em>L</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>L</em>' attribute.
+   * @see game.of.life.tasks.tASKDSL.logicalRelation
+   * @see #getL()
+   * @generated
+   */
+  void setL(logicalRelation value);
+
+  /**
+   * Returns the value of the '<em><b>Compared No</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Compared No</em>' attribute.
+   * @see #setComparedNo(int)
+   * @see game.of.life.tasks.tASKDSL.TASKDSLPackage#getevolutionRules_ComparedNo()
+   * @model
+   * @generated
+   */
+  int getComparedNo();
+
+  /**
+   * Sets the value of the '{@link game.of.life.tasks.tASKDSL.evolutionRules#getComparedNo <em>Compared No</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Compared No</em>' attribute.
+   * @see #getComparedNo()
+   * @generated
+   */
+  void setComparedNo(int value);
+
+  /**
+   * Returns the value of the '<em><b>S</b></em>' attribute.
+   * The literals are from the enumeration {@link game.of.life.tasks.tASKDSL.Status}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>S</em>' attribute.
+   * @see game.of.life.tasks.tASKDSL.Status
+   * @see #setS(Status)
+   * @see game.of.life.tasks.tASKDSL.TASKDSLPackage#getevolutionRules_S()
+   * @model
+   * @generated
+   */
+  Status getS();
+
+  /**
+   * Sets the value of the '{@link game.of.life.tasks.tASKDSL.evolutionRules#getS <em>S</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>S</em>' attribute.
+   * @see game.of.life.tasks.tASKDSL.Status
+   * @see #getS()
+   * @generated
+   */
+  void setS(Status value);
+
+  /**
+   * Returns the value of the '<em><b>Result</b></em>' attribute.
+   * The literals are from the enumeration {@link game.of.life.tasks.tASKDSL.Result}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Result</em>' attribute.
+   * @see game.of.life.tasks.tASKDSL.Result
+   * @see #setResult(Result)
+   * @see game.of.life.tasks.tASKDSL.TASKDSLPackage#getevolutionRules_Result()
+   * @model
+   * @generated
+   */
+  Result getResult();
+
+  /**
+   * Sets the value of the '{@link game.of.life.tasks.tASKDSL.evolutionRules#getResult <em>Result</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Result</em>' attribute.
+   * @see game.of.life.tasks.tASKDSL.Result
+   * @see #getResult()
+   * @generated
+   */
+  void setResult(Result value);
 
 } // evolutionRules
