@@ -3,6 +3,7 @@
  */
 package game.of.life.tasks.validation;
 
+import com.google.common.base.Objects;
 import game.of.life.tasks.tASKDSL.Cell;
 import game.of.life.tasks.tASKDSL.Game;
 import game.of.life.tasks.tASKDSL.GridSize;
@@ -43,12 +44,12 @@ public class TASKDSLValidator extends AbstractTASKDSLValidator {
       {
         int height = gs.get(i).getH();
         int length = gs.get(i).getL();
-        for (int j = 0; (i < c.size()); i++) {
+        for (int j = 0; (j < c.size()); j++) {
           {
-            if (((c.get(i).getX() > height) || (c.get(i).getX() < 0))) {
+            if (((c.get(j).getX() > height) || (c.get(j).getX() < 0))) {
               this.error("X axis out of grid", null);
             }
-            if (((c.get(i).getY() > length) || (c.get(i).getY() < 0))) {
+            if (((c.get(j).getY() > length) || (c.get(j).getY() < 0))) {
               this.error("Y axis out of grid", null);
             }
           }
@@ -62,92 +63,65 @@ public class TASKDSLValidator extends AbstractTASKDSLValidator {
     EList<Cell> c = g.getAllCells();
     for (int i = 0; (i < c.size()); i++) {
       {
-        if (((c.get(i).getNNo() == 3) && (c.get(i).getS() == 0))) {
-          int _birth = c.get(i).getAvAction().getBirth();
-          boolean _notEquals = (_birth != 1);
+        if (((c.get(i).getNNo() == 3) && Objects.equal(c.get(i).getS(), "Dead"))) {
+          String _a = c.get(i).getA();
+          boolean _notEquals = (!Objects.equal(_a, "Birth"));
           if (_notEquals) {
             this.error("Item\'s next available action is birth!", null);
           }
-          int _overcrowd = c.get(i).getAvAction().getOvercrowd();
-          boolean _equals = (_overcrowd == 1);
-          if (_equals) {
-            this.error("Death by Overcrowing is not available for this item ! Try changing to birth!", null);
-          }
-          int _sur = c.get(i).getAvAction().getSur();
-          boolean _equals_1 = (_sur == 1);
-          if (_equals_1) {
-            this.error("Survival is not available for this item ! Try changing to birth!", null);
-          }
-          int _xiso = c.get(i).getAvAction().getXiso();
-          boolean _equals_2 = (_xiso == 1);
-          if (_equals_2) {
-            this.error("Death by Isolation is not available for this item ! Try changing to birth!", null);
-          }
         }
-        if (((c.get(i).getNNo() < 2) && (c.get(i).getS() == 1))) {
-          int _xiso_1 = c.get(i).getAvAction().getXiso();
-          boolean _notEquals_1 = (_xiso_1 != 1);
+        if (((c.get(i).getNNo() < 2) && Objects.equal(c.get(i).getS(), "Live"))) {
+          String _a_1 = c.get(i).getA();
+          boolean _notEquals_1 = (!Objects.equal(_a_1, "xisolate"));
           if (_notEquals_1) {
-            this.error("Item\'s next available action is death by isolation!", null);
-          }
-          int _overcrowd_1 = c.get(i).getAvAction().getOvercrowd();
-          boolean _equals_3 = (_overcrowd_1 == 1);
-          if (_equals_3) {
-            this.error("Death by Overcrowing is not available for this item ! Try changing to death by isolation!", null);
-          }
-          int _sur_1 = c.get(i).getAvAction().getSur();
-          boolean _equals_4 = (_sur_1 == 1);
-          if (_equals_4) {
-            this.error("Survival is not available for this item ! Try changing to death by isolation!", null);
-          }
-          int _birth_1 = c.get(i).getAvAction().getBirth();
-          boolean _equals_5 = (_birth_1 == 1);
-          if (_equals_5) {
-            this.error("Birth is not available for this item ! Try changing to death by isolation!", null);
+            this.error("Item\'s next available action is isolation!", null);
           }
         }
-        if (((c.get(i).getNNo() > 3) && (c.get(i).getS() == 1))) {
-          int _overcrowd_2 = c.get(i).getAvAction().getOvercrowd();
-          boolean _notEquals_2 = (_overcrowd_2 != 1);
+        if (((c.get(i).getNNo() > 4) && Objects.equal(c.get(i).getS(), "Live"))) {
+          String _a_2 = c.get(i).getA();
+          boolean _notEquals_2 = (!Objects.equal(_a_2, "OverCrowd"));
           if (_notEquals_2) {
             this.error("Item\'s next available action is death by overcrowding!", null);
           }
-          int _xiso_2 = c.get(i).getAvAction().getXiso();
-          boolean _equals_6 = (_xiso_2 == 1);
-          if (_equals_6) {
-            this.error("Death by isolation is not available for this item ! Try changing to death by overcrowding!", null);
-          }
-          int _sur_2 = c.get(i).getAvAction().getSur();
-          boolean _equals_7 = (_sur_2 == 1);
-          if (_equals_7) {
-            this.error("Survival is not available for this item ! Try changing to death by overcrowding!", null);
-          }
-          int _birth_2 = c.get(i).getAvAction().getBirth();
-          boolean _equals_8 = (_birth_2 == 1);
-          if (_equals_8) {
-            this.error("Birth is not available for this item ! Try changing to death by overcrowding!", null);
+        }
+        if (((c.get(i).getNNo() == 2) || ((c.get(i).getNNo() == 3) && Objects.equal(c.get(i).getS(), "Live")))) {
+          String _a_3 = c.get(i).getA();
+          boolean _notEquals_3 = (!Objects.equal(_a_3, "Survive"));
+          if (_notEquals_3) {
+            this.error("Item\'s next available action is survive!", null);
           }
         }
-        if (((c.get(i).getNNo() == 2) || ((c.get(i).getNNo() == 3) && (c.get(i).getS() == 1)))) {
-          int _sur_3 = c.get(i).getAvAction().getSur();
-          boolean _notEquals_3 = (_sur_3 != 1);
+      }
+    }
+    EList<StartGrid> iac = g.getStartGrid();
+    for (int i = 0; (i < iac.size()); i++) {
+      {
+        if (((iac.get(i).getNNo() == 3) && Objects.equal(iac.get(i).getS(), "Dead"))) {
+          String _a = iac.get(i).getA();
+          boolean _notEquals = (!Objects.equal(_a, "Birth"));
+          if (_notEquals) {
+            this.error("Item\'s next available action is birth!", null);
+          }
+        }
+        if (((iac.get(i).getNNo() < 2) && Objects.equal(iac.get(i).getS(), "Live"))) {
+          String _a_1 = iac.get(i).getA();
+          boolean _notEquals_1 = (!Objects.equal(_a_1, "xisolate"));
+          if (_notEquals_1) {
+            this.error("Item\'s next available action is isolation!", null);
+          }
+        }
+        if (((iac.get(i).getNNo() > 4) && Objects.equal(iac.get(i).getS(), "Live"))) {
+          String _a_2 = iac.get(i).getA();
+          boolean _notEquals_2 = (!Objects.equal(_a_2, "OverCrowd"));
+          if (_notEquals_2) {
+            this.error("Item\'s next available action is death by overcrowding!", null);
+          }
+        }
+        if (((iac.get(i).getNNo() == 2) || ((iac.get(i).getNNo() == 3) && Objects.equal(iac.get(i).getS(), "Live")))) {
+          String _a_3 = iac.get(i).getA();
+          boolean _notEquals_3 = (!Objects.equal(_a_3, "Survive"));
           if (_notEquals_3) {
-            this.error("Item\'s next available action is survival!", null);
-          }
-          int _xiso_3 = c.get(i).getAvAction().getXiso();
-          boolean _equals_9 = (_xiso_3 == 1);
-          if (_equals_9) {
-            this.error("Death by isolation is not available for this item ! Try changing to survival!", null);
-          }
-          int _overcrowd_3 = c.get(i).getAvAction().getOvercrowd();
-          boolean _equals_10 = (_overcrowd_3 == 1);
-          if (_equals_10) {
-            this.error("Death by overcrowding is not available for this item ! Try changing to survival!", null);
-          }
-          int _birth_3 = c.get(i).getAvAction().getBirth();
-          boolean _equals_11 = (_birth_3 == 1);
-          if (_equals_11) {
-            this.error("Birth is not available for this item ! Try changing to survival!", null);
+            this.error("Item\'s next available action is survive!", null);
           }
         }
       }
@@ -162,6 +136,21 @@ public class TASKDSLValidator extends AbstractTASKDSLValidator {
         if ((Integer.valueOf(clist.get(i).getX()).equals(Integer.valueOf(clist.get(j).getX())) && Integer.valueOf(clist.get(i).getY()).equals(Integer.valueOf(clist.get(j).getY())))) {
           this.error("Duplicated Coordinate!!", null);
         }
+      }
+    }
+  }
+
+  public void checkIfCoordinateValuesPositive(final Game g) {
+    EList<Cell> clist = g.getAllCells();
+    for (int i = 0; (i < clist.size()); i++) {
+      if (((clist.get(i).getX() < 0) || (clist.get(i).getY() < 0))) {
+        this.error("Negative Coordinate Not Allowed!!", null);
+      }
+    }
+    EList<StartGrid> iaclist = g.getStartGrid();
+    for (int i = 0; (i < iaclist.size()); i++) {
+      if (((iaclist.get(i).getXC() < 0) || (iaclist.get(i).getYC() < 0))) {
+        this.error("Negative Coordinate Not Allowed!!", null);
       }
     }
   }

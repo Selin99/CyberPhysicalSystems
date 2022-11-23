@@ -70,8 +70,13 @@ public class TASKDSLFactoryImpl extends EFactoryImpl implements TASKDSLFactory
       case TASKDSLPackage.GRİD_SİZE: return createGridSize();
       case TASKDSLPackage.GAME_STATUS: return createGameStatus();
       case TASKDSLPackage.START_GRİD: return createStartGrid();
-      case TASKDSLPackage.AV_ACTİON: return createavAction();
       case TASKDSLPackage.CELL: return createCell();
+      case TASKDSLPackage.EVOLUTİON_RULES: return createevolutionRules();
+      case TASKDSLPackage.EXPRESSİON: return createExpression();
+      case TASKDSLPackage.OR_EXPRESSİON: return createOrExpression();
+      case TASKDSLPackage.AND_EXPRESSİON: return createAndExpression();
+      case TASKDSLPackage.COMPARİSON_EXPRESSİON: return createComparisonExpression();
+      case TASKDSLPackage.LİTERAL: return createLiteral();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -143,10 +148,10 @@ public class TASKDSLFactoryImpl extends EFactoryImpl implements TASKDSLFactory
    * @generated
    */
   @Override
-  public avAction createavAction()
+  public Cell createCell()
   {
-    avActionImpl avAction = new avActionImpl();
-    return avAction;
+    CellImpl cell = new CellImpl();
+    return cell;
   }
 
   /**
@@ -155,10 +160,70 @@ public class TASKDSLFactoryImpl extends EFactoryImpl implements TASKDSLFactory
    * @generated
    */
   @Override
-  public Cell createCell()
+  public evolutionRules createevolutionRules()
   {
-    CellImpl cell = new CellImpl();
-    return cell;
+    evolutionRulesImpl evolutionRules = new evolutionRulesImpl();
+    return evolutionRules;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Expression createExpression()
+  {
+    ExpressionImpl expression = new ExpressionImpl();
+    return expression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public OrExpression createOrExpression()
+  {
+    OrExpressionImpl orExpression = new OrExpressionImpl();
+    return orExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public AndExpression createAndExpression()
+  {
+    AndExpressionImpl andExpression = new AndExpressionImpl();
+    return andExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ComparisonExpression createComparisonExpression()
+  {
+    ComparisonExpressionImpl comparisonExpression = new ComparisonExpressionImpl();
+    return comparisonExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Literal createLiteral()
+  {
+    LiteralImpl literal = new LiteralImpl();
+    return literal;
   }
 
   /**

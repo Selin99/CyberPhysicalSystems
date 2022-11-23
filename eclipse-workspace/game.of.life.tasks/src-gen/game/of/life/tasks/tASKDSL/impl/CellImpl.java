@@ -5,13 +5,10 @@ package game.of.life.tasks.tASKDSL.impl;
 
 import game.of.life.tasks.tASKDSL.Cell;
 import game.of.life.tasks.tASKDSL.TASKDSLPackage;
-import game.of.life.tasks.tASKDSL.avAction;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -24,38 +21,17 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link game.of.life.tasks.tASKDSL.impl.CellImpl#getName <em>Name</em>}</li>
  *   <li>{@link game.of.life.tasks.tASKDSL.impl.CellImpl#getX <em>X</em>}</li>
  *   <li>{@link game.of.life.tasks.tASKDSL.impl.CellImpl#getY <em>Y</em>}</li>
  *   <li>{@link game.of.life.tasks.tASKDSL.impl.CellImpl#getNNo <em>NNo</em>}</li>
  *   <li>{@link game.of.life.tasks.tASKDSL.impl.CellImpl#getS <em>S</em>}</li>
- *   <li>{@link game.of.life.tasks.tASKDSL.impl.CellImpl#getAvAction <em>Av Action</em>}</li>
+ *   <li>{@link game.of.life.tasks.tASKDSL.impl.CellImpl#getA <em>A</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class CellImpl extends MinimalEObjectImpl.Container implements Cell
 {
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
-
   /**
    * The default value of the '{@link #getX() <em>X</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -124,7 +100,7 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell
    * @generated
    * @ordered
    */
-  protected static final int S_EDEFAULT = 0;
+  protected static final String S_EDEFAULT = null;
 
   /**
    * The cached value of the '{@link #getS() <em>S</em>}' attribute.
@@ -134,17 +110,27 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell
    * @generated
    * @ordered
    */
-  protected int s = S_EDEFAULT;
+  protected String s = S_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getAvAction() <em>Av Action</em>}' containment reference.
+   * The default value of the '{@link #getA() <em>A</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getAvAction()
+   * @see #getA()
    * @generated
    * @ordered
    */
-  protected avAction avAction;
+  protected static final String A_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getA() <em>A</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getA()
+   * @generated
+   * @ordered
+   */
+  protected String a = A_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -165,31 +151,6 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell
   protected EClass eStaticClass()
   {
     return TASKDSLPackage.Literals.CELL;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, TASKDSLPackage.CELL__NAME, oldName, name));
   }
 
   /**
@@ -273,7 +234,7 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell
    * @generated
    */
   @Override
-  public int getS()
+  public String getS()
   {
     return s;
   }
@@ -284,9 +245,9 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell
    * @generated
    */
   @Override
-  public void setS(int newS)
+  public void setS(String newS)
   {
-    int oldS = s;
+    String oldS = s;
     s = newS;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, TASKDSLPackage.CELL__S, oldS, s));
@@ -298,9 +259,9 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell
    * @generated
    */
   @Override
-  public avAction getAvAction()
+  public String getA()
   {
-    return avAction;
+    return a;
   }
 
   /**
@@ -308,54 +269,13 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetAvAction(avAction newAvAction, NotificationChain msgs)
+  @Override
+  public void setA(String newA)
   {
-    avAction oldAvAction = avAction;
-    avAction = newAvAction;
+    String oldA = a;
+    a = newA;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TASKDSLPackage.CELL__AV_ACTİON, oldAvAction, newAvAction);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setAvAction(avAction newAvAction)
-  {
-    if (newAvAction != avAction)
-    {
-      NotificationChain msgs = null;
-      if (avAction != null)
-        msgs = ((InternalEObject)avAction).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TASKDSLPackage.CELL__AV_ACTİON, null, msgs);
-      if (newAvAction != null)
-        msgs = ((InternalEObject)newAvAction).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - TASKDSLPackage.CELL__AV_ACTİON, null, msgs);
-      msgs = basicSetAvAction(newAvAction, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, TASKDSLPackage.CELL__AV_ACTİON, newAvAction, newAvAction));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case TASKDSLPackage.CELL__AV_ACTİON:
-        return basicSetAvAction(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+      eNotify(new ENotificationImpl(this, Notification.SET, TASKDSLPackage.CELL__A, oldA, a));
   }
 
   /**
@@ -368,8 +288,6 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell
   {
     switch (featureID)
     {
-      case TASKDSLPackage.CELL__NAME:
-        return getName();
       case TASKDSLPackage.CELL__X:
         return getX();
       case TASKDSLPackage.CELL__Y:
@@ -378,8 +296,8 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell
         return getNNo();
       case TASKDSLPackage.CELL__S:
         return getS();
-      case TASKDSLPackage.CELL__AV_ACTİON:
-        return getAvAction();
+      case TASKDSLPackage.CELL__A:
+        return getA();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -394,9 +312,6 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell
   {
     switch (featureID)
     {
-      case TASKDSLPackage.CELL__NAME:
-        setName((String)newValue);
-        return;
       case TASKDSLPackage.CELL__X:
         setX((Integer)newValue);
         return;
@@ -407,10 +322,10 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell
         setNNo((Integer)newValue);
         return;
       case TASKDSLPackage.CELL__S:
-        setS((Integer)newValue);
+        setS((String)newValue);
         return;
-      case TASKDSLPackage.CELL__AV_ACTİON:
-        setAvAction((avAction)newValue);
+      case TASKDSLPackage.CELL__A:
+        setA((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -426,9 +341,6 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell
   {
     switch (featureID)
     {
-      case TASKDSLPackage.CELL__NAME:
-        setName(NAME_EDEFAULT);
-        return;
       case TASKDSLPackage.CELL__X:
         setX(X_EDEFAULT);
         return;
@@ -441,8 +353,8 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell
       case TASKDSLPackage.CELL__S:
         setS(S_EDEFAULT);
         return;
-      case TASKDSLPackage.CELL__AV_ACTİON:
-        setAvAction((avAction)null);
+      case TASKDSLPackage.CELL__A:
+        setA(A_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -458,8 +370,6 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell
   {
     switch (featureID)
     {
-      case TASKDSLPackage.CELL__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case TASKDSLPackage.CELL__X:
         return x != X_EDEFAULT;
       case TASKDSLPackage.CELL__Y:
@@ -467,9 +377,9 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell
       case TASKDSLPackage.CELL__NNO:
         return nNo != NNO_EDEFAULT;
       case TASKDSLPackage.CELL__S:
-        return s != S_EDEFAULT;
-      case TASKDSLPackage.CELL__AV_ACTİON:
-        return avAction != null;
+        return S_EDEFAULT == null ? s != null : !S_EDEFAULT.equals(s);
+      case TASKDSLPackage.CELL__A:
+        return A_EDEFAULT == null ? a != null : !A_EDEFAULT.equals(a);
     }
     return super.eIsSet(featureID);
   }
@@ -485,9 +395,7 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(", x: ");
+    result.append(" (x: ");
     result.append(x);
     result.append(", y: ");
     result.append(y);
@@ -495,6 +403,8 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell
     result.append(nNo);
     result.append(", s: ");
     result.append(s);
+    result.append(", a: ");
+    result.append(a);
     result.append(')');
     return result.toString();
   }

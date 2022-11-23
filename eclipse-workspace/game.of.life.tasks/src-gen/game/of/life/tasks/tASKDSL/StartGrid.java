@@ -16,6 +16,9 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link game.of.life.tasks.tASKDSL.StartGrid#getXC <em>XC</em>}</li>
  *   <li>{@link game.of.life.tasks.tASKDSL.StartGrid#getYC <em>YC</em>}</li>
+ *   <li>{@link game.of.life.tasks.tASKDSL.StartGrid#getNNo <em>NNo</em>}</li>
+ *   <li>{@link game.of.life.tasks.tASKDSL.StartGrid#getS <em>S</em>}</li>
+ *   <li>{@link game.of.life.tasks.tASKDSL.StartGrid#getA <em>A</em>}</li>
  * </ul>
  *
  * @see game.of.life.tasks.tASKDSL.TASKDSLPackage#getStartGrid()
@@ -67,5 +70,71 @@ public interface StartGrid extends EObject
    * @generated
    */
   void setYC(int value);
+
+  /**
+   * Returns the value of the '<em><b>NNo</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>NNo</em>' attribute.
+   * @see #setNNo(int)
+   * @see game.of.life.tasks.tASKDSL.TASKDSLPackage#getStartGrid_NNo()
+   * @model
+   * @generated
+   */
+  int getNNo();
+
+  /**
+   * Sets the value of the '{@link game.of.life.tasks.tASKDSL.StartGrid#getNNo <em>NNo</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>NNo</em>' attribute.
+   * @see #getNNo()
+   * @generated
+   */
+  void setNNo(int value);
+
+  /**
+   * Returns the value of the '<em><b>S</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>S</em>' attribute.
+   * @see #setS(String)
+   * @see game.of.life.tasks.tASKDSL.TASKDSLPackage#getStartGrid_S()
+   * @model
+   * @generated
+   */
+  String getS();
+
+  /**
+   * Sets the value of the '{@link game.of.life.tasks.tASKDSL.StartGrid#getS <em>S</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>S</em>' attribute.
+   * @see #getS()
+   * @generated
+   */
+  void setS(String value);
+
+  /**
+   * Returns the value of the '<em><b>A</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>A</em>' attribute.
+   * @see #setA(String)
+   * @see game.of.life.tasks.tASKDSL.TASKDSLPackage#getStartGrid_A()
+   * @model
+   * @generated
+   */
+  String getA();
+
+  /**
+   * Sets the value of the '{@link game.of.life.tasks.tASKDSL.StartGrid#getA <em>A</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>A</em>' attribute.
+   * @see #getA()
+   * @generated
+   */
+  void setA(String value);
 
 } // StartGrid

@@ -3,15 +3,20 @@
  */
 package game.of.life.tasks.tASKDSL.impl;
 
+import game.of.life.tasks.tASKDSL.AndExpression;
 import game.of.life.tasks.tASKDSL.Cell;
+import game.of.life.tasks.tASKDSL.ComparisonExpression;
+import game.of.life.tasks.tASKDSL.Expression;
 import game.of.life.tasks.tASKDSL.Game;
 import game.of.life.tasks.tASKDSL.GameStatus;
 import game.of.life.tasks.tASKDSL.GridSize;
+import game.of.life.tasks.tASKDSL.Literal;
 import game.of.life.tasks.tASKDSL.Model;
+import game.of.life.tasks.tASKDSL.OrExpression;
 import game.of.life.tasks.tASKDSL.StartGrid;
 import game.of.life.tasks.tASKDSL.TASKDSLFactory;
 import game.of.life.tasks.tASKDSL.TASKDSLPackage;
-import game.of.life.tasks.tASKDSL.avAction;
+import game.of.life.tasks.tASKDSL.evolutionRules;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -68,14 +73,49 @@ public class TASKDSLPackageImpl extends EPackageImpl implements TASKDSLPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass avActionEClass = null;
+  private EClass cellEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass cellEClass = null;
+  private EClass evolutionRulesEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass expressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass orExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass andExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass comparisonExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass literalEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -200,7 +240,7 @@ public class TASKDSLPackageImpl extends EPackageImpl implements TASKDSLPackage
    * @generated
    */
   @Override
-  public EReference getGame_StartGrid()
+  public EReference getGame_EvolutionRules()
   {
     return (EReference)gameEClass.getEStructuralFeatures().get(3);
   }
@@ -211,9 +251,20 @@ public class TASKDSLPackageImpl extends EPackageImpl implements TASKDSLPackage
    * @generated
    */
   @Override
-  public EReference getGame_AllCells()
+  public EReference getGame_StartGrid()
   {
     return (EReference)gameEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getGame_AllCells()
+  {
+    return (EReference)gameEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -266,7 +317,7 @@ public class TASKDSLPackageImpl extends EPackageImpl implements TASKDSLPackage
    * @generated
    */
   @Override
-  public EAttribute getGameStatus_Gs()
+  public EAttribute getGameStatus_So()
   {
     return (EAttribute)gameStatusEClass.getEStructuralFeatures().get(0);
   }
@@ -310,9 +361,9 @@ public class TASKDSLPackageImpl extends EPackageImpl implements TASKDSLPackage
    * @generated
    */
   @Override
-  public EClass getavAction()
+  public EAttribute getStartGrid_NNo()
   {
-    return avActionEClass;
+    return (EAttribute)startGridEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -321,9 +372,9 @@ public class TASKDSLPackageImpl extends EPackageImpl implements TASKDSLPackage
    * @generated
    */
   @Override
-  public EAttribute getavAction_Birth()
+  public EAttribute getStartGrid_S()
   {
-    return (EAttribute)avActionEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)startGridEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -332,31 +383,9 @@ public class TASKDSLPackageImpl extends EPackageImpl implements TASKDSLPackage
    * @generated
    */
   @Override
-  public EAttribute getavAction_Overcrowd()
+  public EAttribute getStartGrid_A()
   {
-    return (EAttribute)avActionEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getavAction_Xiso()
-  {
-    return (EAttribute)avActionEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getavAction_Sur()
-  {
-    return (EAttribute)avActionEClass.getEStructuralFeatures().get(3);
+    return (EAttribute)startGridEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -376,7 +405,7 @@ public class TASKDSLPackageImpl extends EPackageImpl implements TASKDSLPackage
    * @generated
    */
   @Override
-  public EAttribute getCell_Name()
+  public EAttribute getCell_X()
   {
     return (EAttribute)cellEClass.getEStructuralFeatures().get(0);
   }
@@ -387,7 +416,7 @@ public class TASKDSLPackageImpl extends EPackageImpl implements TASKDSLPackage
    * @generated
    */
   @Override
-  public EAttribute getCell_X()
+  public EAttribute getCell_Y()
   {
     return (EAttribute)cellEClass.getEStructuralFeatures().get(1);
   }
@@ -398,7 +427,7 @@ public class TASKDSLPackageImpl extends EPackageImpl implements TASKDSLPackage
    * @generated
    */
   @Override
-  public EAttribute getCell_Y()
+  public EAttribute getCell_NNo()
   {
     return (EAttribute)cellEClass.getEStructuralFeatures().get(2);
   }
@@ -409,7 +438,7 @@ public class TASKDSLPackageImpl extends EPackageImpl implements TASKDSLPackage
    * @generated
    */
   @Override
-  public EAttribute getCell_NNo()
+  public EAttribute getCell_S()
   {
     return (EAttribute)cellEClass.getEStructuralFeatures().get(3);
   }
@@ -420,7 +449,7 @@ public class TASKDSLPackageImpl extends EPackageImpl implements TASKDSLPackage
    * @generated
    */
   @Override
-  public EAttribute getCell_S()
+  public EAttribute getCell_A()
   {
     return (EAttribute)cellEClass.getEStructuralFeatures().get(4);
   }
@@ -431,9 +460,163 @@ public class TASKDSLPackageImpl extends EPackageImpl implements TASKDSLPackage
    * @generated
    */
   @Override
-  public EReference getCell_AvAction()
+  public EClass getevolutionRules()
   {
-    return (EReference)cellEClass.getEStructuralFeatures().get(5);
+    return evolutionRulesEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getevolutionRules_Bool()
+  {
+    return (EReference)evolutionRulesEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getExpression()
+  {
+    return expressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getOrExpression()
+  {
+    return orExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getOrExpression_Left()
+  {
+    return (EReference)orExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getOrExpression_Right()
+  {
+    return (EReference)orExpressionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getAndExpression()
+  {
+    return andExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getAndExpression_Left()
+  {
+    return (EReference)andExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getAndExpression_Right()
+  {
+    return (EReference)andExpressionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getComparisonExpression()
+  {
+    return comparisonExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getComparisonExpression_Left()
+  {
+    return (EReference)comparisonExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getComparisonExpression_Operator()
+  {
+    return (EAttribute)comparisonExpressionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getComparisonExpression_Right()
+  {
+    return (EReference)comparisonExpressionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getLiteral()
+  {
+    return literalEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getLiteral_Value()
+  {
+    return (EAttribute)literalEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -473,6 +656,7 @@ public class TASKDSLPackageImpl extends EPackageImpl implements TASKDSLPackage
     createEAttribute(gameEClass, GAME__NAME);
     createEReference(gameEClass, GAME__GAME_STATUS);
     createEReference(gameEClass, GAME__GRİD_SİZE);
+    createEReference(gameEClass, GAME__EVOLUTİON_RULES);
     createEReference(gameEClass, GAME__START_GRİD);
     createEReference(gameEClass, GAME__ALL_CELLS);
 
@@ -481,25 +665,42 @@ public class TASKDSLPackageImpl extends EPackageImpl implements TASKDSLPackage
     createEAttribute(gridSizeEClass, GRİD_SİZE__L);
 
     gameStatusEClass = createEClass(GAME_STATUS);
-    createEAttribute(gameStatusEClass, GAME_STATUS__GS);
+    createEAttribute(gameStatusEClass, GAME_STATUS__SO);
 
     startGridEClass = createEClass(START_GRİD);
     createEAttribute(startGridEClass, START_GRİD__XC);
     createEAttribute(startGridEClass, START_GRİD__YC);
-
-    avActionEClass = createEClass(AV_ACTİON);
-    createEAttribute(avActionEClass, AV_ACTİON__BİRTH);
-    createEAttribute(avActionEClass, AV_ACTİON__OVERCROWD);
-    createEAttribute(avActionEClass, AV_ACTİON__XİSO);
-    createEAttribute(avActionEClass, AV_ACTİON__SUR);
+    createEAttribute(startGridEClass, START_GRİD__NNO);
+    createEAttribute(startGridEClass, START_GRİD__S);
+    createEAttribute(startGridEClass, START_GRİD__A);
 
     cellEClass = createEClass(CELL);
-    createEAttribute(cellEClass, CELL__NAME);
     createEAttribute(cellEClass, CELL__X);
     createEAttribute(cellEClass, CELL__Y);
     createEAttribute(cellEClass, CELL__NNO);
     createEAttribute(cellEClass, CELL__S);
-    createEReference(cellEClass, CELL__AV_ACTİON);
+    createEAttribute(cellEClass, CELL__A);
+
+    evolutionRulesEClass = createEClass(EVOLUTİON_RULES);
+    createEReference(evolutionRulesEClass, EVOLUTİON_RULES__BOOL);
+
+    expressionEClass = createEClass(EXPRESSİON);
+
+    orExpressionEClass = createEClass(OR_EXPRESSİON);
+    createEReference(orExpressionEClass, OR_EXPRESSİON__LEFT);
+    createEReference(orExpressionEClass, OR_EXPRESSİON__RİGHT);
+
+    andExpressionEClass = createEClass(AND_EXPRESSİON);
+    createEReference(andExpressionEClass, AND_EXPRESSİON__LEFT);
+    createEReference(andExpressionEClass, AND_EXPRESSİON__RİGHT);
+
+    comparisonExpressionEClass = createEClass(COMPARİSON_EXPRESSİON);
+    createEReference(comparisonExpressionEClass, COMPARİSON_EXPRESSİON__LEFT);
+    createEAttribute(comparisonExpressionEClass, COMPARİSON_EXPRESSİON__OPERATOR);
+    createEReference(comparisonExpressionEClass, COMPARİSON_EXPRESSİON__RİGHT);
+
+    literalEClass = createEClass(LİTERAL);
+    createEAttribute(literalEClass, LİTERAL__VALUE);
   }
 
   /**
@@ -532,6 +733,10 @@ public class TASKDSLPackageImpl extends EPackageImpl implements TASKDSLPackage
 
     // Add supertypes to classes
     gameEClass.getESuperTypes().add(this.getModel());
+    orExpressionEClass.getESuperTypes().add(this.getExpression());
+    andExpressionEClass.getESuperTypes().add(this.getExpression());
+    comparisonExpressionEClass.getESuperTypes().add(this.getExpression());
+    literalEClass.getESuperTypes().add(this.getExpression());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -540,6 +745,7 @@ public class TASKDSLPackageImpl extends EPackageImpl implements TASKDSLPackage
     initEAttribute(getGame_Name(), ecorePackage.getEString(), "name", null, 0, 1, Game.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getGame_GameStatus(), this.getGameStatus(), null, "gameStatus", null, 0, -1, Game.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getGame_GridSize(), this.getGridSize(), null, "gridSize", null, 0, -1, Game.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getGame_EvolutionRules(), this.getevolutionRules(), null, "evolutionRules", null, 0, -1, Game.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getGame_StartGrid(), this.getStartGrid(), null, "startGrid", null, 0, -1, Game.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getGame_AllCells(), this.getCell(), null, "allCells", null, 0, -1, Game.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -548,25 +754,42 @@ public class TASKDSLPackageImpl extends EPackageImpl implements TASKDSLPackage
     initEAttribute(getGridSize_L(), ecorePackage.getEInt(), "l", null, 0, 1, GridSize.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(gameStatusEClass, GameStatus.class, "GameStatus", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getGameStatus_Gs(), ecorePackage.getEInt(), "gs", null, 0, 1, GameStatus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getGameStatus_So(), ecorePackage.getEString(), "so", null, 0, 1, GameStatus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(startGridEClass, StartGrid.class, "StartGrid", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getStartGrid_XC(), ecorePackage.getEInt(), "xC", null, 0, 1, StartGrid.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getStartGrid_YC(), ecorePackage.getEInt(), "yC", null, 0, 1, StartGrid.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(avActionEClass, avAction.class, "avAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getavAction_Birth(), ecorePackage.getEInt(), "birth", null, 0, 1, avAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getavAction_Overcrowd(), ecorePackage.getEInt(), "overcrowd", null, 0, 1, avAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getavAction_Xiso(), ecorePackage.getEInt(), "xiso", null, 0, 1, avAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getavAction_Sur(), ecorePackage.getEInt(), "sur", null, 0, 1, avAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getStartGrid_NNo(), ecorePackage.getEInt(), "nNo", null, 0, 1, StartGrid.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getStartGrid_S(), ecorePackage.getEString(), "s", null, 0, 1, StartGrid.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getStartGrid_A(), ecorePackage.getEString(), "a", null, 0, 1, StartGrid.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(cellEClass, Cell.class, "Cell", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getCell_Name(), ecorePackage.getEString(), "name", null, 0, 1, Cell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getCell_X(), ecorePackage.getEInt(), "x", null, 0, 1, Cell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getCell_Y(), ecorePackage.getEInt(), "y", null, 0, 1, Cell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getCell_NNo(), ecorePackage.getEInt(), "nNo", null, 0, 1, Cell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getCell_S(), ecorePackage.getEInt(), "s", null, 0, 1, Cell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCell_AvAction(), this.getavAction(), null, "avAction", null, 0, 1, Cell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCell_S(), ecorePackage.getEString(), "s", null, 0, 1, Cell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCell_A(), ecorePackage.getEString(), "a", null, 0, 1, Cell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(evolutionRulesEClass, evolutionRules.class, "evolutionRules", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getevolutionRules_Bool(), this.getExpression(), null, "bool", null, 0, 1, evolutionRules.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(orExpressionEClass, OrExpression.class, "OrExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getOrExpression_Left(), this.getExpression(), null, "left", null, 0, 1, OrExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOrExpression_Right(), this.getExpression(), null, "right", null, 0, 1, OrExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(andExpressionEClass, AndExpression.class, "AndExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAndExpression_Left(), this.getExpression(), null, "left", null, 0, 1, AndExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAndExpression_Right(), this.getExpression(), null, "right", null, 0, 1, AndExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(comparisonExpressionEClass, ComparisonExpression.class, "ComparisonExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getComparisonExpression_Left(), this.getExpression(), null, "left", null, 0, 1, ComparisonExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getComparisonExpression_Operator(), ecorePackage.getEString(), "operator", null, 0, 1, ComparisonExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getComparisonExpression_Right(), this.getExpression(), null, "right", null, 0, 1, ComparisonExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(literalEClass, Literal.class, "Literal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getLiteral_Value(), ecorePackage.getEString(), "value", null, 0, 1, Literal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

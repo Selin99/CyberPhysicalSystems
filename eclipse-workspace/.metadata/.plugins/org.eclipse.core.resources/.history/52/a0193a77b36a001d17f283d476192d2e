@@ -1,0 +1,50 @@
+grammar game.of.life.tasks.TASKDSL with org.eclipse.xtext.common.Terminals
+generate tASKDSL "http://www.of.game/life/tasks/TASKDSL"
+
+Model:
+	Game = Game;
+	
+
+Game: 'Game:' name=ID gameStatus+= GameStatus gridSize+=GridSize (startGrid+=StartGrid | allCells+=Cell)*;
+
+//Grid size can not be negative.
+GridSize: 'Height:' h=INT 'Length:' l=INT;
+
+GameStatus: 'GameStatus:' gs=INT ; //if 1 game continue if 0 game over
+
+StartGrid: 'InitiallyActiveCell:' 'x-Coord:' xC= INT  'y-Coord:' yC= INT;
+
+
+avAction: BooleanExpression;
+BooleanExpression: '(' ComparisonExpression ')' 
+;
+
+ComparisonExpression: 'neighborNo:' n=neighborNo l=logicalOperator 'comparisonValue:' i=intValue;
+
+neighborNo:
+	nNo=INT
+;
+
+logicalOperator: 
+	EQ  = '==' |  
+  	NEQ = '!=' |  
+  	GEQ = '>=' | 
+  	G   = '>' |   
+  	LEQ = '<=' | 
+  	L   = '<';	
+
+intValue:
+	comparisonValue=INT;
+
+
+Cell: 'Cell:' name=ID 'x-Coordinate:' x= INT  'y-Coordinate:' y= INT 'neighborNo:' nNo=INT 'status:' s=INT 'availableAction:' avAction=INT;
+
+//avAction: 'if' BooleanExpression 'then' act= ('Birth'|'Overcrowding'|'xisolation'|'Survival') ;
+
+
+
+
+
+
+
+

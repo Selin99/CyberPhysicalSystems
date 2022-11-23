@@ -26,6 +26,7 @@ class TASKDSLGenerator extends AbstractGenerator {
 		val root = resource.allContents.head as Game; 
     	if (root !== null) { 
        	fsa.generateFile("GameInfo.txt", TextGenerator.toText(root)) 
+       	//fsa.generateFile("RuleOfLife.java",CodeGenerator.toCode(root));
     } 
 	}
 }

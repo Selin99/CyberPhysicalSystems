@@ -11,6 +11,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//Game/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TASKDSL.ecore#//Game/gameStatus"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TASKDSL.ecore#//Game/gridSize"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TASKDSL.ecore#//Game/evolutionRules"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TASKDSL.ecore#//Game/startGrid"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TASKDSL.ecore#//Game/allCells"/>
     </genClasses>
@@ -19,25 +20,41 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//GridSize/l"/>
     </genClasses>
     <genClasses ecoreClass="TASKDSL.ecore#//GameStatus">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//GameStatus/gs"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//GameStatus/so"/>
     </genClasses>
     <genClasses ecoreClass="TASKDSL.ecore#//StartGrid">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//StartGrid/xC"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//StartGrid/yC"/>
-    </genClasses>
-    <genClasses ecoreClass="TASKDSL.ecore#//avAction">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//avAction/birth"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//avAction/overcrowd"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//avAction/xiso"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//avAction/sur"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//StartGrid/nNo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//StartGrid/s"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//StartGrid/a"/>
     </genClasses>
     <genClasses ecoreClass="TASKDSL.ecore#//Cell">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//Cell/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//Cell/x"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//Cell/y"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//Cell/nNo"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//Cell/s"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TASKDSL.ecore#//Cell/avAction"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//Cell/a"/>
+    </genClasses>
+    <genClasses ecoreClass="TASKDSL.ecore#//evolutionRules">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TASKDSL.ecore#//evolutionRules/bool"/>
+    </genClasses>
+    <genClasses ecoreClass="TASKDSL.ecore#//Expression"/>
+    <genClasses ecoreClass="TASKDSL.ecore#//OrExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TASKDSL.ecore#//OrExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TASKDSL.ecore#//OrExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="TASKDSL.ecore#//AndExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TASKDSL.ecore#//AndExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TASKDSL.ecore#//AndExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="TASKDSL.ecore#//ComparisonExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TASKDSL.ecore#//ComparisonExpression/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//ComparisonExpression/operator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TASKDSL.ecore#//ComparisonExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="TASKDSL.ecore#//Literal">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TASKDSL.ecore#//Literal/value"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

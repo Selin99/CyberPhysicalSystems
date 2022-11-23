@@ -109,17 +109,56 @@ public class TASKDSLSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case TASKDSLPackage.AV_ACTİON:
-      {
-        avAction avAction = (avAction)theEObject;
-        T result = caseavAction(avAction);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case TASKDSLPackage.CELL:
       {
         Cell cell = (Cell)theEObject;
         T result = caseCell(cell);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TASKDSLPackage.EVOLUTİON_RULES:
+      {
+        evolutionRules evolutionRules = (evolutionRules)theEObject;
+        T result = caseevolutionRules(evolutionRules);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TASKDSLPackage.EXPRESSİON:
+      {
+        Expression expression = (Expression)theEObject;
+        T result = caseExpression(expression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TASKDSLPackage.OR_EXPRESSİON:
+      {
+        OrExpression orExpression = (OrExpression)theEObject;
+        T result = caseOrExpression(orExpression);
+        if (result == null) result = caseExpression(orExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TASKDSLPackage.AND_EXPRESSİON:
+      {
+        AndExpression andExpression = (AndExpression)theEObject;
+        T result = caseAndExpression(andExpression);
+        if (result == null) result = caseExpression(andExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TASKDSLPackage.COMPARİSON_EXPRESSİON:
+      {
+        ComparisonExpression comparisonExpression = (ComparisonExpression)theEObject;
+        T result = caseComparisonExpression(comparisonExpression);
+        if (result == null) result = caseExpression(comparisonExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TASKDSLPackage.LİTERAL:
+      {
+        Literal literal = (Literal)theEObject;
+        T result = caseLiteral(literal);
+        if (result == null) result = caseExpression(literal);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -208,22 +247,6 @@ public class TASKDSLSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>av Action</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>av Action</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseavAction(avAction object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Cell</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -235,6 +258,102 @@ public class TASKDSLSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseCell(Cell object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>evolution Rules</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>evolution Rules</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseevolutionRules(evolutionRules object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExpression(Expression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Or Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Or Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOrExpression(OrExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>And Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>And Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAndExpression(AndExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Comparison Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Comparison Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseComparisonExpression(ComparisonExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Literal</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Literal</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLiteral(Literal object)
   {
     return null;
   }

@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link game.of.life.tasks.tASKDSL.Game#getName <em>Name</em>}</li>
  *   <li>{@link game.of.life.tasks.tASKDSL.Game#getGameStatus <em>Game Status</em>}</li>
  *   <li>{@link game.of.life.tasks.tASKDSL.Game#getGridSize <em>Grid Size</em>}</li>
+ *   <li>{@link game.of.life.tasks.tASKDSL.Game#getEvolutionRules <em>Evolution Rules</em>}</li>
  *   <li>{@link game.of.life.tasks.tASKDSL.Game#getStartGrid <em>Start Grid</em>}</li>
  *   <li>{@link game.of.life.tasks.tASKDSL.Game#getAllCells <em>All Cells</em>}</li>
  * </ul>
@@ -72,6 +73,18 @@ public interface Game extends Model
    * @generated
    */
   EList<GridSize> getGridSize();
+
+  /**
+   * Returns the value of the '<em><b>Evolution Rules</b></em>' containment reference list.
+   * The list contents are of type {@link game.of.life.tasks.tASKDSL.evolutionRules}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Evolution Rules</em>' containment reference list.
+   * @see game.of.life.tasks.tASKDSL.TASKDSLPackage#getGame_EvolutionRules()
+   * @model containment="true"
+   * @generated
+   */
+  EList<evolutionRules> getEvolutionRules();
 
   /**
    * Returns the value of the '<em><b>Start Grid</b></em>' containment reference list.

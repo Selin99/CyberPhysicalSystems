@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link game.of.life.tasks.tASKDSL.impl.GameStatusImpl#getGs <em>Gs</em>}</li>
+ *   <li>{@link game.of.life.tasks.tASKDSL.impl.GameStatusImpl#getSo <em>So</em>}</li>
  * </ul>
  *
  * @generated
@@ -29,24 +29,24 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class GameStatusImpl extends MinimalEObjectImpl.Container implements GameStatus
 {
   /**
-   * The default value of the '{@link #getGs() <em>Gs</em>}' attribute.
+   * The default value of the '{@link #getSo() <em>So</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getGs()
+   * @see #getSo()
    * @generated
    * @ordered
    */
-  protected static final int GS_EDEFAULT = 0;
+  protected static final String SO_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getGs() <em>Gs</em>}' attribute.
+   * The cached value of the '{@link #getSo() <em>So</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getGs()
+   * @see #getSo()
    * @generated
    * @ordered
    */
-  protected int gs = GS_EDEFAULT;
+  protected String so = SO_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -75,9 +75,9 @@ public class GameStatusImpl extends MinimalEObjectImpl.Container implements Game
    * @generated
    */
   @Override
-  public int getGs()
+  public String getSo()
   {
-    return gs;
+    return so;
   }
 
   /**
@@ -86,12 +86,12 @@ public class GameStatusImpl extends MinimalEObjectImpl.Container implements Game
    * @generated
    */
   @Override
-  public void setGs(int newGs)
+  public void setSo(String newSo)
   {
-    int oldGs = gs;
-    gs = newGs;
+    String oldSo = so;
+    so = newSo;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, TASKDSLPackage.GAME_STATUS__GS, oldGs, gs));
+      eNotify(new ENotificationImpl(this, Notification.SET, TASKDSLPackage.GAME_STATUS__SO, oldSo, so));
   }
 
   /**
@@ -104,8 +104,8 @@ public class GameStatusImpl extends MinimalEObjectImpl.Container implements Game
   {
     switch (featureID)
     {
-      case TASKDSLPackage.GAME_STATUS__GS:
-        return getGs();
+      case TASKDSLPackage.GAME_STATUS__SO:
+        return getSo();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -120,8 +120,8 @@ public class GameStatusImpl extends MinimalEObjectImpl.Container implements Game
   {
     switch (featureID)
     {
-      case TASKDSLPackage.GAME_STATUS__GS:
-        setGs((Integer)newValue);
+      case TASKDSLPackage.GAME_STATUS__SO:
+        setSo((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -137,8 +137,8 @@ public class GameStatusImpl extends MinimalEObjectImpl.Container implements Game
   {
     switch (featureID)
     {
-      case TASKDSLPackage.GAME_STATUS__GS:
-        setGs(GS_EDEFAULT);
+      case TASKDSLPackage.GAME_STATUS__SO:
+        setSo(SO_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -154,8 +154,8 @@ public class GameStatusImpl extends MinimalEObjectImpl.Container implements Game
   {
     switch (featureID)
     {
-      case TASKDSLPackage.GAME_STATUS__GS:
-        return gs != GS_EDEFAULT;
+      case TASKDSLPackage.GAME_STATUS__SO:
+        return SO_EDEFAULT == null ? so != null : !SO_EDEFAULT.equals(so);
     }
     return super.eIsSet(featureID);
   }
@@ -171,8 +171,8 @@ public class GameStatusImpl extends MinimalEObjectImpl.Container implements Game
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (gs: ");
-    result.append(gs);
+    result.append(" (so: ");
+    result.append(so);
     result.append(')');
     return result.toString();
   }

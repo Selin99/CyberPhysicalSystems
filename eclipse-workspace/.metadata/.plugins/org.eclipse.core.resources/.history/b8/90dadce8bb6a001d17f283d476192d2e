@@ -1,0 +1,141 @@
+grammar game.of.life.tasks.TASKDSL with org.eclipse.xtext.common.Terminals
+generate tASKDSL "http://www.of.game/life/tasks/TASKDSL"
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore 
+ 
+Model:
+	Game = Game;
+	
+
+Game: 'Game:' name=ID 
+	  'GameStatus:'gameStatus+= GameStatus 
+	  'GridSize:'gridSize+=GridSize
+	  'EvolutionRules:' evolutionRules+=evolutionRules*
+	  'InitiallyActiveCells:' startGrid+=StartGrid*
+	  'AllCells:'allCells+=Cell*
+;
+
+//Grid Size:
+GridSize:'Height:' h=INT 'Length:' l=INT;
+
+
+//GameStatus:
+GameStatus: so=('Continue' | 'Over') ;
+
+//Initially Active Cells:
+StartGrid: 'CoordinateInfo:' 'x:' xC= INT  'y:' yC= INT
+		   'NeighborNo:' nNo=INT
+		   'Status:' s='Live' 
+		   'NextGeneration:' a=('Birth' | 'OverCrowd' |'xisolate' | 'Survive')
+		;
+
+Cell: 'CoordinateInfo:' 'x:' x= INT  'y:' y= INT 
+	  'NeighborNo:' nNo=INT 
+	  'Status:' s=('Live'|'Dead') 
+	  'NextGeneration:' a=('Birth' | 'OverCrowd' |'xisolate' | 'Survive')
+	  ;
+
+
+evolutionRules: 'if' bool=BooleanExpression 'then' ('Birth' | 'OverCrowd' |'xisolate' | 'Survive') ;
+
+IntExpression: ExpressionLevel1 
+; 
+ExpressionLevel1 returns IntExpression:   // Left associativity 
+  ExpressionLevel2 
+  ( ({ExpressionAddition.left   =current} "+"    right=ExpressionLevel2) 
+  | ({ExpressionSubtraction.left=current} "-"    right=ExpressionLevel2) 
+  )* 
+; 
+ExpressionLevel2 returns IntExpression:   // Left associativity 
+  ExpressionLevel3 
+  ( ({ExpressionMultiply.left=current}  "*"    right=ExpressionLevel3) 
+  | ({ExpressionDivision.left=current}  "/"    right=ExpressionLevel3) 
+  | ({ExpressionMaximum.left =current}  "max"  right=ExpressionLevel3) 
+  | ({ExpressionMinimum.left =current}  "min"  right=ExpressionLevel3) 
+  | ({ExpressionModulo.left  =current}  "mod"  right=ExpressionLevel3) 
+  )* 
+; 
+ExpressionLevel3 returns IntExpression:   // Right associativity 
+  ExpressionLevel4 
+  ( ({ExpressionPower.left=current}    "^"     
+right=ExpressionLevel3) 
+  )? 
+; 
+
+ExpressionLevel4 returns IntExpression: 
+  ExpressionMinus | ExpressionPlus | ExpressionLevel5 
+; 
+ExpressionMinus: 
+  "-" sub=ExpressionLevel5 
+; 
+ExpressionPlus: 
+  "+" sub=ExpressionLevel5 
+; 
+ExpressionLevel5 returns IntExpression: 
+  ExpressionBracket | 
+  ExpressionConstantInt  | 
+  ExpressionBalance 
+; 
+ExpressionBracket: 
+  "(" sub=IntExpression ")" 
+; 
+ExpressionConstantInt: 
+  value=INT 
+; 
+ExpressionBalance: 
+  value=Balance 
+; 
+enum Balance: 
+  BALANCE = 'balance'  
+; 
+BooleanExpression: BooleanExpressionLevel1 
+; 
+BooleanExpressionLevel1 returns BooleanExpression:    // Left associativity 
+  BooleanExpressionLevel2 
+  ( {ExpressionBinOp.left=current} bop = BinaryBooleanOperator 
+right=BooleanExpressionLevel2   
+  )* 
+; 
+enum BinaryBooleanOperator: 
+  AND = 'AND' |  
+  OR  =  'OR' 
+; 
+BooleanExpressionLevel2 returns BooleanExpression:     
+  NotExpression | 
+  BooleanExpressionLevel3 
+; 
+ 
+NotExpression:  
+  "NOT" sub = BooleanExpressionLevel3 
+; 
+BooleanExpressionLevel3 returns BooleanExpression:     
+  (=> ComparisonExpression) | 
+  BooleanExpressionBracket | 
+  BooleanExpressionConstant 
+; 
+ 
+ComparisonExpression returns BooleanExpression: {ExpressionCompOp} 
+  left=IntExpression op = CompareOperator right = IntExpression 
+; 
+enum CompareOperator: 
+  EQ  = '==' |  
+  NEQ = '!=' |  
+  GEQ = '>=' | 
+  G   = '>' |   
+  LEQ = '<=' | 
+  L   = '<' 
+; 
+BooleanExpressionBracket: 
+  "(" sub=BooleanExpression ")" 
+; 
+ 
+BooleanExpressionConstant: 
+  value=BOOL_LITERAL 
+; 
+terminal BOOL_LITERAL returns ecore::EBoolean: 'true' | 'false' | 'TRUE' | 'FALSE' 
+; 
+
+
+
+
+

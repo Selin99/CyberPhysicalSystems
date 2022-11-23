@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link game.of.life.tasks.tASKDSL.GameStatus#getGs <em>Gs</em>}</li>
+ *   <li>{@link game.of.life.tasks.tASKDSL.GameStatus#getSo <em>So</em>}</li>
  * </ul>
  *
  * @see game.of.life.tasks.tASKDSL.TASKDSLPackage#getGameStatus()
@@ -24,25 +24,25 @@ import org.eclipse.emf.ecore.EObject;
 public interface GameStatus extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Gs</b></em>' attribute.
+   * Returns the value of the '<em><b>So</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Gs</em>' attribute.
-   * @see #setGs(int)
-   * @see game.of.life.tasks.tASKDSL.TASKDSLPackage#getGameStatus_Gs()
+   * @return the value of the '<em>So</em>' attribute.
+   * @see #setSo(String)
+   * @see game.of.life.tasks.tASKDSL.TASKDSLPackage#getGameStatus_So()
    * @model
    * @generated
    */
-  int getGs();
+  String getSo();
 
   /**
-   * Sets the value of the '{@link game.of.life.tasks.tASKDSL.GameStatus#getGs <em>Gs</em>}' attribute.
+   * Sets the value of the '{@link game.of.life.tasks.tASKDSL.GameStatus#getSo <em>So</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Gs</em>' attribute.
-   * @see #getGs()
+   * @param value the new value of the '<em>So</em>' attribute.
+   * @see #getSo()
    * @generated
    */
-  void setGs(int value);
+  void setSo(String value);
 
 } // GameStatus

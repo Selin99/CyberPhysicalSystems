@@ -5,13 +5,17 @@ package game.of.life.tasks.serializer;
 
 import com.google.inject.Inject;
 import game.of.life.tasks.services.TASKDSLGrammarAccess;
+import game.of.life.tasks.tASKDSL.AndExpression;
 import game.of.life.tasks.tASKDSL.Cell;
+import game.of.life.tasks.tASKDSL.ComparisonExpression;
 import game.of.life.tasks.tASKDSL.Game;
 import game.of.life.tasks.tASKDSL.GameStatus;
 import game.of.life.tasks.tASKDSL.GridSize;
+import game.of.life.tasks.tASKDSL.Literal;
+import game.of.life.tasks.tASKDSL.OrExpression;
 import game.of.life.tasks.tASKDSL.StartGrid;
 import game.of.life.tasks.tASKDSL.TASKDSLPackage;
-import game.of.life.tasks.tASKDSL.avAction;
+import game.of.life.tasks.tASKDSL.evolutionRules;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -37,8 +41,14 @@ public class TASKDSLSemanticSequencer extends AbstractDelegatingSemanticSequence
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == TASKDSLPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case TASKDSLPackage.AND_EXPRESSİON:
+				sequence_AndExpression(context, (AndExpression) semanticObject); 
+				return; 
 			case TASKDSLPackage.CELL:
 				sequence_Cell(context, (Cell) semanticObject); 
+				return; 
+			case TASKDSLPackage.COMPARİSON_EXPRESSİON:
+				sequence_ComparisonExpression(context, (ComparisonExpression) semanticObject); 
 				return; 
 			case TASKDSLPackage.GAME:
 				sequence_Game(context, (Game) semanticObject); 
@@ -49,11 +59,17 @@ public class TASKDSLSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case TASKDSLPackage.GRİD_SİZE:
 				sequence_GridSize(context, (GridSize) semanticObject); 
 				return; 
+			case TASKDSLPackage.LİTERAL:
+				sequence_Literal(context, (Literal) semanticObject); 
+				return; 
+			case TASKDSLPackage.OR_EXPRESSİON:
+				sequence_OrExpression(context, (OrExpression) semanticObject); 
+				return; 
 			case TASKDSLPackage.START_GRİD:
 				sequence_StartGrid(context, (StartGrid) semanticObject); 
 				return; 
-			case TASKDSLPackage.AV_ACTİON:
-				sequence_avAction(context, (avAction) semanticObject); 
+			case TASKDSLPackage.EVOLUTİON_RULES:
+				sequence_evolutionRules(context, (evolutionRules) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -63,42 +79,69 @@ public class TASKDSLSemanticSequencer extends AbstractDelegatingSemanticSequence
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     Expression returns AndExpression
+	 *     OrExpression returns AndExpression
+	 *     OrExpression.OrExpression_1_0 returns AndExpression
+	 *     AndExpression returns AndExpression
+	 *     AndExpression.AndExpression_1_0 returns AndExpression
+	 *     ComparisonExpression returns AndExpression
+	 *     ComparisonExpression.ComparisonExpression_1_0 returns AndExpression
+	 *     PrimaryExpression returns AndExpression
+	 *
+	 * Constraint:
+	 *     (left=AndExpression_AndExpression_1_0 right=ComparisonExpression)
+	 * </pre>
+	 */
+	protected void sequence_AndExpression(ISerializationContext context, AndExpression semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, TASKDSLPackage.Literals.AND_EXPRESSİON__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TASKDSLPackage.Literals.AND_EXPRESSİON__LEFT));
+			if (transientValues.isValueTransient(semanticObject, TASKDSLPackage.Literals.AND_EXPRESSİON__RİGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TASKDSLPackage.Literals.AND_EXPRESSİON__RİGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getAndExpressionAccess().getAndExpressionLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getAndExpressionAccess().getRightComparisonExpressionParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     Cell returns Cell
 	 *
 	 * Constraint:
-	 *     (
-	 *         name=ID 
-	 *         x=INT 
-	 *         y=INT 
-	 *         nNo=INT 
-	 *         s=INT 
-	 *         avAction=avAction
-	 *     )
+	 *     (x=INT y=INT nNo=INT (s='Live' | s='Dead') (a='Birth' | a='OverCrowd' | a='xisolate' | a='Survive'))
 	 * </pre>
 	 */
 	protected void sequence_Cell(ISerializationContext context, Cell semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, TASKDSLPackage.Literals.CELL__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TASKDSLPackage.Literals.CELL__NAME));
-			if (transientValues.isValueTransient(semanticObject, TASKDSLPackage.Literals.CELL__X) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TASKDSLPackage.Literals.CELL__X));
-			if (transientValues.isValueTransient(semanticObject, TASKDSLPackage.Literals.CELL__Y) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TASKDSLPackage.Literals.CELL__Y));
-			if (transientValues.isValueTransient(semanticObject, TASKDSLPackage.Literals.CELL__NNO) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TASKDSLPackage.Literals.CELL__NNO));
-			if (transientValues.isValueTransient(semanticObject, TASKDSLPackage.Literals.CELL__S) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TASKDSLPackage.Literals.CELL__S));
-			if (transientValues.isValueTransient(semanticObject, TASKDSLPackage.Literals.CELL__AV_ACTİON) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TASKDSLPackage.Literals.CELL__AV_ACTİON));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getCellAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getCellAccess().getXINTTerminalRuleCall_3_0(), semanticObject.getX());
-		feeder.accept(grammarAccess.getCellAccess().getYINTTerminalRuleCall_5_0(), semanticObject.getY());
-		feeder.accept(grammarAccess.getCellAccess().getNNoINTTerminalRuleCall_7_0(), semanticObject.getNNo());
-		feeder.accept(grammarAccess.getCellAccess().getSINTTerminalRuleCall_9_0(), semanticObject.getS());
-		feeder.accept(grammarAccess.getCellAccess().getAvActionAvActionParserRuleCall_11_0(), semanticObject.getAvAction());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Expression returns ComparisonExpression
+	 *     OrExpression returns ComparisonExpression
+	 *     OrExpression.OrExpression_1_0 returns ComparisonExpression
+	 *     AndExpression returns ComparisonExpression
+	 *     AndExpression.AndExpression_1_0 returns ComparisonExpression
+	 *     ComparisonExpression returns ComparisonExpression
+	 *     ComparisonExpression.ComparisonExpression_1_0 returns ComparisonExpression
+	 *     PrimaryExpression returns ComparisonExpression
+	 *
+	 * Constraint:
+	 *     (
+	 *         left=ComparisonExpression_ComparisonExpression_1_0 
+	 *         (operator='&lt;' | operator='&lt;=' | operator='==' | operator='&gt;=' | operator='&gt;') 
+	 *         right=PrimaryExpression
+	 *     )
+	 * </pre>
+	 */
+	protected void sequence_ComparisonExpression(ISerializationContext context, ComparisonExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -108,17 +151,11 @@ public class TASKDSLSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     GameStatus returns GameStatus
 	 *
 	 * Constraint:
-	 *     gs=INT
+	 *     (so='Continue' | so='Over')
 	 * </pre>
 	 */
 	protected void sequence_GameStatus(ISerializationContext context, GameStatus semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, TASKDSLPackage.Literals.GAME_STATUS__GS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TASKDSLPackage.Literals.GAME_STATUS__GS));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getGameStatusAccess().getGsINTTerminalRuleCall_1_0(), semanticObject.getGs());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -129,7 +166,14 @@ public class TASKDSLSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Game returns Game
 	 *
 	 * Constraint:
-	 *     (name=ID gameStatus+=GameStatus gridSize+=GridSize (startGrid+=StartGrid | allCells+=Cell)*)
+	 *     (
+	 *         name=ID 
+	 *         gameStatus+=GameStatus 
+	 *         gridSize+=GridSize 
+	 *         evolutionRules+=evolutionRules* 
+	 *         startGrid+=StartGrid* 
+	 *         allCells+=Cell*
+	 *     )
 	 * </pre>
 	 */
 	protected void sequence_Game(ISerializationContext context, Game semanticObject) {
@@ -163,22 +207,27 @@ public class TASKDSLSemanticSequencer extends AbstractDelegatingSemanticSequence
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     StartGrid returns StartGrid
+	 *     Expression returns Literal
+	 *     OrExpression returns Literal
+	 *     OrExpression.OrExpression_1_0 returns Literal
+	 *     AndExpression returns Literal
+	 *     AndExpression.AndExpression_1_0 returns Literal
+	 *     ComparisonExpression returns Literal
+	 *     ComparisonExpression.ComparisonExpression_1_0 returns Literal
+	 *     PrimaryExpression returns Literal
+	 *     Literal returns Literal
 	 *
 	 * Constraint:
-	 *     (xC=INT yC=INT)
+	 *     value='true'
 	 * </pre>
 	 */
-	protected void sequence_StartGrid(ISerializationContext context, StartGrid semanticObject) {
+	protected void sequence_Literal(ISerializationContext context, Literal semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, TASKDSLPackage.Literals.START_GRİD__XC) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TASKDSLPackage.Literals.START_GRİD__XC));
-			if (transientValues.isValueTransient(semanticObject, TASKDSLPackage.Literals.START_GRİD__YC) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TASKDSLPackage.Literals.START_GRİD__YC));
+			if (transientValues.isValueTransient(semanticObject, TASKDSLPackage.Literals.LİTERAL__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TASKDSLPackage.Literals.LİTERAL__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getStartGridAccess().getXCINTTerminalRuleCall_2_0(), semanticObject.getXC());
-		feeder.accept(grammarAccess.getStartGridAccess().getYCINTTerminalRuleCall_4_0(), semanticObject.getYC());
+		feeder.accept(grammarAccess.getLiteralAccess().getValueTrueKeyword_0_1_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -186,14 +235,64 @@ public class TASKDSLSemanticSequencer extends AbstractDelegatingSemanticSequence
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     avAction returns avAction
+	 *     Expression returns OrExpression
+	 *     OrExpression returns OrExpression
+	 *     OrExpression.OrExpression_1_0 returns OrExpression
+	 *     AndExpression returns OrExpression
+	 *     AndExpression.AndExpression_1_0 returns OrExpression
+	 *     ComparisonExpression returns OrExpression
+	 *     ComparisonExpression.ComparisonExpression_1_0 returns OrExpression
+	 *     PrimaryExpression returns OrExpression
 	 *
 	 * Constraint:
-	 *     (birth=INT | overcrowd=INT | xiso=INT | sur=INT)
+	 *     (left=OrExpression_OrExpression_1_0 right=AndExpression)
 	 * </pre>
 	 */
-	protected void sequence_avAction(ISerializationContext context, avAction semanticObject) {
+	protected void sequence_OrExpression(ISerializationContext context, OrExpression semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, TASKDSLPackage.Literals.OR_EXPRESSİON__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TASKDSLPackage.Literals.OR_EXPRESSİON__LEFT));
+			if (transientValues.isValueTransient(semanticObject, TASKDSLPackage.Literals.OR_EXPRESSİON__RİGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TASKDSLPackage.Literals.OR_EXPRESSİON__RİGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getOrExpressionAccess().getOrExpressionLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getOrExpressionAccess().getRightAndExpressionParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     StartGrid returns StartGrid
+	 *
+	 * Constraint:
+	 *     (xC=INT yC=INT nNo=INT s='Live' (a='Birth' | a='OverCrowd' | a='xisolate' | a='Survive'))
+	 * </pre>
+	 */
+	protected void sequence_StartGrid(ISerializationContext context, StartGrid semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     evolutionRules returns evolutionRules
+	 *
+	 * Constraint:
+	 *     bool=Expression
+	 * </pre>
+	 */
+	protected void sequence_evolutionRules(ISerializationContext context, evolutionRules semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, TASKDSLPackage.Literals.EVOLUTİON_RULES__BOOL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TASKDSLPackage.Literals.EVOLUTİON_RULES__BOOL));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getEvolutionRulesAccess().getBoolExpressionParserRuleCall_1_0(), semanticObject.getBool());
+		feeder.finish();
 	}
 	
 	

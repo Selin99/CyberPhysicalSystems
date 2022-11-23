@@ -114,13 +114,22 @@ public interface TASKDSLPackage extends EPackage
   int GAME__GRİD_SİZE = MODEL_FEATURE_COUNT + 2;
 
   /**
+   * The feature id for the '<em><b>Evolution Rules</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GAME__EVOLUTİON_RULES = MODEL_FEATURE_COUNT + 3;
+
+  /**
    * The feature id for the '<em><b>Start Grid</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int GAME__START_GRİD = MODEL_FEATURE_COUNT + 3;
+  int GAME__START_GRİD = MODEL_FEATURE_COUNT + 4;
 
   /**
    * The feature id for the '<em><b>All Cells</b></em>' containment reference list.
@@ -129,7 +138,7 @@ public interface TASKDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GAME__ALL_CELLS = MODEL_FEATURE_COUNT + 4;
+  int GAME__ALL_CELLS = MODEL_FEATURE_COUNT + 5;
 
   /**
    * The number of structural features of the '<em>Game</em>' class.
@@ -138,7 +147,7 @@ public interface TASKDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GAME_FEATURE_COUNT = MODEL_FEATURE_COUNT + 5;
+  int GAME_FEATURE_COUNT = MODEL_FEATURE_COUNT + 6;
 
   /**
    * The meta object id for the '{@link game.of.life.tasks.tASKDSL.impl.GridSizeImpl <em>Grid Size</em>}' class.
@@ -188,13 +197,13 @@ public interface TASKDSLPackage extends EPackage
   int GAME_STATUS = 3;
 
   /**
-   * The feature id for the '<em><b>Gs</b></em>' attribute.
+   * The feature id for the '<em><b>So</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int GAME_STATUS__GS = 0;
+  int GAME_STATUS__SO = 0;
 
   /**
    * The number of structural features of the '<em>Game Status</em>' class.
@@ -234,68 +243,40 @@ public interface TASKDSLPackage extends EPackage
   int START_GRİD__YC = 1;
 
   /**
+   * The feature id for the '<em><b>NNo</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int START_GRİD__NNO = 2;
+
+  /**
+   * The feature id for the '<em><b>S</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int START_GRİD__S = 3;
+
+  /**
+   * The feature id for the '<em><b>A</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int START_GRİD__A = 4;
+
+  /**
    * The number of structural features of the '<em>Start Grid</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int START_GRİD_FEATURE_COUNT = 2;
-
-  /**
-   * The meta object id for the '{@link game.of.life.tasks.tASKDSL.impl.avActionImpl <em>av Action</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see game.of.life.tasks.tASKDSL.impl.avActionImpl
-   * @see game.of.life.tasks.tASKDSL.impl.TASKDSLPackageImpl#getavAction()
-   * @generated
-   */
-  int AV_ACTİON = 5;
-
-  /**
-   * The feature id for the '<em><b>Birth</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int AV_ACTİON__BİRTH = 0;
-
-  /**
-   * The feature id for the '<em><b>Overcrowd</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int AV_ACTİON__OVERCROWD = 1;
-
-  /**
-   * The feature id for the '<em><b>Xiso</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int AV_ACTİON__XİSO = 2;
-
-  /**
-   * The feature id for the '<em><b>Sur</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int AV_ACTİON__SUR = 3;
-
-  /**
-   * The number of structural features of the '<em>av Action</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int AV_ACTİON_FEATURE_COUNT = 4;
+  int START_GRİD_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link game.of.life.tasks.tASKDSL.impl.CellImpl <em>Cell</em>}' class.
@@ -305,16 +286,7 @@ public interface TASKDSLPackage extends EPackage
    * @see game.of.life.tasks.tASKDSL.impl.TASKDSLPackageImpl#getCell()
    * @generated
    */
-  int CELL = 6;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CELL__NAME = 0;
+  int CELL = 5;
 
   /**
    * The feature id for the '<em><b>X</b></em>' attribute.
@@ -323,7 +295,7 @@ public interface TASKDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CELL__X = 1;
+  int CELL__X = 0;
 
   /**
    * The feature id for the '<em><b>Y</b></em>' attribute.
@@ -332,7 +304,7 @@ public interface TASKDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CELL__Y = 2;
+  int CELL__Y = 1;
 
   /**
    * The feature id for the '<em><b>NNo</b></em>' attribute.
@@ -341,7 +313,7 @@ public interface TASKDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CELL__NNO = 3;
+  int CELL__NNO = 2;
 
   /**
    * The feature id for the '<em><b>S</b></em>' attribute.
@@ -350,16 +322,16 @@ public interface TASKDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CELL__S = 4;
+  int CELL__S = 3;
 
   /**
-   * The feature id for the '<em><b>Av Action</b></em>' containment reference.
+   * The feature id for the '<em><b>A</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CELL__AV_ACTİON = 5;
+  int CELL__A = 4;
 
   /**
    * The number of structural features of the '<em>Cell</em>' class.
@@ -368,7 +340,202 @@ public interface TASKDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CELL_FEATURE_COUNT = 6;
+  int CELL_FEATURE_COUNT = 5;
+
+  /**
+   * The meta object id for the '{@link game.of.life.tasks.tASKDSL.impl.evolutionRulesImpl <em>evolution Rules</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see game.of.life.tasks.tASKDSL.impl.evolutionRulesImpl
+   * @see game.of.life.tasks.tASKDSL.impl.TASKDSLPackageImpl#getevolutionRules()
+   * @generated
+   */
+  int EVOLUTİON_RULES = 6;
+
+  /**
+   * The feature id for the '<em><b>Bool</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EVOLUTİON_RULES__BOOL = 0;
+
+  /**
+   * The number of structural features of the '<em>evolution Rules</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EVOLUTİON_RULES_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link game.of.life.tasks.tASKDSL.impl.ExpressionImpl <em>Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see game.of.life.tasks.tASKDSL.impl.ExpressionImpl
+   * @see game.of.life.tasks.tASKDSL.impl.TASKDSLPackageImpl#getExpression()
+   * @generated
+   */
+  int EXPRESSİON = 7;
+
+  /**
+   * The number of structural features of the '<em>Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSİON_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link game.of.life.tasks.tASKDSL.impl.OrExpressionImpl <em>Or Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see game.of.life.tasks.tASKDSL.impl.OrExpressionImpl
+   * @see game.of.life.tasks.tASKDSL.impl.TASKDSLPackageImpl#getOrExpression()
+   * @generated
+   */
+  int OR_EXPRESSİON = 8;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OR_EXPRESSİON__LEFT = EXPRESSİON_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OR_EXPRESSİON__RİGHT = EXPRESSİON_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Or Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OR_EXPRESSİON_FEATURE_COUNT = EXPRESSİON_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link game.of.life.tasks.tASKDSL.impl.AndExpressionImpl <em>And Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see game.of.life.tasks.tASKDSL.impl.AndExpressionImpl
+   * @see game.of.life.tasks.tASKDSL.impl.TASKDSLPackageImpl#getAndExpression()
+   * @generated
+   */
+  int AND_EXPRESSİON = 9;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AND_EXPRESSİON__LEFT = EXPRESSİON_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AND_EXPRESSİON__RİGHT = EXPRESSİON_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>And Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AND_EXPRESSİON_FEATURE_COUNT = EXPRESSİON_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link game.of.life.tasks.tASKDSL.impl.ComparisonExpressionImpl <em>Comparison Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see game.of.life.tasks.tASKDSL.impl.ComparisonExpressionImpl
+   * @see game.of.life.tasks.tASKDSL.impl.TASKDSLPackageImpl#getComparisonExpression()
+   * @generated
+   */
+  int COMPARİSON_EXPRESSİON = 10;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPARİSON_EXPRESSİON__LEFT = EXPRESSİON_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Operator</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPARİSON_EXPRESSİON__OPERATOR = EXPRESSİON_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPARİSON_EXPRESSİON__RİGHT = EXPRESSİON_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Comparison Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPARİSON_EXPRESSİON_FEATURE_COUNT = EXPRESSİON_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link game.of.life.tasks.tASKDSL.impl.LiteralImpl <em>Literal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see game.of.life.tasks.tASKDSL.impl.LiteralImpl
+   * @see game.of.life.tasks.tASKDSL.impl.TASKDSLPackageImpl#getLiteral()
+   * @generated
+   */
+  int LİTERAL = 11;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LİTERAL__VALUE = EXPRESSİON_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Literal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LİTERAL_FEATURE_COUNT = EXPRESSİON_FEATURE_COUNT + 1;
 
 
   /**
@@ -423,6 +590,17 @@ public interface TASKDSLPackage extends EPackage
    * @generated
    */
   EReference getGame_GridSize();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link game.of.life.tasks.tASKDSL.Game#getEvolutionRules <em>Evolution Rules</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Evolution Rules</em>'.
+   * @see game.of.life.tasks.tASKDSL.Game#getEvolutionRules()
+   * @see #getGame()
+   * @generated
+   */
+  EReference getGame_EvolutionRules();
 
   /**
    * Returns the meta object for the containment reference list '{@link game.of.life.tasks.tASKDSL.Game#getStartGrid <em>Start Grid</em>}'.
@@ -489,15 +667,15 @@ public interface TASKDSLPackage extends EPackage
   EClass getGameStatus();
 
   /**
-   * Returns the meta object for the attribute '{@link game.of.life.tasks.tASKDSL.GameStatus#getGs <em>Gs</em>}'.
+   * Returns the meta object for the attribute '{@link game.of.life.tasks.tASKDSL.GameStatus#getSo <em>So</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Gs</em>'.
-   * @see game.of.life.tasks.tASKDSL.GameStatus#getGs()
+   * @return the meta object for the attribute '<em>So</em>'.
+   * @see game.of.life.tasks.tASKDSL.GameStatus#getSo()
    * @see #getGameStatus()
    * @generated
    */
-  EAttribute getGameStatus_Gs();
+  EAttribute getGameStatus_So();
 
   /**
    * Returns the meta object for class '{@link game.of.life.tasks.tASKDSL.StartGrid <em>Start Grid</em>}'.
@@ -532,58 +710,37 @@ public interface TASKDSLPackage extends EPackage
   EAttribute getStartGrid_YC();
 
   /**
-   * Returns the meta object for class '{@link game.of.life.tasks.tASKDSL.avAction <em>av Action</em>}'.
+   * Returns the meta object for the attribute '{@link game.of.life.tasks.tASKDSL.StartGrid#getNNo <em>NNo</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>av Action</em>'.
-   * @see game.of.life.tasks.tASKDSL.avAction
+   * @return the meta object for the attribute '<em>NNo</em>'.
+   * @see game.of.life.tasks.tASKDSL.StartGrid#getNNo()
+   * @see #getStartGrid()
    * @generated
    */
-  EClass getavAction();
+  EAttribute getStartGrid_NNo();
 
   /**
-   * Returns the meta object for the attribute '{@link game.of.life.tasks.tASKDSL.avAction#getBirth <em>Birth</em>}'.
+   * Returns the meta object for the attribute '{@link game.of.life.tasks.tASKDSL.StartGrid#getS <em>S</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Birth</em>'.
-   * @see game.of.life.tasks.tASKDSL.avAction#getBirth()
-   * @see #getavAction()
+   * @return the meta object for the attribute '<em>S</em>'.
+   * @see game.of.life.tasks.tASKDSL.StartGrid#getS()
+   * @see #getStartGrid()
    * @generated
    */
-  EAttribute getavAction_Birth();
+  EAttribute getStartGrid_S();
 
   /**
-   * Returns the meta object for the attribute '{@link game.of.life.tasks.tASKDSL.avAction#getOvercrowd <em>Overcrowd</em>}'.
+   * Returns the meta object for the attribute '{@link game.of.life.tasks.tASKDSL.StartGrid#getA <em>A</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Overcrowd</em>'.
-   * @see game.of.life.tasks.tASKDSL.avAction#getOvercrowd()
-   * @see #getavAction()
+   * @return the meta object for the attribute '<em>A</em>'.
+   * @see game.of.life.tasks.tASKDSL.StartGrid#getA()
+   * @see #getStartGrid()
    * @generated
    */
-  EAttribute getavAction_Overcrowd();
-
-  /**
-   * Returns the meta object for the attribute '{@link game.of.life.tasks.tASKDSL.avAction#getXiso <em>Xiso</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Xiso</em>'.
-   * @see game.of.life.tasks.tASKDSL.avAction#getXiso()
-   * @see #getavAction()
-   * @generated
-   */
-  EAttribute getavAction_Xiso();
-
-  /**
-   * Returns the meta object for the attribute '{@link game.of.life.tasks.tASKDSL.avAction#getSur <em>Sur</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Sur</em>'.
-   * @see game.of.life.tasks.tASKDSL.avAction#getSur()
-   * @see #getavAction()
-   * @generated
-   */
-  EAttribute getavAction_Sur();
+  EAttribute getStartGrid_A();
 
   /**
    * Returns the meta object for class '{@link game.of.life.tasks.tASKDSL.Cell <em>Cell</em>}'.
@@ -594,17 +751,6 @@ public interface TASKDSLPackage extends EPackage
    * @generated
    */
   EClass getCell();
-
-  /**
-   * Returns the meta object for the attribute '{@link game.of.life.tasks.tASKDSL.Cell#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see game.of.life.tasks.tASKDSL.Cell#getName()
-   * @see #getCell()
-   * @generated
-   */
-  EAttribute getCell_Name();
 
   /**
    * Returns the meta object for the attribute '{@link game.of.life.tasks.tASKDSL.Cell#getX <em>X</em>}'.
@@ -651,15 +797,174 @@ public interface TASKDSLPackage extends EPackage
   EAttribute getCell_S();
 
   /**
-   * Returns the meta object for the containment reference '{@link game.of.life.tasks.tASKDSL.Cell#getAvAction <em>Av Action</em>}'.
+   * Returns the meta object for the attribute '{@link game.of.life.tasks.tASKDSL.Cell#getA <em>A</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Av Action</em>'.
-   * @see game.of.life.tasks.tASKDSL.Cell#getAvAction()
+   * @return the meta object for the attribute '<em>A</em>'.
+   * @see game.of.life.tasks.tASKDSL.Cell#getA()
    * @see #getCell()
    * @generated
    */
-  EReference getCell_AvAction();
+  EAttribute getCell_A();
+
+  /**
+   * Returns the meta object for class '{@link game.of.life.tasks.tASKDSL.evolutionRules <em>evolution Rules</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>evolution Rules</em>'.
+   * @see game.of.life.tasks.tASKDSL.evolutionRules
+   * @generated
+   */
+  EClass getevolutionRules();
+
+  /**
+   * Returns the meta object for the containment reference '{@link game.of.life.tasks.tASKDSL.evolutionRules#getBool <em>Bool</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Bool</em>'.
+   * @see game.of.life.tasks.tASKDSL.evolutionRules#getBool()
+   * @see #getevolutionRules()
+   * @generated
+   */
+  EReference getevolutionRules_Bool();
+
+  /**
+   * Returns the meta object for class '{@link game.of.life.tasks.tASKDSL.Expression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Expression</em>'.
+   * @see game.of.life.tasks.tASKDSL.Expression
+   * @generated
+   */
+  EClass getExpression();
+
+  /**
+   * Returns the meta object for class '{@link game.of.life.tasks.tASKDSL.OrExpression <em>Or Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Or Expression</em>'.
+   * @see game.of.life.tasks.tASKDSL.OrExpression
+   * @generated
+   */
+  EClass getOrExpression();
+
+  /**
+   * Returns the meta object for the containment reference '{@link game.of.life.tasks.tASKDSL.OrExpression#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see game.of.life.tasks.tASKDSL.OrExpression#getLeft()
+   * @see #getOrExpression()
+   * @generated
+   */
+  EReference getOrExpression_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link game.of.life.tasks.tASKDSL.OrExpression#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see game.of.life.tasks.tASKDSL.OrExpression#getRight()
+   * @see #getOrExpression()
+   * @generated
+   */
+  EReference getOrExpression_Right();
+
+  /**
+   * Returns the meta object for class '{@link game.of.life.tasks.tASKDSL.AndExpression <em>And Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>And Expression</em>'.
+   * @see game.of.life.tasks.tASKDSL.AndExpression
+   * @generated
+   */
+  EClass getAndExpression();
+
+  /**
+   * Returns the meta object for the containment reference '{@link game.of.life.tasks.tASKDSL.AndExpression#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see game.of.life.tasks.tASKDSL.AndExpression#getLeft()
+   * @see #getAndExpression()
+   * @generated
+   */
+  EReference getAndExpression_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link game.of.life.tasks.tASKDSL.AndExpression#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see game.of.life.tasks.tASKDSL.AndExpression#getRight()
+   * @see #getAndExpression()
+   * @generated
+   */
+  EReference getAndExpression_Right();
+
+  /**
+   * Returns the meta object for class '{@link game.of.life.tasks.tASKDSL.ComparisonExpression <em>Comparison Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Comparison Expression</em>'.
+   * @see game.of.life.tasks.tASKDSL.ComparisonExpression
+   * @generated
+   */
+  EClass getComparisonExpression();
+
+  /**
+   * Returns the meta object for the containment reference '{@link game.of.life.tasks.tASKDSL.ComparisonExpression#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see game.of.life.tasks.tASKDSL.ComparisonExpression#getLeft()
+   * @see #getComparisonExpression()
+   * @generated
+   */
+  EReference getComparisonExpression_Left();
+
+  /**
+   * Returns the meta object for the attribute '{@link game.of.life.tasks.tASKDSL.ComparisonExpression#getOperator <em>Operator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Operator</em>'.
+   * @see game.of.life.tasks.tASKDSL.ComparisonExpression#getOperator()
+   * @see #getComparisonExpression()
+   * @generated
+   */
+  EAttribute getComparisonExpression_Operator();
+
+  /**
+   * Returns the meta object for the containment reference '{@link game.of.life.tasks.tASKDSL.ComparisonExpression#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see game.of.life.tasks.tASKDSL.ComparisonExpression#getRight()
+   * @see #getComparisonExpression()
+   * @generated
+   */
+  EReference getComparisonExpression_Right();
+
+  /**
+   * Returns the meta object for class '{@link game.of.life.tasks.tASKDSL.Literal <em>Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Literal</em>'.
+   * @see game.of.life.tasks.tASKDSL.Literal
+   * @generated
+   */
+  EClass getLiteral();
+
+  /**
+   * Returns the meta object for the attribute '{@link game.of.life.tasks.tASKDSL.Literal#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see game.of.life.tasks.tASKDSL.Literal#getValue()
+   * @see #getLiteral()
+   * @generated
+   */
+  EAttribute getLiteral_Value();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -729,6 +1034,14 @@ public interface TASKDSLPackage extends EPackage
     EReference GAME__GRİD_SİZE = eINSTANCE.getGame_GridSize();
 
     /**
+     * The meta object literal for the '<em><b>Evolution Rules</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference GAME__EVOLUTİON_RULES = eINSTANCE.getGame_EvolutionRules();
+
+    /**
      * The meta object literal for the '<em><b>Start Grid</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -781,12 +1094,12 @@ public interface TASKDSLPackage extends EPackage
     EClass GAME_STATUS = eINSTANCE.getGameStatus();
 
     /**
-     * The meta object literal for the '<em><b>Gs</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>So</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute GAME_STATUS__GS = eINSTANCE.getGameStatus_Gs();
+    EAttribute GAME_STATUS__SO = eINSTANCE.getGameStatus_So();
 
     /**
      * The meta object literal for the '{@link game.of.life.tasks.tASKDSL.impl.StartGridImpl <em>Start Grid</em>}' class.
@@ -815,46 +1128,28 @@ public interface TASKDSLPackage extends EPackage
     EAttribute START_GRİD__YC = eINSTANCE.getStartGrid_YC();
 
     /**
-     * The meta object literal for the '{@link game.of.life.tasks.tASKDSL.impl.avActionImpl <em>av Action</em>}' class.
+     * The meta object literal for the '<em><b>NNo</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see game.of.life.tasks.tASKDSL.impl.avActionImpl
-     * @see game.of.life.tasks.tASKDSL.impl.TASKDSLPackageImpl#getavAction()
      * @generated
      */
-    EClass AV_ACTİON = eINSTANCE.getavAction();
+    EAttribute START_GRİD__NNO = eINSTANCE.getStartGrid_NNo();
 
     /**
-     * The meta object literal for the '<em><b>Birth</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>S</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute AV_ACTİON__BİRTH = eINSTANCE.getavAction_Birth();
+    EAttribute START_GRİD__S = eINSTANCE.getStartGrid_S();
 
     /**
-     * The meta object literal for the '<em><b>Overcrowd</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>A</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute AV_ACTİON__OVERCROWD = eINSTANCE.getavAction_Overcrowd();
-
-    /**
-     * The meta object literal for the '<em><b>Xiso</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute AV_ACTİON__XİSO = eINSTANCE.getavAction_Xiso();
-
-    /**
-     * The meta object literal for the '<em><b>Sur</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute AV_ACTİON__SUR = eINSTANCE.getavAction_Sur();
+    EAttribute START_GRİD__A = eINSTANCE.getStartGrid_A();
 
     /**
      * The meta object literal for the '{@link game.of.life.tasks.tASKDSL.impl.CellImpl <em>Cell</em>}' class.
@@ -865,14 +1160,6 @@ public interface TASKDSLPackage extends EPackage
      * @generated
      */
     EClass CELL = eINSTANCE.getCell();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute CELL__NAME = eINSTANCE.getCell_Name();
 
     /**
      * The meta object literal for the '<em><b>X</b></em>' attribute feature.
@@ -907,12 +1194,144 @@ public interface TASKDSLPackage extends EPackage
     EAttribute CELL__S = eINSTANCE.getCell_S();
 
     /**
-     * The meta object literal for the '<em><b>Av Action</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>A</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CELL__AV_ACTİON = eINSTANCE.getCell_AvAction();
+    EAttribute CELL__A = eINSTANCE.getCell_A();
+
+    /**
+     * The meta object literal for the '{@link game.of.life.tasks.tASKDSL.impl.evolutionRulesImpl <em>evolution Rules</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see game.of.life.tasks.tASKDSL.impl.evolutionRulesImpl
+     * @see game.of.life.tasks.tASKDSL.impl.TASKDSLPackageImpl#getevolutionRules()
+     * @generated
+     */
+    EClass EVOLUTİON_RULES = eINSTANCE.getevolutionRules();
+
+    /**
+     * The meta object literal for the '<em><b>Bool</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EVOLUTİON_RULES__BOOL = eINSTANCE.getevolutionRules_Bool();
+
+    /**
+     * The meta object literal for the '{@link game.of.life.tasks.tASKDSL.impl.ExpressionImpl <em>Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see game.of.life.tasks.tASKDSL.impl.ExpressionImpl
+     * @see game.of.life.tasks.tASKDSL.impl.TASKDSLPackageImpl#getExpression()
+     * @generated
+     */
+    EClass EXPRESSİON = eINSTANCE.getExpression();
+
+    /**
+     * The meta object literal for the '{@link game.of.life.tasks.tASKDSL.impl.OrExpressionImpl <em>Or Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see game.of.life.tasks.tASKDSL.impl.OrExpressionImpl
+     * @see game.of.life.tasks.tASKDSL.impl.TASKDSLPackageImpl#getOrExpression()
+     * @generated
+     */
+    EClass OR_EXPRESSİON = eINSTANCE.getOrExpression();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OR_EXPRESSİON__LEFT = eINSTANCE.getOrExpression_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OR_EXPRESSİON__RİGHT = eINSTANCE.getOrExpression_Right();
+
+    /**
+     * The meta object literal for the '{@link game.of.life.tasks.tASKDSL.impl.AndExpressionImpl <em>And Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see game.of.life.tasks.tASKDSL.impl.AndExpressionImpl
+     * @see game.of.life.tasks.tASKDSL.impl.TASKDSLPackageImpl#getAndExpression()
+     * @generated
+     */
+    EClass AND_EXPRESSİON = eINSTANCE.getAndExpression();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference AND_EXPRESSİON__LEFT = eINSTANCE.getAndExpression_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference AND_EXPRESSİON__RİGHT = eINSTANCE.getAndExpression_Right();
+
+    /**
+     * The meta object literal for the '{@link game.of.life.tasks.tASKDSL.impl.ComparisonExpressionImpl <em>Comparison Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see game.of.life.tasks.tASKDSL.impl.ComparisonExpressionImpl
+     * @see game.of.life.tasks.tASKDSL.impl.TASKDSLPackageImpl#getComparisonExpression()
+     * @generated
+     */
+    EClass COMPARİSON_EXPRESSİON = eINSTANCE.getComparisonExpression();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPARİSON_EXPRESSİON__LEFT = eINSTANCE.getComparisonExpression_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute COMPARİSON_EXPRESSİON__OPERATOR = eINSTANCE.getComparisonExpression_Operator();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPARİSON_EXPRESSİON__RİGHT = eINSTANCE.getComparisonExpression_Right();
+
+    /**
+     * The meta object literal for the '{@link game.of.life.tasks.tASKDSL.impl.LiteralImpl <em>Literal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see game.of.life.tasks.tASKDSL.impl.LiteralImpl
+     * @see game.of.life.tasks.tASKDSL.impl.TASKDSLPackageImpl#getLiteral()
+     * @generated
+     */
+    EClass LİTERAL = eINSTANCE.getLiteral();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LİTERAL__VALUE = eINSTANCE.getLiteral_Value();
 
   }
 

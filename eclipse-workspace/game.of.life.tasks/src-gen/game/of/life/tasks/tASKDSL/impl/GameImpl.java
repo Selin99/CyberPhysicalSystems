@@ -9,6 +9,7 @@ import game.of.life.tasks.tASKDSL.GameStatus;
 import game.of.life.tasks.tASKDSL.GridSize;
 import game.of.life.tasks.tASKDSL.StartGrid;
 import game.of.life.tasks.tASKDSL.TASKDSLPackage;
+import game.of.life.tasks.tASKDSL.evolutionRules;
 
 import java.util.Collection;
 
@@ -36,6 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link game.of.life.tasks.tASKDSL.impl.GameImpl#getName <em>Name</em>}</li>
  *   <li>{@link game.of.life.tasks.tASKDSL.impl.GameImpl#getGameStatus <em>Game Status</em>}</li>
  *   <li>{@link game.of.life.tasks.tASKDSL.impl.GameImpl#getGridSize <em>Grid Size</em>}</li>
+ *   <li>{@link game.of.life.tasks.tASKDSL.impl.GameImpl#getEvolutionRules <em>Evolution Rules</em>}</li>
  *   <li>{@link game.of.life.tasks.tASKDSL.impl.GameImpl#getStartGrid <em>Start Grid</em>}</li>
  *   <li>{@link game.of.life.tasks.tASKDSL.impl.GameImpl#getAllCells <em>All Cells</em>}</li>
  * </ul>
@@ -83,6 +85,16 @@ public class GameImpl extends ModelImpl implements Game
    * @ordered
    */
   protected EList<GridSize> gridSize;
+
+  /**
+   * The cached value of the '{@link #getEvolutionRules() <em>Evolution Rules</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getEvolutionRules()
+   * @generated
+   * @ordered
+   */
+  protected EList<evolutionRules> evolutionRules;
 
   /**
    * The cached value of the '{@link #getStartGrid() <em>Start Grid</em>}' containment reference list.
@@ -186,6 +198,21 @@ public class GameImpl extends ModelImpl implements Game
    * @generated
    */
   @Override
+  public EList<evolutionRules> getEvolutionRules()
+  {
+    if (evolutionRules == null)
+    {
+      evolutionRules = new EObjectContainmentEList<evolutionRules>(evolutionRules.class, this, TASKDSLPackage.GAME__EVOLUTİON_RULES);
+    }
+    return evolutionRules;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EList<StartGrid> getStartGrid()
   {
     if (startGrid == null)
@@ -224,6 +251,8 @@ public class GameImpl extends ModelImpl implements Game
         return ((InternalEList<?>)getGameStatus()).basicRemove(otherEnd, msgs);
       case TASKDSLPackage.GAME__GRİD_SİZE:
         return ((InternalEList<?>)getGridSize()).basicRemove(otherEnd, msgs);
+      case TASKDSLPackage.GAME__EVOLUTİON_RULES:
+        return ((InternalEList<?>)getEvolutionRules()).basicRemove(otherEnd, msgs);
       case TASKDSLPackage.GAME__START_GRİD:
         return ((InternalEList<?>)getStartGrid()).basicRemove(otherEnd, msgs);
       case TASKDSLPackage.GAME__ALL_CELLS:
@@ -248,6 +277,8 @@ public class GameImpl extends ModelImpl implements Game
         return getGameStatus();
       case TASKDSLPackage.GAME__GRİD_SİZE:
         return getGridSize();
+      case TASKDSLPackage.GAME__EVOLUTİON_RULES:
+        return getEvolutionRules();
       case TASKDSLPackage.GAME__START_GRİD:
         return getStartGrid();
       case TASKDSLPackage.GAME__ALL_CELLS:
@@ -277,6 +308,10 @@ public class GameImpl extends ModelImpl implements Game
       case TASKDSLPackage.GAME__GRİD_SİZE:
         getGridSize().clear();
         getGridSize().addAll((Collection<? extends GridSize>)newValue);
+        return;
+      case TASKDSLPackage.GAME__EVOLUTİON_RULES:
+        getEvolutionRules().clear();
+        getEvolutionRules().addAll((Collection<? extends evolutionRules>)newValue);
         return;
       case TASKDSLPackage.GAME__START_GRİD:
         getStartGrid().clear();
@@ -309,6 +344,9 @@ public class GameImpl extends ModelImpl implements Game
       case TASKDSLPackage.GAME__GRİD_SİZE:
         getGridSize().clear();
         return;
+      case TASKDSLPackage.GAME__EVOLUTİON_RULES:
+        getEvolutionRules().clear();
+        return;
       case TASKDSLPackage.GAME__START_GRİD:
         getStartGrid().clear();
         return;
@@ -335,6 +373,8 @@ public class GameImpl extends ModelImpl implements Game
         return gameStatus != null && !gameStatus.isEmpty();
       case TASKDSLPackage.GAME__GRİD_SİZE:
         return gridSize != null && !gridSize.isEmpty();
+      case TASKDSLPackage.GAME__EVOLUTİON_RULES:
+        return evolutionRules != null && !evolutionRules.isEmpty();
       case TASKDSLPackage.GAME__START_GRİD:
         return startGrid != null && !startGrid.isEmpty();
       case TASKDSLPackage.GAME__ALL_CELLS:

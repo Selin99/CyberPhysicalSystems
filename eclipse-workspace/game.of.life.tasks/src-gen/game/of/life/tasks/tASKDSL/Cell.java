@@ -14,12 +14,11 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link game.of.life.tasks.tASKDSL.Cell#getName <em>Name</em>}</li>
  *   <li>{@link game.of.life.tasks.tASKDSL.Cell#getX <em>X</em>}</li>
  *   <li>{@link game.of.life.tasks.tASKDSL.Cell#getY <em>Y</em>}</li>
  *   <li>{@link game.of.life.tasks.tASKDSL.Cell#getNNo <em>NNo</em>}</li>
  *   <li>{@link game.of.life.tasks.tASKDSL.Cell#getS <em>S</em>}</li>
- *   <li>{@link game.of.life.tasks.tASKDSL.Cell#getAvAction <em>Av Action</em>}</li>
+ *   <li>{@link game.of.life.tasks.tASKDSL.Cell#getA <em>A</em>}</li>
  * </ul>
  *
  * @see game.of.life.tasks.tASKDSL.TASKDSLPackage#getCell()
@@ -28,28 +27,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Cell extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see game.of.life.tasks.tASKDSL.TASKDSLPackage#getCell_Name()
-   * @model
-   * @generated
-   */
-  String getName();
-
-  /**
-   * Sets the value of the '{@link game.of.life.tasks.tASKDSL.Cell#getName <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
-   * @generated
-   */
-  void setName(String value);
-
   /**
    * Returns the value of the '<em><b>X</b></em>' attribute.
    * <!-- begin-user-doc -->
@@ -121,12 +98,12 @@ public interface Cell extends EObject
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>S</em>' attribute.
-   * @see #setS(int)
+   * @see #setS(String)
    * @see game.of.life.tasks.tASKDSL.TASKDSLPackage#getCell_S()
    * @model
    * @generated
    */
-  int getS();
+  String getS();
 
   /**
    * Sets the value of the '{@link game.of.life.tasks.tASKDSL.Cell#getS <em>S</em>}' attribute.
@@ -136,28 +113,28 @@ public interface Cell extends EObject
    * @see #getS()
    * @generated
    */
-  void setS(int value);
+  void setS(String value);
 
   /**
-   * Returns the value of the '<em><b>Av Action</b></em>' containment reference.
+   * Returns the value of the '<em><b>A</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Av Action</em>' containment reference.
-   * @see #setAvAction(avAction)
-   * @see game.of.life.tasks.tASKDSL.TASKDSLPackage#getCell_AvAction()
-   * @model containment="true"
+   * @return the value of the '<em>A</em>' attribute.
+   * @see #setA(String)
+   * @see game.of.life.tasks.tASKDSL.TASKDSLPackage#getCell_A()
+   * @model
    * @generated
    */
-  avAction getAvAction();
+  String getA();
 
   /**
-   * Sets the value of the '{@link game.of.life.tasks.tASKDSL.Cell#getAvAction <em>Av Action</em>}' containment reference.
+   * Sets the value of the '{@link game.of.life.tasks.tASKDSL.Cell#getA <em>A</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Av Action</em>' containment reference.
-   * @see #getAvAction()
+   * @param value the new value of the '<em>A</em>' attribute.
+   * @see #getA()
    * @generated
    */
-  void setAvAction(avAction value);
+  void setA(String value);
 
 } // Cell

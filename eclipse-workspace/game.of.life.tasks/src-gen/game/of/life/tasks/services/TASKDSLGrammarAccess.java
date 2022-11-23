@@ -6,6 +6,7 @@ package game.of.life.tasks.services;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.util.List;
+import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.Grammar;
@@ -27,7 +28,7 @@ public class TASKDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		private final RuleCall cGameParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
 		//Model:
-		//    Game ;
+		//    Game;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//Game
@@ -39,20 +40,37 @@ public class TASKDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		private final Keyword cGameKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Assignment cGameStatusAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cGameStatusGameStatusParserRuleCall_2_0 = (RuleCall)cGameStatusAssignment_2.eContents().get(0);
-		private final Assignment cGridSizeAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cGridSizeGridSizeParserRuleCall_3_0 = (RuleCall)cGridSizeAssignment_3.eContents().get(0);
-		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
-		private final Assignment cStartGridAssignment_4_0 = (Assignment)cAlternatives_4.eContents().get(0);
-		private final RuleCall cStartGridStartGridParserRuleCall_4_0_0 = (RuleCall)cStartGridAssignment_4_0.eContents().get(0);
-		private final Assignment cAllCellsAssignment_4_1 = (Assignment)cAlternatives_4.eContents().get(1);
-		private final RuleCall cAllCellsCellParserRuleCall_4_1_0 = (RuleCall)cAllCellsAssignment_4_1.eContents().get(0);
+		private final Keyword cGameStatusKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cGameStatusAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cGameStatusGameStatusParserRuleCall_3_0 = (RuleCall)cGameStatusAssignment_3.eContents().get(0);
+		private final Keyword cGridSizeKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cGridSizeAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cGridSizeGridSizeParserRuleCall_5_0 = (RuleCall)cGridSizeAssignment_5.eContents().get(0);
+		private final Keyword cEvolutionRulesKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cEvolutionRulesAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cEvolutionRulesEvolutionRulesParserRuleCall_7_0 = (RuleCall)cEvolutionRulesAssignment_7.eContents().get(0);
+		private final Keyword cInitiallyActiveCellsKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Assignment cStartGridAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final RuleCall cStartGridStartGridParserRuleCall_9_0 = (RuleCall)cStartGridAssignment_9.eContents().get(0);
+		private final Keyword cAllCellsKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Assignment cAllCellsAssignment_11 = (Assignment)cGroup.eContents().get(11);
+		private final RuleCall cAllCellsCellParserRuleCall_11_0 = (RuleCall)cAllCellsAssignment_11.eContents().get(0);
 		
-		//Game: 'Game:' name=ID gameStatus+= GameStatus gridSize+=GridSize (startGrid+=StartGrid | allCells+=Cell)*;
+		//Game: 'Game:' name=ID
+		//      'GameStatus:'gameStatus+= GameStatus
+		//      'GridSize:'gridSize+=GridSize
+		//      'EvolutionRules:' evolutionRules+=evolutionRules*
+		//      'InitiallyActiveCells:' startGrid+=StartGrid*
+		//      'AllCells:'allCells+=Cell*
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Game:' name=ID gameStatus+= GameStatus gridSize+=GridSize (startGrid+=StartGrid | allCells+=Cell)*
+		//'Game:' name=ID
+		//     'GameStatus:'gameStatus+= GameStatus
+		//     'GridSize:'gridSize+=GridSize
+		//     'EvolutionRules:' evolutionRules+=evolutionRules*
+		//     'InitiallyActiveCells:' startGrid+=StartGrid*
+		//     'AllCells:'allCells+=Cell*
 		public Group getGroup() { return cGroup; }
 		
 		//'Game:'
@@ -64,32 +82,50 @@ public class TASKDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
+		//'GameStatus:'
+		public Keyword getGameStatusKeyword_2() { return cGameStatusKeyword_2; }
+		
 		//gameStatus+= GameStatus
-		public Assignment getGameStatusAssignment_2() { return cGameStatusAssignment_2; }
+		public Assignment getGameStatusAssignment_3() { return cGameStatusAssignment_3; }
 		
 		//GameStatus
-		public RuleCall getGameStatusGameStatusParserRuleCall_2_0() { return cGameStatusGameStatusParserRuleCall_2_0; }
+		public RuleCall getGameStatusGameStatusParserRuleCall_3_0() { return cGameStatusGameStatusParserRuleCall_3_0; }
+		
+		//'GridSize:'
+		public Keyword getGridSizeKeyword_4() { return cGridSizeKeyword_4; }
 		
 		//gridSize+=GridSize
-		public Assignment getGridSizeAssignment_3() { return cGridSizeAssignment_3; }
+		public Assignment getGridSizeAssignment_5() { return cGridSizeAssignment_5; }
 		
 		//GridSize
-		public RuleCall getGridSizeGridSizeParserRuleCall_3_0() { return cGridSizeGridSizeParserRuleCall_3_0; }
+		public RuleCall getGridSizeGridSizeParserRuleCall_5_0() { return cGridSizeGridSizeParserRuleCall_5_0; }
 		
-		//(startGrid+=StartGrid | allCells+=Cell)*
-		public Alternatives getAlternatives_4() { return cAlternatives_4; }
+		//'EvolutionRules:'
+		public Keyword getEvolutionRulesKeyword_6() { return cEvolutionRulesKeyword_6; }
 		
-		//startGrid+=StartGrid
-		public Assignment getStartGridAssignment_4_0() { return cStartGridAssignment_4_0; }
+		//evolutionRules+=evolutionRules*
+		public Assignment getEvolutionRulesAssignment_7() { return cEvolutionRulesAssignment_7; }
+		
+		//evolutionRules
+		public RuleCall getEvolutionRulesEvolutionRulesParserRuleCall_7_0() { return cEvolutionRulesEvolutionRulesParserRuleCall_7_0; }
+		
+		//'InitiallyActiveCells:'
+		public Keyword getInitiallyActiveCellsKeyword_8() { return cInitiallyActiveCellsKeyword_8; }
+		
+		//startGrid+=StartGrid*
+		public Assignment getStartGridAssignment_9() { return cStartGridAssignment_9; }
 		
 		//StartGrid
-		public RuleCall getStartGridStartGridParserRuleCall_4_0_0() { return cStartGridStartGridParserRuleCall_4_0_0; }
+		public RuleCall getStartGridStartGridParserRuleCall_9_0() { return cStartGridStartGridParserRuleCall_9_0; }
 		
-		//allCells+=Cell
-		public Assignment getAllCellsAssignment_4_1() { return cAllCellsAssignment_4_1; }
+		//'AllCells:'
+		public Keyword getAllCellsKeyword_10() { return cAllCellsKeyword_10; }
+		
+		//allCells+=Cell*
+		public Assignment getAllCellsAssignment_11() { return cAllCellsAssignment_11; }
 		
 		//Cell
-		public RuleCall getAllCellsCellParserRuleCall_4_1_0() { return cAllCellsCellParserRuleCall_4_1_0; }
+		public RuleCall getAllCellsCellParserRuleCall_11_0() { return cAllCellsCellParserRuleCall_11_0; }
 	}
 	public class GridSizeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "game.of.life.tasks.TASKDSL.GridSize");
@@ -101,7 +137,8 @@ public class TASKDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		private final Assignment cLAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cLINTTerminalRuleCall_3_0 = (RuleCall)cLAssignment_3.eContents().get(0);
 		
-		//GridSize: 'Height:' h=INT 'Length:' l=INT;
+		////Grid Size:
+		//GridSize:'Height:' h=INT 'Length:' l=INT;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'Height:' h=INT 'Length:' l=INT
@@ -127,49 +164,70 @@ public class TASKDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	}
 	public class GameStatusElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "game.of.life.tasks.TASKDSL.GameStatus");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cGameStatusKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cGsAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cGsINTTerminalRuleCall_1_0 = (RuleCall)cGsAssignment_1.eContents().get(0);
+		private final Assignment cSoAssignment = (Assignment)rule.eContents().get(1);
+		private final Alternatives cSoAlternatives_0 = (Alternatives)cSoAssignment.eContents().get(0);
+		private final Keyword cSoContinueKeyword_0_0 = (Keyword)cSoAlternatives_0.eContents().get(0);
+		private final Keyword cSoOverKeyword_0_1 = (Keyword)cSoAlternatives_0.eContents().get(1);
 		
-		//GameStatus: 'GameStatus:' gs=INT ;
+		////GameStatus:
+		//GameStatus: so=('Continue' | 'Over') ;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'GameStatus:' gs=INT
-		public Group getGroup() { return cGroup; }
+		//so=('Continue' | 'Over')
+		public Assignment getSoAssignment() { return cSoAssignment; }
 		
-		//'GameStatus:'
-		public Keyword getGameStatusKeyword_0() { return cGameStatusKeyword_0; }
+		//('Continue' | 'Over')
+		public Alternatives getSoAlternatives_0() { return cSoAlternatives_0; }
 		
-		//gs=INT
-		public Assignment getGsAssignment_1() { return cGsAssignment_1; }
+		//'Continue'
+		public Keyword getSoContinueKeyword_0_0() { return cSoContinueKeyword_0_0; }
 		
-		//INT
-		public RuleCall getGsINTTerminalRuleCall_1_0() { return cGsINTTerminalRuleCall_1_0; }
+		//'Over'
+		public Keyword getSoOverKeyword_0_1() { return cSoOverKeyword_0_1; }
 	}
 	public class StartGridElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "game.of.life.tasks.TASKDSL.StartGrid");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cInitiallyActiveCellKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cXCoordKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cCoordinateInfoKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cXKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cXCAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cXCINTTerminalRuleCall_2_0 = (RuleCall)cXCAssignment_2.eContents().get(0);
-		private final Keyword cYCoordKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cYKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cYCAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cYCINTTerminalRuleCall_4_0 = (RuleCall)cYCAssignment_4.eContents().get(0);
+		private final Keyword cNeighborNoKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cNNoAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cNNoINTTerminalRuleCall_6_0 = (RuleCall)cNNoAssignment_6.eContents().get(0);
+		private final Keyword cStatusKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cSAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final Keyword cSLiveKeyword_8_0 = (Keyword)cSAssignment_8.eContents().get(0);
+		private final Keyword cNextGenerationKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Assignment cAAssignment_10 = (Assignment)cGroup.eContents().get(10);
+		private final Alternatives cAAlternatives_10_0 = (Alternatives)cAAssignment_10.eContents().get(0);
+		private final Keyword cABirthKeyword_10_0_0 = (Keyword)cAAlternatives_10_0.eContents().get(0);
+		private final Keyword cAOverCrowdKeyword_10_0_1 = (Keyword)cAAlternatives_10_0.eContents().get(1);
+		private final Keyword cAXisolateKeyword_10_0_2 = (Keyword)cAAlternatives_10_0.eContents().get(2);
+		private final Keyword cASurviveKeyword_10_0_3 = (Keyword)cAAlternatives_10_0.eContents().get(3);
 		
-		// //if 1 game continue if 0 game over
-		//StartGrid: 'InitiallyActiveCell:' 'x-Coord:' xC= INT  'y-Coord:' yC= INT;
+		////Initially Active Cells:
+		//StartGrid: 'CoordinateInfo:' 'x:' xC= INT  'y:' yC= INT
+		//           'NeighborNo:' nNo=INT
+		//           'Status:' s='Live'
+		//           'NextGeneration:' a=('Birth' | 'OverCrowd' |'xisolate' | 'Survive')
+		//        ;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'InitiallyActiveCell:' 'x-Coord:' xC= INT  'y-Coord:' yC= INT
+		//'CoordinateInfo:' 'x:' xC= INT  'y:' yC= INT
+		//          'NeighborNo:' nNo=INT
+		//          'Status:' s='Live'
+		//          'NextGeneration:' a=('Birth' | 'OverCrowd' |'xisolate' | 'Survive')
 		public Group getGroup() { return cGroup; }
 		
-		//'InitiallyActiveCell:'
-		public Keyword getInitiallyActiveCellKeyword_0() { return cInitiallyActiveCellKeyword_0; }
+		//'CoordinateInfo:'
+		public Keyword getCoordinateInfoKeyword_0() { return cCoordinateInfoKeyword_0; }
 		
-		//'x-Coord:'
-		public Keyword getXCoordKeyword_1() { return cXCoordKeyword_1; }
+		//'x:'
+		public Keyword getXKeyword_1() { return cXKeyword_1; }
 		
 		//xC= INT
 		public Assignment getXCAssignment_2() { return cXCAssignment_2; }
@@ -177,172 +235,423 @@ public class TASKDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		//INT
 		public RuleCall getXCINTTerminalRuleCall_2_0() { return cXCINTTerminalRuleCall_2_0; }
 		
-		//'y-Coord:'
-		public Keyword getYCoordKeyword_3() { return cYCoordKeyword_3; }
+		//'y:'
+		public Keyword getYKeyword_3() { return cYKeyword_3; }
 		
 		//yC= INT
 		public Assignment getYCAssignment_4() { return cYCAssignment_4; }
 		
 		//INT
 		public RuleCall getYCINTTerminalRuleCall_4_0() { return cYCINTTerminalRuleCall_4_0; }
-	}
-	public class AvActionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "game.of.life.tasks.TASKDSL.avAction");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Keyword cBirthKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
-		private final Assignment cBirthAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
-		private final RuleCall cBirthINTTerminalRuleCall_0_1_0 = (RuleCall)cBirthAssignment_0_1.eContents().get(0);
-		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Keyword cOvercrowdingKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Assignment cOvercrowdAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cOvercrowdINTTerminalRuleCall_1_1_0 = (RuleCall)cOvercrowdAssignment_1_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
-		private final Keyword cXisolationKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cXisoAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cXisoINTTerminalRuleCall_2_1_0 = (RuleCall)cXisoAssignment_2_1.eContents().get(0);
-		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
-		private final Keyword cSurvivalKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cSurAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cSurINTTerminalRuleCall_3_1_0 = (RuleCall)cSurAssignment_3_1.eContents().get(0);
 		
-		//avAction: 'Birth' birth=INT | 'Overcrowding' overcrowd=INT | 'Xisolation' xiso=INT | 'Survival' sur=INT ;
-		@Override public ParserRule getRule() { return rule; }
+		//'NeighborNo:'
+		public Keyword getNeighborNoKeyword_5() { return cNeighborNoKeyword_5; }
 		
-		//'Birth' birth=INT | 'Overcrowding' overcrowd=INT | 'Xisolation' xiso=INT | 'Survival' sur=INT
-		public Alternatives getAlternatives() { return cAlternatives; }
+		//nNo=INT
+		public Assignment getNNoAssignment_6() { return cNNoAssignment_6; }
 		
-		//'Birth' birth=INT
-		public Group getGroup_0() { return cGroup_0; }
+		//INT
+		public RuleCall getNNoINTTerminalRuleCall_6_0() { return cNNoINTTerminalRuleCall_6_0; }
+		
+		//'Status:'
+		public Keyword getStatusKeyword_7() { return cStatusKeyword_7; }
+		
+		//s='Live'
+		public Assignment getSAssignment_8() { return cSAssignment_8; }
+		
+		//'Live'
+		public Keyword getSLiveKeyword_8_0() { return cSLiveKeyword_8_0; }
+		
+		//'NextGeneration:'
+		public Keyword getNextGenerationKeyword_9() { return cNextGenerationKeyword_9; }
+		
+		//a=('Birth' | 'OverCrowd' |'xisolate' | 'Survive')
+		public Assignment getAAssignment_10() { return cAAssignment_10; }
+		
+		//('Birth' | 'OverCrowd' |'xisolate' | 'Survive')
+		public Alternatives getAAlternatives_10_0() { return cAAlternatives_10_0; }
 		
 		//'Birth'
-		public Keyword getBirthKeyword_0_0() { return cBirthKeyword_0_0; }
+		public Keyword getABirthKeyword_10_0_0() { return cABirthKeyword_10_0_0; }
 		
-		//birth=INT
-		public Assignment getBirthAssignment_0_1() { return cBirthAssignment_0_1; }
+		//'OverCrowd'
+		public Keyword getAOverCrowdKeyword_10_0_1() { return cAOverCrowdKeyword_10_0_1; }
 		
-		//INT
-		public RuleCall getBirthINTTerminalRuleCall_0_1_0() { return cBirthINTTerminalRuleCall_0_1_0; }
+		//'xisolate'
+		public Keyword getAXisolateKeyword_10_0_2() { return cAXisolateKeyword_10_0_2; }
 		
-		//'Overcrowding' overcrowd=INT
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//'Overcrowding'
-		public Keyword getOvercrowdingKeyword_1_0() { return cOvercrowdingKeyword_1_0; }
-		
-		//overcrowd=INT
-		public Assignment getOvercrowdAssignment_1_1() { return cOvercrowdAssignment_1_1; }
-		
-		//INT
-		public RuleCall getOvercrowdINTTerminalRuleCall_1_1_0() { return cOvercrowdINTTerminalRuleCall_1_1_0; }
-		
-		//'Xisolation' xiso=INT
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//'Xisolation'
-		public Keyword getXisolationKeyword_2_0() { return cXisolationKeyword_2_0; }
-		
-		//xiso=INT
-		public Assignment getXisoAssignment_2_1() { return cXisoAssignment_2_1; }
-		
-		//INT
-		public RuleCall getXisoINTTerminalRuleCall_2_1_0() { return cXisoINTTerminalRuleCall_2_1_0; }
-		
-		//'Survival' sur=INT
-		public Group getGroup_3() { return cGroup_3; }
-		
-		//'Survival'
-		public Keyword getSurvivalKeyword_3_0() { return cSurvivalKeyword_3_0; }
-		
-		//sur=INT
-		public Assignment getSurAssignment_3_1() { return cSurAssignment_3_1; }
-		
-		//INT
-		public RuleCall getSurINTTerminalRuleCall_3_1_0() { return cSurINTTerminalRuleCall_3_1_0; }
+		//'Survive'
+		public Keyword getASurviveKeyword_10_0_3() { return cASurviveKeyword_10_0_3; }
 	}
 	public class CellElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "game.of.life.tasks.TASKDSL.Cell");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cCellKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cXCoordinateKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cXAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cXINTTerminalRuleCall_3_0 = (RuleCall)cXAssignment_3.eContents().get(0);
-		private final Keyword cYCoordinateKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cYAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cYINTTerminalRuleCall_5_0 = (RuleCall)cYAssignment_5.eContents().get(0);
-		private final Keyword cNeighborNoKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cNNoAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cNNoINTTerminalRuleCall_7_0 = (RuleCall)cNNoAssignment_7.eContents().get(0);
-		private final Keyword cStatusKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final Assignment cSAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final RuleCall cSINTTerminalRuleCall_9_0 = (RuleCall)cSAssignment_9.eContents().get(0);
-		private final Keyword cAvailableActionKeyword_10 = (Keyword)cGroup.eContents().get(10);
-		private final Assignment cAvActionAssignment_11 = (Assignment)cGroup.eContents().get(11);
-		private final RuleCall cAvActionAvActionParserRuleCall_11_0 = (RuleCall)cAvActionAssignment_11.eContents().get(0);
+		private final Keyword cCoordinateInfoKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cXKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cXAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cXINTTerminalRuleCall_2_0 = (RuleCall)cXAssignment_2.eContents().get(0);
+		private final Keyword cYKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cYAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cYINTTerminalRuleCall_4_0 = (RuleCall)cYAssignment_4.eContents().get(0);
+		private final Keyword cNeighborNoKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cNNoAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cNNoINTTerminalRuleCall_6_0 = (RuleCall)cNNoAssignment_6.eContents().get(0);
+		private final Keyword cStatusKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cSAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final Alternatives cSAlternatives_8_0 = (Alternatives)cSAssignment_8.eContents().get(0);
+		private final Keyword cSLiveKeyword_8_0_0 = (Keyword)cSAlternatives_8_0.eContents().get(0);
+		private final Keyword cSDeadKeyword_8_0_1 = (Keyword)cSAlternatives_8_0.eContents().get(1);
+		private final Keyword cNextGenerationKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Assignment cAAssignment_10 = (Assignment)cGroup.eContents().get(10);
+		private final Alternatives cAAlternatives_10_0 = (Alternatives)cAAssignment_10.eContents().get(0);
+		private final Keyword cABirthKeyword_10_0_0 = (Keyword)cAAlternatives_10_0.eContents().get(0);
+		private final Keyword cAOverCrowdKeyword_10_0_1 = (Keyword)cAAlternatives_10_0.eContents().get(1);
+		private final Keyword cAXisolateKeyword_10_0_2 = (Keyword)cAAlternatives_10_0.eContents().get(2);
+		private final Keyword cASurviveKeyword_10_0_3 = (Keyword)cAAlternatives_10_0.eContents().get(3);
 		
-		//Cell: 'Cell:' name=ID 'x-Coordinate:' x= INT  'y-Coordinate:' y= INT 'neighborNo:' nNo=INT 'status:' s=INT 'availableAction:' avAction=avAction
-		////if ressurected 2 alive 1 if dead 0
+		//Cell: 'CoordinateInfo:' 'x:' x= INT  'y:' y= INT
+		//      'NeighborNo:' nNo=INT
+		//      'Status:' s=('Live'|'Dead')
+		//      'NextGeneration:' a=('Birth' | 'OverCrowd' |'xisolate' | 'Survive')
+		//      ;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'CoordinateInfo:' 'x:' x= INT  'y:' y= INT
+		//     'NeighborNo:' nNo=INT
+		//     'Status:' s=('Live'|'Dead')
+		//     'NextGeneration:' a=('Birth' | 'OverCrowd' |'xisolate' | 'Survive')
+		public Group getGroup() { return cGroup; }
+		
+		//'CoordinateInfo:'
+		public Keyword getCoordinateInfoKeyword_0() { return cCoordinateInfoKeyword_0; }
+		
+		//'x:'
+		public Keyword getXKeyword_1() { return cXKeyword_1; }
+		
+		//x= INT
+		public Assignment getXAssignment_2() { return cXAssignment_2; }
+		
+		//INT
+		public RuleCall getXINTTerminalRuleCall_2_0() { return cXINTTerminalRuleCall_2_0; }
+		
+		//'y:'
+		public Keyword getYKeyword_3() { return cYKeyword_3; }
+		
+		//y= INT
+		public Assignment getYAssignment_4() { return cYAssignment_4; }
+		
+		//INT
+		public RuleCall getYINTTerminalRuleCall_4_0() { return cYINTTerminalRuleCall_4_0; }
+		
+		//'NeighborNo:'
+		public Keyword getNeighborNoKeyword_5() { return cNeighborNoKeyword_5; }
+		
+		//nNo=INT
+		public Assignment getNNoAssignment_6() { return cNNoAssignment_6; }
+		
+		//INT
+		public RuleCall getNNoINTTerminalRuleCall_6_0() { return cNNoINTTerminalRuleCall_6_0; }
+		
+		//'Status:'
+		public Keyword getStatusKeyword_7() { return cStatusKeyword_7; }
+		
+		//s=('Live'|'Dead')
+		public Assignment getSAssignment_8() { return cSAssignment_8; }
+		
+		//('Live'|'Dead')
+		public Alternatives getSAlternatives_8_0() { return cSAlternatives_8_0; }
+		
+		//'Live'
+		public Keyword getSLiveKeyword_8_0_0() { return cSLiveKeyword_8_0_0; }
+		
+		//'Dead'
+		public Keyword getSDeadKeyword_8_0_1() { return cSDeadKeyword_8_0_1; }
+		
+		//'NextGeneration:'
+		public Keyword getNextGenerationKeyword_9() { return cNextGenerationKeyword_9; }
+		
+		//a=('Birth' | 'OverCrowd' |'xisolate' | 'Survive')
+		public Assignment getAAssignment_10() { return cAAssignment_10; }
+		
+		//('Birth' | 'OverCrowd' |'xisolate' | 'Survive')
+		public Alternatives getAAlternatives_10_0() { return cAAlternatives_10_0; }
+		
+		//'Birth'
+		public Keyword getABirthKeyword_10_0_0() { return cABirthKeyword_10_0_0; }
+		
+		//'OverCrowd'
+		public Keyword getAOverCrowdKeyword_10_0_1() { return cAOverCrowdKeyword_10_0_1; }
+		
+		//'xisolate'
+		public Keyword getAXisolateKeyword_10_0_2() { return cAXisolateKeyword_10_0_2; }
+		
+		//'Survive'
+		public Keyword getASurviveKeyword_10_0_3() { return cASurviveKeyword_10_0_3; }
+	}
+	public class EvolutionRulesElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "game.of.life.tasks.TASKDSL.evolutionRules");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cIfKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cBoolAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cBoolExpressionParserRuleCall_1_0 = (RuleCall)cBoolAssignment_1.eContents().get(0);
+		private final Keyword cThenKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
+		private final Keyword cBirthKeyword_3_0 = (Keyword)cAlternatives_3.eContents().get(0);
+		private final Keyword cOverCrowdKeyword_3_1 = (Keyword)cAlternatives_3.eContents().get(1);
+		private final Keyword cXisolateKeyword_3_2 = (Keyword)cAlternatives_3.eContents().get(2);
+		private final Keyword cSurviveKeyword_3_3 = (Keyword)cAlternatives_3.eContents().get(3);
+		
+		//evolutionRules: 'if' bool=Expression 'then' ('Birth' | 'OverCrowd' |'xisolate' | 'Survive') ;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'if' bool=Expression 'then' ('Birth' | 'OverCrowd' |'xisolate' | 'Survive')
+		public Group getGroup() { return cGroup; }
+		
+		//'if'
+		public Keyword getIfKeyword_0() { return cIfKeyword_0; }
+		
+		//bool=Expression
+		public Assignment getBoolAssignment_1() { return cBoolAssignment_1; }
+		
+		//Expression
+		public RuleCall getBoolExpressionParserRuleCall_1_0() { return cBoolExpressionParserRuleCall_1_0; }
+		
+		//'then'
+		public Keyword getThenKeyword_2() { return cThenKeyword_2; }
+		
+		//('Birth' | 'OverCrowd' |'xisolate' | 'Survive')
+		public Alternatives getAlternatives_3() { return cAlternatives_3; }
+		
+		//'Birth'
+		public Keyword getBirthKeyword_3_0() { return cBirthKeyword_3_0; }
+		
+		//'OverCrowd'
+		public Keyword getOverCrowdKeyword_3_1() { return cOverCrowdKeyword_3_1; }
+		
+		//'xisolate'
+		public Keyword getXisolateKeyword_3_2() { return cXisolateKeyword_3_2; }
+		
+		//'Survive'
+		public Keyword getSurviveKeyword_3_3() { return cSurviveKeyword_3_3; }
+	}
+	public class ExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "game.of.life.tasks.TASKDSL.Expression");
+		private final RuleCall cOrExpressionParserRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		////Ref: https://stackoverflow.com/questions/38829863/using-boolean-expressions-as-arguments-on-xtext
+		//Expression:
+		//    OrExpression
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Cell:' name=ID 'x-Coordinate:' x= INT  'y-Coordinate:' y= INT 'neighborNo:' nNo=INT 'status:' s=INT 'availableAction:' avAction=avAction
+		//OrExpression
+		public RuleCall getOrExpressionParserRuleCall() { return cOrExpressionParserRuleCall; }
+	}
+	public class OrExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "game.of.life.tasks.TASKDSL.OrExpression");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cAndExpressionParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Action cOrExpressionLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Keyword cVertCalLNeVertCalLNeKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cRightAndExpressionParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
+		
+		//OrExpression returns Expression:
+		//    AndExpression ({OrExpression.left=current} "||" right=AndExpression)*
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//AndExpression ({OrExpression.left=current} "||" right=AndExpression)*
 		public Group getGroup() { return cGroup; }
 		
-		//'Cell:'
-		public Keyword getCellKeyword_0() { return cCellKeyword_0; }
+		//AndExpression
+		public RuleCall getAndExpressionParserRuleCall_0() { return cAndExpressionParserRuleCall_0; }
 		
-		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		//({OrExpression.left=current} "||" right=AndExpression)*
+		public Group getGroup_1() { return cGroup_1; }
 		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		//{OrExpression.left=current}
+		public Action getOrExpressionLeftAction_1_0() { return cOrExpressionLeftAction_1_0; }
 		
-		//'x-Coordinate:'
-		public Keyword getXCoordinateKeyword_2() { return cXCoordinateKeyword_2; }
+		//"||"
+		public Keyword getVertCalLNeVertCalLNeKeyword_1_1() { return cVertCalLNeVertCalLNeKeyword_1_1; }
 		
-		//x= INT
-		public Assignment getXAssignment_3() { return cXAssignment_3; }
+		//right=AndExpression
+		public Assignment getRightAssignment_1_2() { return cRightAssignment_1_2; }
+		
+		//AndExpression
+		public RuleCall getRightAndExpressionParserRuleCall_1_2_0() { return cRightAndExpressionParserRuleCall_1_2_0; }
+	}
+	public class AndExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "game.of.life.tasks.TASKDSL.AndExpression");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cComparisonExpressionParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Action cAndExpressionLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Keyword cAmpersandAmpersandKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cRightComparisonExpressionParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
+		
+		//AndExpression returns Expression:
+		//    ComparisonExpression ({AndExpression.left=current} "&&" right=ComparisonExpression)*
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//ComparisonExpression ({AndExpression.left=current} "&&" right=ComparisonExpression)*
+		public Group getGroup() { return cGroup; }
+		
+		//ComparisonExpression
+		public RuleCall getComparisonExpressionParserRuleCall_0() { return cComparisonExpressionParserRuleCall_0; }
+		
+		//({AndExpression.left=current} "&&" right=ComparisonExpression)*
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//{AndExpression.left=current}
+		public Action getAndExpressionLeftAction_1_0() { return cAndExpressionLeftAction_1_0; }
+		
+		//"&&"
+		public Keyword getAmpersandAmpersandKeyword_1_1() { return cAmpersandAmpersandKeyword_1_1; }
+		
+		//right=ComparisonExpression
+		public Assignment getRightAssignment_1_2() { return cRightAssignment_1_2; }
+		
+		//ComparisonExpression
+		public RuleCall getRightComparisonExpressionParserRuleCall_1_2_0() { return cRightComparisonExpressionParserRuleCall_1_2_0; }
+	}
+	public class ComparisonExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "game.of.life.tasks.TASKDSL.ComparisonExpression");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cPrimaryExpressionParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Action cComparisonExpressionLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Assignment cOperatorAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final Alternatives cOperatorAlternatives_1_1_0 = (Alternatives)cOperatorAssignment_1_1.eContents().get(0);
+		private final Keyword cOperatorLessThanSGnKeyword_1_1_0_0 = (Keyword)cOperatorAlternatives_1_1_0.eContents().get(0);
+		private final Keyword cOperatorLessThanSGnEqualsSGnKeyword_1_1_0_1 = (Keyword)cOperatorAlternatives_1_1_0.eContents().get(1);
+		private final Keyword cOperatorEqualsSGnEqualsSGnKeyword_1_1_0_2 = (Keyword)cOperatorAlternatives_1_1_0.eContents().get(2);
+		private final Keyword cOperatorGreaterThanSGnEqualsSGnKeyword_1_1_0_3 = (Keyword)cOperatorAlternatives_1_1_0.eContents().get(3);
+		private final Keyword cOperatorGreaterThanSGnKeyword_1_1_0_4 = (Keyword)cOperatorAlternatives_1_1_0.eContents().get(4);
+		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cRightPrimaryExpressionParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
+		
+		//ComparisonExpression returns Expression:
+		//    PrimaryExpression ({ComparisonExpression.left=current} operator=("<"|"<="|"=="|">="|">") right=PrimaryExpression)*
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//PrimaryExpression ({ComparisonExpression.left=current} operator=("<"|"<="|"=="|">="|">") right=PrimaryExpression)*
+		public Group getGroup() { return cGroup; }
+		
+		//PrimaryExpression
+		public RuleCall getPrimaryExpressionParserRuleCall_0() { return cPrimaryExpressionParserRuleCall_0; }
+		
+		//({ComparisonExpression.left=current} operator=("<"|"<="|"=="|">="|">") right=PrimaryExpression)*
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//{ComparisonExpression.left=current}
+		public Action getComparisonExpressionLeftAction_1_0() { return cComparisonExpressionLeftAction_1_0; }
+		
+		//operator=("<"|"<="|"=="|">="|">")
+		public Assignment getOperatorAssignment_1_1() { return cOperatorAssignment_1_1; }
+		
+		//("<"|"<="|"=="|">="|">")
+		public Alternatives getOperatorAlternatives_1_1_0() { return cOperatorAlternatives_1_1_0; }
+		
+		//"<"
+		public Keyword getOperatorLessThanSGnKeyword_1_1_0_0() { return cOperatorLessThanSGnKeyword_1_1_0_0; }
+		
+		//"<="
+		public Keyword getOperatorLessThanSGnEqualsSGnKeyword_1_1_0_1() { return cOperatorLessThanSGnEqualsSGnKeyword_1_1_0_1; }
+		
+		//"=="
+		public Keyword getOperatorEqualsSGnEqualsSGnKeyword_1_1_0_2() { return cOperatorEqualsSGnEqualsSGnKeyword_1_1_0_2; }
+		
+		//">="
+		public Keyword getOperatorGreaterThanSGnEqualsSGnKeyword_1_1_0_3() { return cOperatorGreaterThanSGnEqualsSGnKeyword_1_1_0_3; }
+		
+		//">"
+		public Keyword getOperatorGreaterThanSGnKeyword_1_1_0_4() { return cOperatorGreaterThanSGnKeyword_1_1_0_4; }
+		
+		//right=PrimaryExpression
+		public Assignment getRightAssignment_1_2() { return cRightAssignment_1_2; }
+		
+		//PrimaryExpression
+		public RuleCall getRightPrimaryExpressionParserRuleCall_1_2_0() { return cRightPrimaryExpressionParserRuleCall_1_2_0; }
+	}
+	public class PrimaryExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "game.of.life.tasks.TASKDSL.PrimaryExpression");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Keyword cLeftParenthesSKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final RuleCall cExpressionParserRuleCall_0_1 = (RuleCall)cGroup_0.eContents().get(1);
+		private final Keyword cRGhtParenthesSKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
+		private final RuleCall cLiteralParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//PrimaryExpression returns Expression:
+		//    "(" Expression ")"
+		//    | Literal
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//"(" Expression ")"
+		//| Literal
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//"(" Expression ")"
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//"("
+		public Keyword getLeftParenthesSKeyword_0_0() { return cLeftParenthesSKeyword_0_0; }
+		
+		//Expression
+		public RuleCall getExpressionParserRuleCall_0_1() { return cExpressionParserRuleCall_0_1; }
+		
+		//")"
+		public Keyword getRGhtParenthesSKeyword_0_2() { return cRGhtParenthesSKeyword_0_2; }
+		
+		//Literal
+		public RuleCall getLiteralParserRuleCall_1() { return cLiteralParserRuleCall_1; }
+	}
+	public class LiteralElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "game.of.life.tasks.TASKDSL.Literal");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Action cLiteralAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final Assignment cValueAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final Keyword cValueTrueKeyword_0_1_0 = (Keyword)cValueAssignment_0_1.eContents().get(0);
+		private final Keyword cFalseKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final RuleCall cINTTerminalRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cSTRINGTerminalRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		
+		//Literal returns Expression:
+		//    {Literal} value="true" | "false" | INT | STRING
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{Literal} value="true" | "false" | INT | STRING
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//{Literal} value="true"
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//{Literal}
+		public Action getLiteralAction_0_0() { return cLiteralAction_0_0; }
+		
+		//value="true"
+		public Assignment getValueAssignment_0_1() { return cValueAssignment_0_1; }
+		
+		//"true"
+		public Keyword getValueTrueKeyword_0_1_0() { return cValueTrueKeyword_0_1_0; }
+		
+		//"false"
+		public Keyword getFalseKeyword_1() { return cFalseKeyword_1; }
 		
 		//INT
-		public RuleCall getXINTTerminalRuleCall_3_0() { return cXINTTerminalRuleCall_3_0; }
+		public RuleCall getINTTerminalRuleCall_2() { return cINTTerminalRuleCall_2; }
 		
-		//'y-Coordinate:'
-		public Keyword getYCoordinateKeyword_4() { return cYCoordinateKeyword_4; }
-		
-		//y= INT
-		public Assignment getYAssignment_5() { return cYAssignment_5; }
-		
-		//INT
-		public RuleCall getYINTTerminalRuleCall_5_0() { return cYINTTerminalRuleCall_5_0; }
-		
-		//'neighborNo:'
-		public Keyword getNeighborNoKeyword_6() { return cNeighborNoKeyword_6; }
-		
-		//nNo=INT
-		public Assignment getNNoAssignment_7() { return cNNoAssignment_7; }
-		
-		//INT
-		public RuleCall getNNoINTTerminalRuleCall_7_0() { return cNNoINTTerminalRuleCall_7_0; }
-		
-		//'status:'
-		public Keyword getStatusKeyword_8() { return cStatusKeyword_8; }
-		
-		//s=INT
-		public Assignment getSAssignment_9() { return cSAssignment_9; }
-		
-		//INT
-		public RuleCall getSINTTerminalRuleCall_9_0() { return cSINTTerminalRuleCall_9_0; }
-		
-		//'availableAction:'
-		public Keyword getAvailableActionKeyword_10() { return cAvailableActionKeyword_10; }
-		
-		//avAction=avAction
-		public Assignment getAvActionAssignment_11() { return cAvActionAssignment_11; }
-		
-		//avAction
-		public RuleCall getAvActionAvActionParserRuleCall_11_0() { return cAvActionAvActionParserRuleCall_11_0; }
+		//STRING
+		public RuleCall getSTRINGTerminalRuleCall_3() { return cSTRINGTerminalRuleCall_3; }
 	}
 	
 	
@@ -351,8 +660,14 @@ public class TASKDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	private final GridSizeElements pGridSize;
 	private final GameStatusElements pGameStatus;
 	private final StartGridElements pStartGrid;
-	private final AvActionElements pAvAction;
 	private final CellElements pCell;
+	private final EvolutionRulesElements pEvolutionRules;
+	private final ExpressionElements pExpression;
+	private final OrExpressionElements pOrExpression;
+	private final AndExpressionElements pAndExpression;
+	private final ComparisonExpressionElements pComparisonExpression;
+	private final PrimaryExpressionElements pPrimaryExpression;
+	private final LiteralElements pLiteral;
 	
 	private final Grammar grammar;
 	
@@ -368,8 +683,14 @@ public class TASKDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		this.pGridSize = new GridSizeElements();
 		this.pGameStatus = new GameStatusElements();
 		this.pStartGrid = new StartGridElements();
-		this.pAvAction = new AvActionElements();
 		this.pCell = new CellElements();
+		this.pEvolutionRules = new EvolutionRulesElements();
+		this.pExpression = new ExpressionElements();
+		this.pOrExpression = new OrExpressionElements();
+		this.pAndExpression = new AndExpressionElements();
+		this.pComparisonExpression = new ComparisonExpressionElements();
+		this.pPrimaryExpression = new PrimaryExpressionElements();
+		this.pLiteral = new LiteralElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -400,7 +721,7 @@ public class TASKDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 
 	
 	//Model:
-	//    Game ;
+	//    Game;
 	public ModelElements getModelAccess() {
 		return pModel;
 	}
@@ -409,7 +730,13 @@ public class TASKDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		return getModelAccess().getRule();
 	}
 	
-	//Game: 'Game:' name=ID gameStatus+= GameStatus gridSize+=GridSize (startGrid+=StartGrid | allCells+=Cell)*;
+	//Game: 'Game:' name=ID
+	//      'GameStatus:'gameStatus+= GameStatus
+	//      'GridSize:'gridSize+=GridSize
+	//      'EvolutionRules:' evolutionRules+=evolutionRules*
+	//      'InitiallyActiveCells:' startGrid+=StartGrid*
+	//      'AllCells:'allCells+=Cell*
+	//;
 	public GameElements getGameAccess() {
 		return pGame;
 	}
@@ -418,7 +745,8 @@ public class TASKDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		return getGameAccess().getRule();
 	}
 	
-	//GridSize: 'Height:' h=INT 'Length:' l=INT;
+	////Grid Size:
+	//GridSize:'Height:' h=INT 'Length:' l=INT;
 	public GridSizeElements getGridSizeAccess() {
 		return pGridSize;
 	}
@@ -427,7 +755,8 @@ public class TASKDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		return getGridSizeAccess().getRule();
 	}
 	
-	//GameStatus: 'GameStatus:' gs=INT ;
+	////GameStatus:
+	//GameStatus: so=('Continue' | 'Over') ;
 	public GameStatusElements getGameStatusAccess() {
 		return pGameStatus;
 	}
@@ -436,8 +765,12 @@ public class TASKDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		return getGameStatusAccess().getRule();
 	}
 	
-	// //if 1 game continue if 0 game over
-	//StartGrid: 'InitiallyActiveCell:' 'x-Coord:' xC= INT  'y-Coord:' yC= INT;
+	////Initially Active Cells:
+	//StartGrid: 'CoordinateInfo:' 'x:' xC= INT  'y:' yC= INT
+	//           'NeighborNo:' nNo=INT
+	//           'Status:' s='Live'
+	//           'NextGeneration:' a=('Birth' | 'OverCrowd' |'xisolate' | 'Survive')
+	//        ;
 	public StartGridElements getStartGridAccess() {
 		return pStartGrid;
 	}
@@ -446,24 +779,94 @@ public class TASKDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		return getStartGridAccess().getRule();
 	}
 	
-	//avAction: 'Birth' birth=INT | 'Overcrowding' overcrowd=INT | 'Xisolation' xiso=INT | 'Survival' sur=INT ;
-	public AvActionElements getAvActionAccess() {
-		return pAvAction;
-	}
-	
-	public ParserRule getAvActionRule() {
-		return getAvActionAccess().getRule();
-	}
-	
-	//Cell: 'Cell:' name=ID 'x-Coordinate:' x= INT  'y-Coordinate:' y= INT 'neighborNo:' nNo=INT 'status:' s=INT 'availableAction:' avAction=avAction
-	////if ressurected 2 alive 1 if dead 0
-	//;
+	//Cell: 'CoordinateInfo:' 'x:' x= INT  'y:' y= INT
+	//      'NeighborNo:' nNo=INT
+	//      'Status:' s=('Live'|'Dead')
+	//      'NextGeneration:' a=('Birth' | 'OverCrowd' |'xisolate' | 'Survive')
+	//      ;
 	public CellElements getCellAccess() {
 		return pCell;
 	}
 	
 	public ParserRule getCellRule() {
 		return getCellAccess().getRule();
+	}
+	
+	//evolutionRules: 'if' bool=Expression 'then' ('Birth' | 'OverCrowd' |'xisolate' | 'Survive') ;
+	public EvolutionRulesElements getEvolutionRulesAccess() {
+		return pEvolutionRules;
+	}
+	
+	public ParserRule getEvolutionRulesRule() {
+		return getEvolutionRulesAccess().getRule();
+	}
+	
+	////Ref: https://stackoverflow.com/questions/38829863/using-boolean-expressions-as-arguments-on-xtext
+	//Expression:
+	//    OrExpression
+	//;
+	public ExpressionElements getExpressionAccess() {
+		return pExpression;
+	}
+	
+	public ParserRule getExpressionRule() {
+		return getExpressionAccess().getRule();
+	}
+	
+	//OrExpression returns Expression:
+	//    AndExpression ({OrExpression.left=current} "||" right=AndExpression)*
+	//;
+	public OrExpressionElements getOrExpressionAccess() {
+		return pOrExpression;
+	}
+	
+	public ParserRule getOrExpressionRule() {
+		return getOrExpressionAccess().getRule();
+	}
+	
+	//AndExpression returns Expression:
+	//    ComparisonExpression ({AndExpression.left=current} "&&" right=ComparisonExpression)*
+	//;
+	public AndExpressionElements getAndExpressionAccess() {
+		return pAndExpression;
+	}
+	
+	public ParserRule getAndExpressionRule() {
+		return getAndExpressionAccess().getRule();
+	}
+	
+	//ComparisonExpression returns Expression:
+	//    PrimaryExpression ({ComparisonExpression.left=current} operator=("<"|"<="|"=="|">="|">") right=PrimaryExpression)*
+	//;
+	public ComparisonExpressionElements getComparisonExpressionAccess() {
+		return pComparisonExpression;
+	}
+	
+	public ParserRule getComparisonExpressionRule() {
+		return getComparisonExpressionAccess().getRule();
+	}
+	
+	//PrimaryExpression returns Expression:
+	//    "(" Expression ")"
+	//    | Literal
+	//;
+	public PrimaryExpressionElements getPrimaryExpressionAccess() {
+		return pPrimaryExpression;
+	}
+	
+	public ParserRule getPrimaryExpressionRule() {
+		return getPrimaryExpressionAccess().getRule();
+	}
+	
+	//Literal returns Expression:
+	//    {Literal} value="true" | "false" | INT | STRING
+	//;
+	public LiteralElements getLiteralAccess() {
+		return pLiteral;
+	}
+	
+	public ParserRule getLiteralRule() {
+		return getLiteralAccess().getRule();
 	}
 	
 	//terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;

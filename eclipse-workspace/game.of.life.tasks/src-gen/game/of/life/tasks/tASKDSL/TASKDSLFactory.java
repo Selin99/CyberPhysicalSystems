@@ -69,15 +69,6 @@ public interface TASKDSLFactory extends EFactory
   StartGrid createStartGrid();
 
   /**
-   * Returns a new object of class '<em>av Action</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>av Action</em>'.
-   * @generated
-   */
-  avAction createavAction();
-
-  /**
    * Returns a new object of class '<em>Cell</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -85,6 +76,60 @@ public interface TASKDSLFactory extends EFactory
    * @generated
    */
   Cell createCell();
+
+  /**
+   * Returns a new object of class '<em>evolution Rules</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>evolution Rules</em>'.
+   * @generated
+   */
+  evolutionRules createevolutionRules();
+
+  /**
+   * Returns a new object of class '<em>Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Expression</em>'.
+   * @generated
+   */
+  Expression createExpression();
+
+  /**
+   * Returns a new object of class '<em>Or Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Or Expression</em>'.
+   * @generated
+   */
+  OrExpression createOrExpression();
+
+  /**
+   * Returns a new object of class '<em>And Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>And Expression</em>'.
+   * @generated
+   */
+  AndExpression createAndExpression();
+
+  /**
+   * Returns a new object of class '<em>Comparison Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Comparison Expression</em>'.
+   * @generated
+   */
+  ComparisonExpression createComparisonExpression();
+
+  /**
+   * Returns a new object of class '<em>Literal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Literal</em>'.
+   * @generated
+   */
+  Literal createLiteral();
 
   /**
    * Returns the package supported by this factory.

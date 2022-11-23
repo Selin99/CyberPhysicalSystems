@@ -1,0 +1,63 @@
+grammar game.of.life.tasks.TASKDSL with org.eclipse.xtext.common.Terminals
+generate tASKDSL "http://www.of.game/life/tasks/TASKDSL"
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore 
+ 
+Model:
+	Game = Game;
+	
+
+Game: 'Game:' name=ID 
+	  'GameStatus:'gameStatus+= GameStatus 
+	  'GridSize:'gridSize+=GridSize
+	  'InitiallyActiveCells:' startGrid+=StartGrid*
+	// (startGrid+=StartGrid | allCells+=Cell)*
+;
+
+//Grid Size:
+GridSize:'Height:' h=INT 'Length:' l=INT;
+
+
+//GameStatus:
+GameStatus: so=('Continue' | 'Over') ;
+
+//Initially Active Cells:
+StartGrid: 'CoordinateInfo:' 'x:' xC= INT  'y:' yC= INT
+		   'NeighborNo:' nNo=INT
+		   'status': 'Live'
+;
+
+
+//avAction: BooleanExpression;
+//BooleanExpression: '(' ComparisonExpression ')' 
+//;
+//
+//ComparisonExpression: 'neighborNo:' n=neighborNo l=logicalOperator 'comparisonValue:' i=intValue;
+//
+//neighborNo:
+//	nNo=INT
+//;
+//
+//logicalOperator: 
+//	'==' |  
+//  	'!=' |  
+//  	'>=' | 
+//  	'>' |   
+//  	'<=' | 
+//  	'<';	
+//
+//intValue:
+//	comparisonValue=INT;
+//
+//
+//Cell: 'Cell:' name=ID 'x-Coordinate:' x= INT  'y-Coordinate:' y= INT 'neighborNo:' nNo=INT 'status:' s=INT 'availableAction:' avAction=avAction;
+//
+////avAction: 'if' BooleanExpression 'then' act= ('Birth'|'Overcrowding'|'xisolation'|'Survival') ;
+
+
+
+
+
+
+
+
